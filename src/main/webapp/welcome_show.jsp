@@ -20,16 +20,13 @@
     <body>
              <%
     Object obj = session.getAttribute("user");
-    Object obj1=session.getAttribute("Show");
+   
     
     if(obj==null)
         {
         response.sendRedirect(request.getContextPath()+"/sessionError.action");
     }
-       else if(obj1==null)
-       {
-       response.sendRedirect(request.getContextPath()+"/showerror.action");
-       }
+      
     %>
         
     <h1>welcome Show Admin &nbsp; &nbsp;<a href="logoutaction.action">Logout</a> &nbsp;&nbsp;<a href="accountinformation.action">Account information</a>  &nbsp;&nbsp;<a href="showinfo.action">Update Show information</a> 

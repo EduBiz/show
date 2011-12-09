@@ -63,7 +63,7 @@ public class editproduct extends ActionSupport {
     public String deletepro() throws Exception {
         Map session = ActionContext.getContext().getSession();
         user = (User) session.get("user");
-        stall=(Stall)session.get("Stall");
+        
         product=(Product)myDao.getDbsession().get(Product.class, productId);
         
         myDao.getDbsession().delete(product);

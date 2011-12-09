@@ -30,7 +30,7 @@ public class editproductnav extends ActionSupport {
 
         Map session = ActionContext.getContext().getSession();
         User user = (User) session.get("user");
-        Stall stall = (Stall) session.get("Stall");
+       
         Criteria pro = myDao.getDbsession().createCriteria(Product.class);
         pro.add(Restrictions.eq("user", user));
         pro.setMaxResults(50);

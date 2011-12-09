@@ -6,9 +6,12 @@ package controller;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import java.util.List;
 import java.util.Map;
 import model.*;
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
+import org.hibernate.criterion.Restrictions;
 
 /**
  *
@@ -27,22 +30,28 @@ public class updatestallinfo extends ActionSupport {
     private Integer approve;
     private String delivarytype;
     private String note;
+    private List<Stall> stalllist;
 
     @Override
     public String execute() throws Exception {
         Map session = ActionContext.getContext().getSession();
         setUser((User) session.get("user"));
-        setStall((Stall) session.get("Stall"));
+       
         try {
-            Stall ustall = new Stall(stall.getShow(), user, stallname);
-            ustall.setApprove(approve);
-            ustall.setCategory(category);
-            ustall.setDelivarytype(delivarytype);
-            ustall.setDescription(description);
-            ustall.setStallId(stallId);
-            ustall.setNote(note);
-            myDao.getDbsession().saveOrUpdate(ustall);
+    
+            stall=(Stall)myDao.getDbsession().get(Stall.class, stallId);
+            stall.setStallname(stallname);
+            stall.setDescription(description);
+            stall.setNote(note);
+            stall.setApprove(approve);
+            stall.setCategory(category);
+            stall.setDelivarytype(delivarytype);
+            myDao.getDbsession().save(stall);
             addActionMessage("Stall information Successfully Updated ");
+            Criteria stcri = getMyDao().getDbsession().createCriteria(Stall.class);
+            stcri.add(Restrictions.eq("user", user));
+            stcri.setMaxResults(50);
+            setStalllist((List<Stall>) stcri.list());
             return "success";
 
         } catch (HibernateException e) {
@@ -203,5 +212,19 @@ public class updatestallinfo extends ActionSupport {
      */
     public void setNote(String note) {
         this.note = note;
+    }
+
+    /**
+     * @return the stalllist
+     */
+    public List<Stall> getStalllist() {
+        return stalllist;
+    }
+
+    /**
+     * @param stalllist the stalllist to set
+     */
+    public void setStalllist(List<Stall> stalllist) {
+        this.stalllist = stalllist;
     }
 }

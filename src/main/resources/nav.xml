@@ -44,14 +44,41 @@
         </action>
         <action name="manageshowproductnav" class="nav.manageshowproductnav">
             <result name="success" >/manageshowproducts.jsp</result>
+            <result name="error" >/manageshowproducts.jsp</result>
         </action>
-         <action name="sproductimg" class="nav.manageshowproductnav" method="img">
+        <action name="stalllogo" class="nav.uploadstallnav" method="img">
             <result name="success" type="stream">
                 <param name="contentType">application/octet-stream</param>
-                <param name="inputName">fileInputStream</param>
+                <param name="inputName">slogo</param>
                 <param name="contentDisposition">filename="${Id}+.jpg"</param>
                 <param name="bufferSize">2024</param>
             </result>
         </action>
+        <action name="stallimg" class="nav.uploadstallnav" method="img">
+            <result name="success" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">simg</param>
+                <param name="contentDisposition">filename="${Id}+.jpg"</param>
+                <param name="bufferSize">2024</param>
+            </result>
+        </action>
+        <action name="stalldispnav" class="nav.stalldispnav">
+            <result name="success" >/stalldisplay.jsp</result>
+        </action>
+        <action name="stalldispmanage" class="nav.stalldispmanage">
+            <result name="success" >/stallproductmanage.jsp</result>
+        </action>
+        <action name="addstalldisp" class="nav.addstalldisplayproduct">
+            <result name="success" >/stallproductmanage.jsp</result>
+        </action>
+        <action name="removep" class="nav.removestallprod">
+            <result name="success" >stallproductmanage.jsp</result>
+           
+        </action>
+        <action name="echo" class="nav.echo">
+            <result name="success" >echo.jsp</result>
+           
+        </action>
+        
     </package>
 </struts>

@@ -12,39 +12,34 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-        <link href="style.css" rel="stylesheet" type="text/css" />
         <title>Manage Products</title>
-         
+        <link rel="stylesheet" href="style.css" type="text/css" />
+        <script type="text/javascript" src="pagination.js"></script>
         <script type="text/javascript" src="jquery.min.js"></script>
 
 
 
-<script type="text/javascript" src="jconfirmaction.jquery.js"></script>
-<script type="text/javascript">
+        <script type="text/javascript" src="jconfirmaction.jquery.js"></script>
+        <script type="text/javascript">
 	
-	$(document).ready(function() {
-		$('.ask').jConfirmAction();
-	});
+            $(document).ready(function() {
+                $('.ask').jConfirmAction();
+            });
 	
-</script>
-
-     
-       <script type="text/javascript" src="pagination.js"></script>
+        </script>
     </head>
     <body>
         <%
 Object obj= session.getAttribute("user");
-Object obj1=session.getAttribute("Stall");
+
 if(obj==null)
 {
 response.sendRedirect(request.getContextPath()+"/sessionError.action");
 }
-else if(obj1==null)
-{
-response.sendRedirect(request.getContextPath()+"/stallerror.action");
-}
+
         %>
         <h1><a href="stallhomenav.action">Home</a>&nbsp;&nbsp;<a href="logoutaction.action">Logout</a></h1>
+        <div>
         <div class="box">
             <div>
                 <p style="font-size:25px; color:#030;" align="center">Products</p>
@@ -115,28 +110,22 @@ response.sendRedirect(request.getContextPath()+"/stallerror.action");
                         </s:else>
                     </s:iterator>
                 </table>
-                <div align="right" id="pageNavPosition"></div> 
+                <div align="center" id="pageNavPosition">
+                 
+                </div> 
 
             </div>
 
 
 
         </div>
-            <div>
-        <script type="text/javascript">
-            var pager = new Pager('results', 3, 'pager', 'pageNavPosition');
-            pager.init();
-            pager.showPage(1);
-        </script>
-            </div>
+          <script type="text/javascript">
+                        var pager = new Pager('results', 20, 'pager', 'pageNavPosition');
+                        pager.init();
+                        pager.showPage(1);
+                    </script>
 
-<script type="text/javascript" src="jquery-latest.js"></script>
-<script type="text/javascript" src="zoomer.js"></script> 
-<script type="text/javascript">
-$(document).ready(function(){
- 	$('ul.thumb li').Zoomer({speedView:200,speedRemove:400,altAnim:true,speedTitle:400,debug:false});
-});
-</script>
-<a href="#" class="ask">click</a>
+        </div>
+
     </body>
 </html>

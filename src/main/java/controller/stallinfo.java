@@ -8,6 +8,8 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.Map;
 import model.*;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 
 /**
  *
@@ -31,8 +33,7 @@ public class stallinfo extends ActionSupport {
     public String execute() throws Exception {
         Map session = ActionContext.getContext().getSession();
         setUser((User) session.get("user"));
-        setStall((Stall) session.get("Stall"));
-
+       
      
         return "success";
     }

@@ -12,10 +12,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-        <link href="style.css" rel="stylesheet" type="text/css" />
-        <title>Manage Show Products</title>
-        
+       <title>Manage Products</title>
+        <link rel="stylesheet" href="style.css" type="text/css" />
+        <script type="text/javascript" src="pagination.js"></script>
         <script type="text/javascript" src="jquery.min.js"></script>
+
+
+
         <script type="text/javascript" src="jconfirmaction.jquery.js"></script>
         <script type="text/javascript">
 	
@@ -24,8 +27,6 @@
             });
 	
         </script>
-     
- <script type="text/javascript" src="pagination.js"></script>
     </head>
     <body>
         <%
@@ -46,7 +47,7 @@ response.sendRedirect(request.getContextPath()+"/showerror.action");
                 <p style="font-size:25px; color:#030;" align="center">Products</p>
             </div>
 
-            <s:actionmessage/>
+            <s:actionmessage/><s:actionerror/>
             <form action="searchproduct.action"> <div><input type="text" value="Search" name="search" size="20" onblur="if(this.value == '') { this.value = 'Search'; }" onfocus="if(this.value == 'Search') { this.value = ''; }" /><input type="submit" value="Go"/>
                 </div></form>     
 
@@ -125,13 +126,7 @@ response.sendRedirect(request.getContextPath()+"/showerror.action");
         </script>
             </div>
 
-<script type="text/javascript" src="jquery-latest.js"></script>
-<script type="text/javascript" src="zoomer.js"></script> 
-<script type="text/javascript">
-$(document).ready(function(){
- 	$('ul.thumb li').Zoomer({speedView:200,speedRemove:400,altAnim:true,speedTitle:400,debug:false});
-});
-</script>
-<a href="#" class="ask">click</a>
+
+
     </body>
 </html>

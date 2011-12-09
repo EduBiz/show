@@ -1,5 +1,5 @@
 package model;
-// Generated Dec 2, 2011 5:59:28 PM by Hibernate Tools 3.2.1.GA
+// Generated Dec 7, 2011 4:20:30 PM by Hibernate Tools 3.2.1.GA
 
 
 
@@ -9,7 +9,7 @@ package model;
 public class Stalldisplay  implements java.io.Serializable {
 
 
-     private long displayId;
+     private Long displayId;
      private Stall stall;
      private Product product;
      private int x1;
@@ -20,8 +20,7 @@ public class Stalldisplay  implements java.io.Serializable {
     public Stalldisplay() {
     }
 
-    public Stalldisplay(long displayId, Stall stall, Product product, int x1, int x2, int y1, int y2) {
-       this.displayId = displayId;
+    public Stalldisplay(Stall stall, Product product, int x1, int x2, int y1, int y2) {
        this.stall = stall;
        this.product = product;
        this.x1 = x1;
@@ -30,11 +29,11 @@ public class Stalldisplay  implements java.io.Serializable {
        this.y2 = y2;
     }
    
-    public long getDisplayId() {
+    public Long getDisplayId() {
         return this.displayId;
     }
     
-    public void setDisplayId(long displayId) {
+    public void setDisplayId(Long displayId) {
         this.displayId = displayId;
     }
     public Stall getStall() {

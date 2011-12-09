@@ -6,6 +6,7 @@ package controller;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import java.util.List;
 import java.util.Map;
 import model.*;
 import org.hibernate.Criteria;
@@ -33,7 +34,9 @@ public class loginAction extends ActionSupport {
     private Show show;
     private Stall stall;
     private static userEnum ut;
-
+    private List<Show> showlist;
+    private List<Stall> stalllist;
+    private List<Product> prodlist;
     @Override
     public void validate() {
         Criteria ucri = getMyDao().getDbsession().createCriteria(User.class);
@@ -70,26 +73,37 @@ public class loginAction extends ActionSupport {
 
             Map session = ActionContext.getContext().getSession();
             session.put("user", getUser());
-
+            Criteria allshow=myDao.getDbsession().createCriteria(Show.class);
+            allshow.setMaxResults(50);
+            showlist=allshow.list();
+            Criteria allstall=myDao.getDbsession().createCriteria(Stall.class);
+            allstall.setMaxResults(50);
+            stalllist=allstall.list();
+            Criteria allproduct=myDao.getDbsession().createCriteria(Product.class);
+            allproduct.setMaxResults(50);
+            prodlist=allproduct.list();
             return "admin";
+            
 
         } else if (getUser().getPassword().equals(passwd) && getUser().getUserType().equals("show") && user.getStatus().equals("Activated")) {
             Criteria shcri = getMyDao().getDbsession().createCriteria(Show.class);
             shcri.add(Restrictions.eq("user", user));
-            shcri.setMaxResults(1);
-            show = (Show) (shcri.list().get(0));
+            shcri.setMaxResults(50);
+           // show = (Show) (shcri.list().get(0));
+            showlist=shcri.list();
             Map session = ActionContext.getContext().getSession();
             session.put("user", getUser());
-            session.put("Show", show);
+           // session.put("Show", show);
             return "show";
         } else if (getUser().getPassword().equals(passwd) && getUser().getUserType().equals("stall") && user.getStatus().equals("Activated")) {
             Criteria stcri = getMyDao().getDbsession().createCriteria(Stall.class);
             stcri.add(Restrictions.eq("user", user));
-            stcri.setMaxResults(1);
-            stall = (Stall) (stcri.list().get(0));
+            stcri.setMaxResults(50);
+           // stall = (Stall) (stcri.list().get(0));
+            stalllist=stcri.list();
             Map session = ActionContext.getContext().getSession();
             session.put("user", getUser());
-            session.put("Stall", stall);
+           // session.put("Stall", stall);
             return "stall";
         } else {
             return "error";
@@ -181,5 +195,47 @@ public class loginAction extends ActionSupport {
      */
     public void setStall(Stall stall) {
         this.stall = stall;
+    }
+
+    /**
+     * @return the showlist
+     */
+    public List<Show> getShowlist() {
+        return showlist;
+    }
+
+    /**
+     * @param showlist the showlist to set
+     */
+    public void setShowlist(List<Show> showlist) {
+        this.showlist = showlist;
+    }
+
+    /**
+     * @return the stalllist
+     */
+    public List<Stall> getStalllist() {
+        return stalllist;
+    }
+
+    /**
+     * @param stalllist the stalllist to set
+     */
+    public void setStalllist(List<Stall> stalllist) {
+        this.stalllist = stalllist;
+    }
+
+    /**
+     * @return the prodlist
+     */
+    public List<Product> getProdlist() {
+        return prodlist;
+    }
+
+    /**
+     * @param prodlist the prodlist to set
+     */
+    public void setProdlist(List<Product> prodlist) {
+        this.prodlist = prodlist;
     }
 }

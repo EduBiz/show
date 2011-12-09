@@ -37,6 +37,7 @@ public class searchproduct extends ActionSupport{
         pro.add(Restrictions.like("name", getSearch()+"%"));
         pro.setMaxResults(50);
         setProdlist((List<Product>) pro.list());
+        addActionMessage(prodlist.size()+"\t\tResults Found");
         return "success";
     
       

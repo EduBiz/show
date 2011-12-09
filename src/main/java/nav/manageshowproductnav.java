@@ -10,8 +10,10 @@ import controller.spDAO;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import model.*;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
@@ -30,6 +32,7 @@ public class manageshowproductnav extends ActionSupport {
     private Stall stall;
     private List<Stall> stalllist;
     private List<User> userlist;
+    private List<Stalldisplay> stalldisp;
 
     @Override
     public String execute() throws Exception {
@@ -37,32 +40,31 @@ public class manageshowproductnav extends ActionSupport {
         Map session = ActionContext.getContext().getSession();
         User user = (User) session.get("user");
         setShow((Show) session.get("Show"));
+        try {
 
+            stalllist = new ArrayList<Stall>(show.getStalls());
+            System.out.println(" No. of Stalls\t\t " + stalllist.size());
 
-        stalllist = new ArrayList<Stall>(show.getStalls());
-        System.out.println(" No. of Stalls\t\t " + stalllist.size());
-        for (int i = 0; i < stalllist.size(); i++) {
-            System.out.println(" No. of users"+i+"\t\t " + stalllist.get(i).getUser().getEmailId());
+            Criteria cstalldisp = myDao.getDbsession().createCriteria(Stalldisplay.class);
+
+            cstalldisp.add(Restrictions.in("stall", stalllist));
+            cstalldisp.setMaxResults(50);
+            stalldisp = cstalldisp.list();
+
+            System.out.println(" No. of products\t\t " + stalldisp.size());
+            Criteria pro = getMyDao().getDbsession().createCriteria(Product.class);
+
+            pro.add(Restrictions.in("stalldisplaies", stalldisp));
+            pro.setMaxResults(50);
+            prodlist = pro.list();
+            System.out.println(" No. of products\t\t " + prodlist.size());
+            return "success";
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            addActionMessage("ERROR\t\t"+e.getMessage());
+                    e.printStackTrace();
+            return "error";
         }
-String sql="";
-        stalllist.listIterator();
-        
-        Criteria usercri = myDao.getDbsession().createCriteria(User.class);
-     
-        usercri.add(Restrictions.eq("emailId", stalllist.get(0).getUser().getEmailId()));
-       
-         userlist = (List<User>) usercri.list();
-          
-       
-        
-       System.out.println("No of userlist :\t\t"+userlist.size());
-        Criteria pro = getMyDao().getDbsession().createCriteria(Product.class);
-
-        pro.add(Restrictions.in("user", userlist));
-          
-        prodlist = (List<Product>) pro.list();
-        System.out.println(" No. of products\t\t " + prodlist.size());
-        return "success";
     }
 
     public String img() throws Exception {
@@ -188,5 +190,19 @@ String sql="";
      */
     public void setUserlist(List<User> userlist) {
         this.userlist = userlist;
+    }
+
+    /**
+     * @return the stalldisp
+     */
+    public List<Stalldisplay> getStalldisp() {
+        return stalldisp;
+    }
+
+    /**
+     * @param stalldisp the stalldisp to set
+     */
+    public void setStalldisp(List<Stalldisplay> stalldisp) {
+        this.stalldisp = stalldisp;
     }
 }

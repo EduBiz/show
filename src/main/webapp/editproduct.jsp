@@ -21,15 +21,12 @@
     <body>
              <%
     Object obj= session.getAttribute("user");
-    Object obj1=session.getAttribute("Stall");
+   
     if(obj==null)
         {
         response.sendRedirect(request.getContextPath()+"/sessionError.action");
     }
-       else if(obj1==null)
-       {
-       response.sendRedirect(request.getContextPath()+"/stallerror.action");
-       }
+     
     %>
         
    <h1><a href="stallhomenav.action">Home</a>&nbsp;&nbsp;<a href="logoutaction.action">Logout</a></h1>

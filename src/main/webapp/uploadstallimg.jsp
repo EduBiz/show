@@ -23,27 +23,29 @@
     <body>
         <%
 Object obj = session.getAttribute("user");
-Object obj1=session.getAttribute("Stall");
+
     
 if(obj==null)
   {
   response.sendRedirect(request.getContextPath()+"/sessionError.action");
 }
- else if(obj1==null)
- {
- response.sendRedirect(request.getContextPath()+"/stallerror.action");
- }
+ 
         %>
         <div>
             <s:actionerror theme="jquery"/>  
             <s:form action="uploadstallimg"  enctype="multipart/form-data">
-            <h3>Select Images For Stall:</h3>
-         <s:file name="logo" label="Select Stall Logo"></s:file>
-         <s:file name="ban" label="Select Stall Banner Image"></s:file>
-        
-         <s:submit label="Upload" />
+                <s:hidden name="stallid" value="%{stallid}"/>
+                <h3>Select Images For Stall:</h3>
+                <s:file name="logo" label="Select Stall Logo"></s:file>
+                <s:file name="ban" label="Select Stall Banner Image"></s:file>
+
+                <s:submit value="Upload" />
 
             </s:form>
+            <s:actionmessage/>
+            <div>
+                
+            </div>
         </div>
     </body>
 </html>

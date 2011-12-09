@@ -51,6 +51,7 @@ public class addproduct extends ActionSupport {
     private File imag;
     private List<Product> prodlist;
     private Stall stall;
+    private List<Stall> stalllist;
 
     @Override
     public void validate() {
@@ -79,8 +80,8 @@ public class addproduct extends ActionSupport {
 
 
             Map session = ActionContext.getContext().getSession();
-user = (User) session.get("user");
-            stall = (Stall) session.get("Stall");
+            user = (User) session.get("user");
+
             System.out.println("Time\t\t" + getDeltime() + "\t\t");
             Product pr = new Product(user, pname, vat, price, postage, getDeltime(), sold, qty);
             pr.setDescription(desc);
@@ -116,6 +117,10 @@ user = (User) session.get("user");
             pro.add(Restrictions.eq("user", user));
             pro.setMaxResults(50);
             setProdlist((List<Product>) pro.list());
+            Criteria stcri = getMyDao().getDbsession().createCriteria(Stall.class);
+            stcri.add(Restrictions.eq("user", getUser()));
+            stcri.setMaxResults(50);
+            setStalllist((List<Stall>) stcri.list());
             return "success";
         } catch (Exception e) {
             addActionError("error" + e.getMessage());
@@ -346,5 +351,19 @@ user = (User) session.get("user");
      */
     public void setStall(Stall stall) {
         this.stall = stall;
+    }
+
+    /**
+     * @return the stalllist
+     */
+    public List<Stall> getStalllist() {
+        return stalllist;
+    }
+
+    /**
+     * @param stalllist the stalllist to set
+     */
+    public void setStalllist(List<Stall> stalllist) {
+        this.stalllist = stalllist;
     }
 }
