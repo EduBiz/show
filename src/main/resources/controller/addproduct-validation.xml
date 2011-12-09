@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+ 
+  <field name="pname">
+    <field-validator type="requiredstring">
+            <message>Please enter Product Name</message>
+    </field-validator>
+  </field>
+  <field name="vat">
+    <field-validator type="double">
+            <message>Incorrect vat value </message>
+    </field-validator>
+    <field-validator type="required">
+            <message>Please enter Vat Value</message>
+    </field-validator>
+  </field>
+  <field name="price">
+    <field-validator type="long">
+            <message>Incorrect Price value </message>
+    </field-validator>
+    <field-validator type="required">
+            <message>Please enter Product Price</message>
+    </field-validator>
+  </field>
+  <field name="postage">
+    <field-validator type="long">
+            <message>Incorrect Postage value </message>
+    </field-validator>
+    <field-validator type="required">
+            <message>Please enter Postage value</message>
+    </field-validator>
+  </field>
+  
+  <field name="qty">
+    <field-validator type="long">
+            <message>Incorrect Quantity value </message>
+    </field-validator>
+    <field-validator type="required">
+            <message>Please enter Quantity</message>
+    </field-validator>
+  </field>
+  
+  
+</validators>

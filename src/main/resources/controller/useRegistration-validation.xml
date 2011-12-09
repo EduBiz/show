@@ -1,0 +1,35 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+  
+  <field name="fname">
+        <field-validator type="requiredstring">
+            <message>Please enter First Name</message>
+        </field-validator>
+  </field>
+   <field name="balance">
+    <field-validator type="long">
+            <message>Incorrect Balance value </message>
+    </field-validator>
+   
+  </field>
+  <field name="phone">
+    <field-validator type="int">
+            <message>Incorrect Phone No </message>
+    </field-validator>
+   
+  </field>
+  <field name="mobile">
+    <field-validator type="int">
+            <message>Incorrect Mobile No </message>
+    </field-validator>
+   
+  </field>
+  <field name="approve">
+    <field-validator type="approve">
+            <message>Incorrect Approves value </message>
+    </field-validator>
+   
+  </field>
+</validators>
+

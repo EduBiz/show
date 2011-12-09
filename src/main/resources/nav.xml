@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="nav" extends="struts-default">
+        
+        <action name="forgotpass" class="nav.forgotpass">
+            <result name="success" >/forgotpass.jsp</result>
+        </action>
+        
+        <action name="loginnav" class="nav.loginnav">
+            <result name="success" >/index.jsp</result>
+        </action>
+        <action name="updateshownav" class="nav.updateshownav">
+            <result name="success" >/addshowevents.jsp</result>
+        </action>
+        <action name="uploadshownav" class="nav.uploadshownav">
+            <result name="success" >/uploadshowimage.jsp</result>
+           
+        </action>
+        <action name="uploadstallnav" class="nav.uploadstallnav">
+            <result name="success" >/uploadstallimg.jsp</result>
+        </action>
+        <action name="editproductnav" class="nav.editproductnav">
+            <result name="success" >/editproductlist.jsp</result>
+        </action>
+        <action name="stallhomenav" class="nav.stallhomenav">
+            <result name="success" >/welcome_stall.jsp</result>
+        </action>
+        
+        <action name="productimg" class="nav.editproductnav" method="img">
+            <result name="success" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">fileInputStream</param>
+                <param name="contentDisposition">filename="${Id}+.jpg"</param>
+                <param name="bufferSize">2024</param>
+            </result>
+        </action>
+        <action name="searchproduct" class="nav.searchproduct">
+            <result name="success" >/editproductlist.jsp</result>
+        </action>
+        <action name="manageshowproductnav" class="nav.manageshowproductnav">
+            <result name="success" >/manageshowproducts.jsp</result>
+        </action>
+         <action name="sproductimg" class="nav.manageshowproductnav" method="img">
+            <result name="success" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">fileInputStream</param>
+                <param name="contentDisposition">filename="${Id}+.jpg"</param>
+                <param name="bufferSize">2024</param>
+            </result>
+        </action>
+    </package>
+</struts>

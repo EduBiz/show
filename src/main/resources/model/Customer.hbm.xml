@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2011 5:59:29 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="model.Customer" table="customer" catalog="simon">
+        <id name="customerId" type="java.lang.Long">
+            <column name="customer_id" />
+            <generator class="identity" />
+        </id>
+        <property name="firstname" type="string">
+            <column name="firstname" length="50" />
+        </property>
+        <property name="lastname" type="string">
+            <column name="lastname" length="50" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="50" not-null="true" unique="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="10" not-null="true" />
+        </property>
+        <property name="contactno" type="java.lang.Long">
+            <column name="contactno" />
+        </property>
+        <property name="mobile" type="java.lang.Long">
+            <column name="mobile" />
+        </property>
+        <property name="address" type="string">
+            <column name="address" length="50" not-null="true" />
+        </property>
+        <property name="city" type="string">
+            <column name="city" length="30" />
+        </property>
+        <property name="country" type="string">
+            <column name="country" length="20" not-null="true" />
+        </property>
+        <property name="postcode" type="string">
+            <column name="postcode" length="10" not-null="true" />
+        </property>
+        <set name="baskets" inverse="true">
+            <key>
+                <column name="customer_id" not-null="true" />
+            </key>
+            <one-to-many class="model.Basket" />
+        </set>
+    </class>
+</hibernate-mapping>

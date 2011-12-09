@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2011 5:59:29 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="model.Stalldisplay" table="stalldisplay" catalog="simon">
+        <id name="displayId" type="long">
+            <column name="display_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="stall" class="model.Stall" fetch="select">
+            <column name="stall_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="product" class="model.Product" fetch="select">
+            <column name="prod_id" not-null="true" />
+        </many-to-one>
+        <property name="x1" type="int">
+            <column name="x1" not-null="true" />
+        </property>
+        <property name="x2" type="int">
+            <column name="x2" not-null="true" />
+        </property>
+        <property name="y1" type="int">
+            <column name="y1" not-null="true" />
+        </property>
+        <property name="y2" type="int">
+            <column name="y2" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

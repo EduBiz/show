@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2011 5:59:29 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="model.User" table="user" catalog="simon">
+        <id name="emailId" type="string">
+            <column name="email_id" length="50" />
+            <generator class="assigned" />
+        </id>
+        <property name="password" type="string">
+            <column name="password" length="10" not-null="true" />
+        </property>
+        <property name="confirmCode" type="long">
+            <column name="confirm_code" not-null="true" unique="true" />
+        </property>
+        <property name="userType" type="string">
+            <column name="user_type" length="20" not-null="true" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="20" not-null="true" />
+        </property>
+        <property name="userName" type="string">
+            <column name="user_name" length="50" not-null="true" unique="true" />
+        </property>
+        <property name="date" type="timestamp">
+            <column name="date" length="19" not-null="true" />
+        </property>
+        <set name="userses" inverse="true">
+            <key>
+                <column name="user" length="50" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="model.Users" />
+        </set>
+        <set name="stalls" inverse="true">
+            <key>
+                <column name="owner" length="50" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="model.Stall" />
+        </set>
+        <set name="shows" inverse="true">
+            <key>
+                <column name="owner" length="50" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="model.Show" />
+        </set>
+        <set name="products" inverse="true">
+            <key>
+                <column name="owner" length="50" not-null="true" />
+            </key>
+            <one-to-many class="model.Product" />
+        </set>
+    </class>
+</hibernate-mapping>

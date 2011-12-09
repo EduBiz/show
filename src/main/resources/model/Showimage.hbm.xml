@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2011 5:59:29 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="model.Showimage" table="showimage" catalog="simon">
+        <id name="showId" type="int">
+            <column name="show_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="show" class="model.Show" update="false" insert="false" fetch="select">
+            <column name="show_id" not-null="true" unique="true" />
+        </many-to-one>
+        <property name="logo" type="binary">
+            <column name="logo" />
+        </property>
+        <property name="showLayout" type="binary">
+            <column name="show_layout" />
+        </property>
+        <property name="showImage" type="binary">
+            <column name="show_image" />
+        </property>
+    </class>
+</hibernate-mapping>

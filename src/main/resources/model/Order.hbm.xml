@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2011 5:59:29 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="model.Order" table="order" catalog="simon">
+        <id name="orderId" type="java.lang.Long">
+            <column name="order_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="product" class="model.Product" fetch="select">
+            <column name="product_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="basket" class="model.Basket" fetch="select">
+            <column name="basket_id" />
+        </many-to-one>
+        <property name="qn" type="int">
+            <column name="Qn" not-null="true" />
+        </property>
+        <property name="price" type="big_decimal">
+            <column name="price" precision="10" not-null="true" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
+        </property>
+    </class>
+</hibernate-mapping>

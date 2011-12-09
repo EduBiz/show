@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2011 5:59:29 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="model.Visitor" table="visitor" catalog="simon">
+        <id name="visitorId" type="java.lang.Long">
+            <column name="visitor_id" />
+            <generator class="identity" />
+        </id>
+        <property name="email" type="string">
+            <column name="email" length="50" />
+        </property>
+        <property name="ip" type="string">
+            <column name="IP" length="20" not-null="true" />
+        </property>
+        <property name="date" type="date">
+            <column name="date" length="10" not-null="true" />
+        </property>
+        <property name="timespent" type="time">
+            <column name="timespent" length="8" />
+        </property>
+        <property name="info" type="string">
+            <column name="info" length="200" />
+        </property>
+        <set name="shows" inverse="false" table="show_visit">
+            <key>
+                <column name="visitor_id" not-null="true" />
+            </key>
+            <many-to-many entity-name="model.Show">
+                <column name="show_id" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="stalls" inverse="false" table="stall_visit">
+            <key>
+                <column name="visitor_id" not-null="true" />
+            </key>
+            <many-to-many entity-name="model.Stall">
+                <column name="stall_id" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

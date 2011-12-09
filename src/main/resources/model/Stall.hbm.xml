@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2011 5:59:29 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="model.Stall" table="stall" catalog="simon">
+        <id name="stallId" type="java.lang.Long">
+            <column name="stall_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="show" class="model.Show" fetch="select">
+            <column name="show_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="model.User" fetch="select">
+            <column name="owner" length="50" not-null="true" unique="true" />
+        </many-to-one>
+        <property name="ppc1" type="java.lang.Double">
+            <column name="ppc1" precision="22" scale="0" />
+        </property>
+        <property name="ppc2" type="java.lang.Double">
+            <column name="ppc2" precision="22" scale="0" />
+        </property>
+        <property name="ppc3" type="java.lang.Double">
+            <column name="ppc3" precision="22" scale="0" />
+        </property>
+        <property name="analytics" type="timestamp">
+            <column name="analytics" length="19" />
+        </property>
+        <property name="stallname" type="string">
+            <column name="stallname" length="50" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="500" />
+        </property>
+        <property name="category" type="string">
+            <column name="category" length="20" />
+        </property>
+        <property name="approve" type="java.lang.Integer">
+            <column name="approve" />
+        </property>
+        <property name="delivarytype" type="string">
+            <column name="delivarytype" length="50" />
+        </property>
+        <property name="x1" type="java.lang.Integer">
+            <column name="x1" />
+        </property>
+        <property name="x2" type="java.lang.Integer">
+            <column name="x2" />
+        </property>
+        <property name="y1" type="java.lang.Integer">
+            <column name="y1" />
+        </property>
+        <property name="y2" type="java.lang.Integer">
+            <column name="y2" />
+        </property>
+        <property name="note" type="string">
+            <column name="note" length="200" />
+        </property>
+        <property name="fflag1" type="java.lang.Integer">
+            <column name="FFlag1" />
+        </property>
+        <property name="fflag2" type="java.lang.Integer">
+            <column name="FFlag2" />
+        </property>
+        <property name="fflag3" type="java.lang.Integer">
+            <column name="FFlag3" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="10" />
+        </property>
+        <set name="stallimages" inverse="true">
+            <key>
+                <column name="stall_id" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="model.Stallimage" />
+        </set>
+        <set name="stalldisplaies" inverse="true">
+            <key>
+                <column name="stall_id" not-null="true" />
+            </key>
+            <one-to-many class="model.Stalldisplay" />
+        </set>
+        <set name="visitors" inverse="true" table="stall_visit">
+            <key>
+                <column name="stall_id" not-null="true" />
+            </key>
+            <many-to-many entity-name="model.Visitor">
+                <column name="visitor_id" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

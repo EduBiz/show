@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+ 
+  <field name="uname">
+    <field-validator type="requiredstring">
+            <message>Please enter User Name</message>
+    </field-validator>
+  </field>
+  <field name="sname">
+    <field-validator type="requiredstring">
+            <message>Please enter Show Name</message>
+    </field-validator>
+  </field>
+  <field name="email">
+  <field-validator type="email">
+             <message>Email address is not valid</message>
+  </field-validator>
+        <field-validator type="requiredstring">
+            <message>Please enter email address</message>
+        </field-validator> 
+        </field>
+  
+</validators>

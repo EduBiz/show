@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2011 5:59:29 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="model.Basket" table="basket" catalog="simon">
+        <id name="basketId" type="java.lang.Long">
+            <column name="basket_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="customer" class="model.Customer" fetch="select">
+            <column name="customer_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="payment" class="model.Payment" fetch="select">
+            <column name="payment_id" not-null="true" />
+        </many-to-one>
+        <set name="orders" inverse="true">
+            <key>
+                <column name="basket_id" />
+            </key>
+            <one-to-many class="model.Order" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2011 5:59:29 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="model.Payment" table="payment" catalog="simon">
+        <id name="paymentId" type="java.lang.Long">
+            <column name="payment_id" />
+            <generator class="identity" />
+        </id>
+        <property name="cardname" type="string">
+            <column name="cardname" length="20" not-null="true" />
+        </property>
+        <property name="cardno" type="string">
+            <column name="cardno" length="20" not-null="true" />
+        </property>
+        <property name="cardtype" type="string">
+            <column name="cardtype" length="10" not-null="true" />
+        </property>
+        <property name="validfrom" type="string">
+            <column name="validfrom" length="5" not-null="true" />
+        </property>
+        <property name="expiry" type="string">
+            <column name="expiry" length="5" not-null="true" />
+        </property>
+        <property name="cardholdername" type="string">
+            <column name="cardholdername" length="30" not-null="true" />
+        </property>
+        <property name="delivaryAddress" type="string">
+            <column name="delivary_address" length="100" />
+        </property>
+        <property name="postcode" type="string">
+            <column name="postcode" length="10" />
+        </property>
+        <property name="amount" type="big_decimal">
+            <column name="amount" precision="10" not-null="true" />
+        </property>
+        <property name="saledate" type="date">
+            <column name="saledate" length="10" not-null="true" />
+        </property>
+        <set name="baskets" inverse="true">
+            <key>
+                <column name="payment_id" not-null="true" />
+            </key>
+            <one-to-many class="model.Basket" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2011 5:59:29 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="model.Indexbanner" table="indexbanner" catalog="simon">
+        <id name="imageNo" type="java.lang.Long">
+            <column name="image_no" />
+            <generator class="identity" />
+        </id>
+        <property name="imageId" type="long">
+            <column name="image_id" not-null="true" />
+        </property>
+        <property name="indeximage" type="binary">
+            <column name="indeximage" />
+        </property>
+        <property name="location" type="string">
+            <column name="location" length="20" />
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="20" />
+        </property>
+    </class>
+</hibernate-mapping>

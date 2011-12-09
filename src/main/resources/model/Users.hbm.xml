@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2011 5:59:29 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="model.Users" table="users" catalog="simon">
+        <id name="user" type="string">
+            <column name="user" length="50" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="user_1" class="model.User" update="false" insert="false" fetch="select">
+            <column name="user" length="50" not-null="true" unique="true" />
+        </many-to-one>
+        <property name="company" type="string">
+            <column name="company" length="50" />
+        </property>
+        <property name="vatregister" type="string">
+            <column name="vatregister" length="5" />
+        </property>
+        <property name="firstname" type="string">
+            <column name="firstname" length="50" />
+        </property>
+        <property name="lastname" type="string">
+            <column name="lastname" length="50" />
+        </property>
+        <property name="dateofbirth" type="date">
+            <column name="dateofbirth" length="10" />
+        </property>
+        <property name="webLink" type="string">
+            <column name="`web-link`" length="50" />
+        </property>
+        <property name="duedate" type="string">
+            <column name="duedate" length="50" />
+        </property>
+        <property name="phone" type="java.lang.Long">
+            <column name="phone" />
+        </property>
+        <property name="mobile" type="java.lang.Long">
+            <column name="mobile" />
+        </property>
+        <property name="bankInfo" type="string">
+            <column name="`bank-info`" length="200" />
+        </property>
+        <property name="approve" type="java.lang.Integer">
+            <column name="approve" />
+        </property>
+        <property name="balance" type="big_decimal">
+            <column name="balance" precision="10" />
+        </property>
+        <property name="note" type="string">
+            <column name="note" length="50" />
+        </property>
+        <property name="info" type="string">
+            <column name="info" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>

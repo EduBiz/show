@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2011 5:59:29 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="model.Product" table="product" catalog="simon">
+        <id name="productId" type="java.lang.Long">
+            <column name="product_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="model.User" fetch="select">
+            <column name="owner" length="50" not-null="true" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="name" length="50" not-null="true" unique="true" />
+        </property>
+        <property name="vat" type="double">
+            <column name="vat" precision="0" scale="0" not-null="true" />
+        </property>
+        <property name="price" type="big_decimal">
+            <column name="price" precision="10" not-null="true" />
+        </property>
+        <property name="postage" type="big_decimal">
+            <column name="postage" precision="10" not-null="true" />
+        </property>
+        <property name="delivaryTime" type="string">
+            <column name="delivary_time" length="50" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="500" />
+        </property>
+        <property name="unitsSold" type="long">
+            <column name="units_sold" not-null="true" />
+        </property>
+        <property name="qty" type="long">
+            <column name="Qty" not-null="true" />
+        </property>
+        <property name="fflag" type="java.lang.Integer">
+            <column name="FFlag" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="10" />
+        </property>
+        <set name="orders" inverse="true">
+            <key>
+                <column name="product_id" not-null="true" />
+            </key>
+            <one-to-many class="model.Order" />
+        </set>
+        <set name="productsForRelatedId" inverse="false" table="productsrelated">
+            <key>
+                <column name="product_id" not-null="true" />
+            </key>
+            <many-to-many entity-name="model.Product">
+                <column name="related_id" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="productvariants" inverse="true">
+            <key>
+                <column name="product_id" not-null="true" />
+            </key>
+            <one-to-many class="model.Productvariant" />
+        </set>
+        <set name="productimages" inverse="true">
+            <key>
+                <column name="prod_id" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="model.Productimage" />
+        </set>
+        <set name="productsForProductId" inverse="false" table="productsrelated">
+            <key>
+                <column name="related_id" not-null="true" />
+            </key>
+            <many-to-many entity-name="model.Product">
+                <column name="product_id" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="stalldisplaies" inverse="true">
+            <key>
+                <column name="prod_id" not-null="true" />
+            </key>
+            <one-to-many class="model.Stalldisplay" />
+        </set>
+    </class>
+</hibernate-mapping>

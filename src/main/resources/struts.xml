@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration
+2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+
+<struts>	
+    <include file="nav.xml"/>
+    <constant name="struts.multipart.maxSize" value="1000000" />
+    
+    <package name="default" extends="struts-default">
+       
+        <action name="loginAction" class="controller.loginAction">
+            <result name="admin" >welcome_admin.jsp</result>
+            <result name="show" >welcome_show.jsp</result>
+            <result name="stall" >welcome_stall.jsp</result>
+            <result name="input">index.jsp</result>
+            <result name="error">index.jsp</result>
+        </action>
+        <action name="logoutaction" class="controller.logoutaction">
+            <result name="success" >index.jsp</result>
+            <result name="input" >index.jsp</result>
+            <result name="error" >index.jsp</result>
+        </action>
+        
+        
+        <action name="activationaccount" class="controller.activationaccount">
+            <result name="success">index.jsp</result>
+            <result name="error">activationfailed.jsp</result>
+        </action>
+       
+        <action name="forgotmail" class="controller.forgotmail">
+            <result name="success" >index.jsp</result>
+            <result name="input" >forgotpass.jsp</result>
+            <result name="error" >forgotpass.jsp</result>
+        </action>
+        <action name="sessionError" class="controller.sessionError">
+            <result name="success" >index.jsp</result>
+            <result name="input" >index.jsp</result>
+            <result name="error" >index.jsp</result>
+        </action>
+        <action name="stallerror" class="controller.sessionError" method="stallerror">
+            <result name="success" >index.jsp</result>
+            <result name="input" >index.jsp</result>
+            <result name="error" >index.jsp</result>
+        </action> 
+        <action name="showerror" class="controller.sessionError" method="showerror">
+            <result name="success" >index.jsp</result>
+            <result name="input" >index.jsp</result>
+            <result name="error" >index.jsp</result>
+        </action> 
+        <action name="addshowuser" class="controller.addshowuser">
+            <result name="success" >welcome_admin.jsp</result>
+            <result name="input" >welcome_admin.jsp</result>
+            <result name="error" >welcome_admin.jsp</result>
+        </action>
+        <action name="addstalluser" class="controller.addstalluser">
+            <result name="success" >welcome_show.jsp</result>
+            <result name="input" >welcome_show.jsp</result>
+            <result name="error" >welcome_show.jsp</result>
+        </action>
+        <action name="addproduct" class="controller.addproduct">
+            <result name="success" >welcome_stall.jsp</result>
+            <result name="input" >welcome_stall.jsp</result>
+            <result name="error" >welcome_stall.jsp</result>
+        </action>
+        
+        <action name="accountinformation" class="controller.accountinformation">
+            <result name="save" >userinformation.jsp</result>
+            <result name="update">registration.jsp</result>
+            <result name="error">index.jsp</result>
+        </action>
+         
+        <action name="useRegistration" class="controller.useRegistration">
+            <result name="admin" >welcome_admin.jsp</result>
+            <result name="show" >welcome_show.jsp</result>
+            <result name="stall" >welcome_stall.jsp</result>
+            <result name="input" >registration.jsp</result>
+            <result name="error" >registration.jsp</result>
+        </action>
+        <action name="showinfo" class="controller.showinfo">
+            <result name="success" >updateshow.jsp</result>
+            <result name="error">welcome_show.jsp</result>
+        </action>
+        <action name="updateshow" class="controller.updateshowinfo">
+            <result name="success" >welcome_show.jsp</result>
+            <result name="error">updateshow.jsp</result>
+        </action>
+        <action name="updateshowevents" class="controller.updateshowevents">
+            <result name="success" >welcome_show.jsp</result>
+            <result name="input" >addshowevents.jsp</result>
+            <result name="error">addshowevents.jsp</result>
+        </action>
+        <action name="uploadshowimg" class="controller.uploadshowimg">
+           
+            <result name="success" >welcome_show.jsp</result>
+            <result name="input" >/uploadshowimage.jsp</result>
+            <result name="error">/uploadshowimage.jsp</result>
+        </action>
+        
+         <action name="stallinfo" class="controller.stallinfo">
+            <result name="success" >updatestall.jsp</result>
+            <result name="error">welcome_stall.jsp</result>
+        </action>
+         <action name="updatestall" class="controller.updatestallinfo">
+            <result name="success" >welcome_stall.jsp</result>
+            <result name="input">updatestall.jsp</result>
+            <result name="error">updatestall.jsp</result>
+        </action>
+        <action name="uploadstallimg" class="controller.uploadstallimg">
+           
+            <result name="success" >welcome_stall.jsp</result>
+            <result name="input" >/uploadstallimg.jsp</result>
+            <result name="error">/uploadstallimg.jsp</result>
+        </action>
+         <action name="editproduct" class="controller.editproduct">
+            <result name="success" >editproduct.jsp</result>
+            <result name="error" >editproductlist.jsp</result>
+        </action>
+         <action name="deleteproduct" class="controller.editproduct" method="deletepro">
+            <result name="success" >editproductlist.jsp</result>
+            <result name="error" >editproductlist.jsp</result>
+        </action>
+         <action name="updateproduct" class="controller.updateproduct">
+            <result name="success" >editproductlist.jsp</result>
+            <result name="input" >editproduct.jsp</result>
+            <result name="error" >editproduct.jsp</result>
+        </action>
+        
+        
+    </package>
+</struts>

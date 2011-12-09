@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2011 5:59:29 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="model.Showevents" table="showevents" catalog="simon">
+        <id name="eventid" type="java.lang.Integer">
+            <column name="eventid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="show" class="model.Show" fetch="select">
+            <column name="showid" not-null="true" />
+        </many-to-one>
+        <property name="venue" type="string">
+            <column name="venue" length="50" not-null="true" />
+        </property>
+        <property name="showdate" type="date">
+            <column name="showdate" length="10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
