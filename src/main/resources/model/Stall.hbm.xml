@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Dec 7, 2011 4:20:47 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Dec 15, 2011 4:01:58 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="model.Stall" table="stall" catalog="simon">
         <id name="stallId" type="java.lang.Long">
@@ -41,18 +41,6 @@
         <property name="delivarytype" type="string">
             <column name="delivarytype" length="50" />
         </property>
-        <property name="x1" type="java.lang.Integer">
-            <column name="x1" />
-        </property>
-        <property name="x2" type="java.lang.Integer">
-            <column name="x2" />
-        </property>
-        <property name="y1" type="java.lang.Integer">
-            <column name="y1" />
-        </property>
-        <property name="y2" type="java.lang.Integer">
-            <column name="y2" />
-        </property>
         <property name="note" type="string">
             <column name="note" length="200" />
         </property>
@@ -79,6 +67,12 @@
                 <column name="stall_id" not-null="true" />
             </key>
             <one-to-many class="model.Stalldisplay" />
+        </set>
+        <set name="showdisplaies" inverse="true">
+            <key>
+                <column name="stall_id" not-null="true" />
+            </key>
+            <one-to-many class="model.Showdisplay" />
         </set>
         <set name="visitors" inverse="true" table="stall_visit">
             <key>

@@ -6,9 +6,12 @@ package controller;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import java.util.List;
 import java.util.Map;
 import model.*;
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
+import org.hibernate.criterion.Restrictions;
 
 /**
  *
@@ -44,6 +47,7 @@ public class updateshowinfo extends ActionSupport {
     private Integer approve;
     private String note;
     private static userEnum ut;
+    private List<Show> showlist;
     @Override
     public String execute() throws Exception {
         Map session = ActionContext.getContext().getSession();
@@ -64,6 +68,10 @@ public class updateshowinfo extends ActionSupport {
             show.setStatus(ut.Active.getUserType());
             myDao.getDbsession().update(show);
             addActionMessage("Show information Successfully Updated ");
+            Criteria sho=myDao.getDbsession().createCriteria(Show.class);
+            sho.add(Restrictions.eq("user", user));
+            sho.setMaxResults(50);
+            showlist=sho.list();
             return "success";
         } catch (HibernateException e) {
             addActionError(e.getMessage());
@@ -253,5 +261,19 @@ public class updateshowinfo extends ActionSupport {
      */
     public void setNote(String note) {
         this.note = note;
+    }
+
+    /**
+     * @return the showlist
+     */
+    public List<Show> getShowlist() {
+        return showlist;
+    }
+
+    /**
+     * @param showlist the showlist to set
+     */
+    public void setShowlist(List<Show> showlist) {
+        this.showlist = showlist;
     }
 }

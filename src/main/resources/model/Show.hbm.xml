@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Dec 7, 2011 4:20:47 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Dec 15, 2011 4:01:58 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="model.Show" table="show" catalog="simon">
         <id name="showId" type="java.lang.Integer">
@@ -9,7 +9,7 @@
             <generator class="identity" />
         </id>
         <many-to-one name="user" class="model.User" fetch="select">
-            <column name="owner" length="50" not-null="true" unique="true" />
+            <column name="owner" length="50" not-null="true" />
         </many-to-one>
         <property name="showCommision" type="java.lang.Double">
             <column name="show_commision" precision="22" scale="0" />
@@ -56,6 +56,12 @@
         <property name="status" type="string">
             <column name="status" length="10" />
         </property>
+        <set name="showdisplaies" inverse="true">
+            <key>
+                <column name="show_id" not-null="true" />
+            </key>
+            <one-to-many class="model.Showdisplay" />
+        </set>
         <set name="showeventses" inverse="true">
             <key>
                 <column name="showid" not-null="true" />

@@ -42,10 +42,7 @@
         <action name="searchproduct" class="nav.searchproduct">
             <result name="success" >/editproductlist.jsp</result>
         </action>
-        <action name="manageshowproductnav" class="nav.manageshowproductnav">
-            <result name="success" >/manageshowproducts.jsp</result>
-            <result name="error" >/manageshowproducts.jsp</result>
-        </action>
+       
         <action name="stalllogo" class="nav.uploadstallnav" method="img">
             <result name="success" type="stream">
                 <param name="contentType">application/octet-stream</param>
@@ -70,15 +67,64 @@
         </action>
         <action name="addstalldisp" class="nav.addstalldisplayproduct">
             <result name="success" >/stallproductmanage.jsp</result>
+            <result name="input" >/stallproductmanage.jsp</result>
         </action>
         <action name="removep" class="nav.removestallprod">
             <result name="success" >stallproductmanage.jsp</result>
-           
         </action>
-        <action name="echo" class="nav.echo">
-            <result name="success" >echo.jsp</result>
-           
+       <action name="showimg" class="nav.uploadshownav" method="imag">
+            <result name="success" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">shimg</param>
+                <param name="contentDisposition">filename="${Id}+.jpg"</param>
+                <param name="bufferSize">2024</param>
+            </result>
         </action>
-        
+       <action name="showlogo" class="nav.uploadshownav" method="imag">
+            <result name="success" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">shlogo</param>
+                <param name="contentDisposition">filename="${Id}+.jpg"</param>
+                <param name="bufferSize">2024</param>
+            </result>
+        </action>
+       <action name="showlay" class="nav.uploadshownav" method="imag">
+            <result name="success" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">shlay</param>
+                <param name="contentDisposition">filename="${Id}+.jpg"</param>
+                <param name="bufferSize">2024</param>
+            </result>
+        </action>
+        <action name="addstallnavuser" class="nav.addstallusernav">
+            <result name="success" >adduserstall.jsp</result>
+        </action>
+        <action name="viewshowevents" class="nav.viewshowevents">
+            <result name="success" >viewshowevents.jsp</result>
+        </action>
+        <action name="viewshowstalls" class="nav.viewshowstalls">
+            <result name="success" >viewshowstalls.jsp</result>
+        </action>
+        <action name="stalldisplayprodstatus" class="nav.stalldisplayprodstatus">
+            <result name="success" >stalldisplay.jsp</result>
+        </action>
+        <action name="allprod" class="nav.adminsearch">
+            <result name="success" >welcome_admin.jsp</result>
+        </action>
+        <action name="allstalls" class="nav.adminsearch" method="stallser" >
+            <result name="success" >welcome_admin.jsp</result>
+        </action>
+        <action name="allshows" class="nav.adminsearch" method="showser" >
+            <result name="success" >welcome_admin.jsp</result>
+        </action>
+        <action name="showdisplaymanage" class="nav.showdisplaymanage"  >
+            <result name="success" >showstalldisplay.jsp</result>
+        </action>
+        <action name="addshowdisplaystall" class="nav.addshowdisplaystall"  >
+            <result name="success" >showstalldisplay.jsp</result>
+        </action>
+        <action name="removeshowstall" class="nav.removeshowstall"  >
+            <result name="success" >showstalldisplay.jsp</result>
+        </action>
     </package>
 </struts>

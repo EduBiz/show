@@ -16,34 +16,39 @@ import org.hibernate.criterion.Restrictions;
  *
  * @author Administrator
  */
-public class addshowuser extends ActionSupport{
+public class addshowuser extends ActionSupport {
 
-      
-     private String uname;
-     private String email;
-     private spDAO myDao;
-     private long confcode;
-     private String catgry;
-     private Emailfunction sendMail;
-     private String subject;
-     private String content;
-     private PassPhrase passGen;
-     private static userEnum ut; 
-     private String sname;
-     private List<Show> showlist;
+    private String uname;
+    private String email;
+    private spDAO myDao;
+    private long confcode;
+    private String catgry;
+    private Emailfunction sendMail;
+    private String subject;
+    private String content;
+    private PassPhrase passGen;
+    private static userEnum ut;
+    private String sname;
      private List<User> uselist;
+
+    private List<Show> showlist;
+    private List<Show> slist;
+   
+    private List<Stall> stalllist;
+    private List<Product> prodlist;
+
    @Override
   public void validate() {
-            uselist=(List<User>) myDao.getDbsession().createQuery("from User").list();
+           
             Criteria ucri=getMyDao().getDbsession().createCriteria(User.class);
             ucri.add( Restrictions.eq("userName", getUname()));
             ucri.setMaxResults(50);
             setUselist((List<User>)ucri.list());
-            showlist=(List<Show>) myDao.getDbsession().createQuery("from Show").list();
+           
             Criteria scri=getMyDao().getDbsession().createCriteria(Show.class);
             scri.add( Restrictions.eq("showname", getSname()));
             scri.setMaxResults(50);
-            setShowlist((List<Show>)scri.list());
+            slist=(List<Show>)scri.list();
        
        
  User user=(User)getMyDao().getDbsession().get(User.class, getEmail());
@@ -63,7 +68,7 @@ public class addshowuser extends ActionSupport{
         {
              addFieldError("uname","Sorry User Name Already Taken");
         }
-    if( getShowlist().isEmpty())
+    if(slist.isEmpty())
     {
       
     }
@@ -73,44 +78,54 @@ public class addshowuser extends ActionSupport{
     }
            
    }
-     
+
+
     @Override
-    public String execute() throws Exception
-    {
-     try{
-        
-        Random rand=new Random();
+    public String execute() throws Exception {
+        try {
+
+            Random rand = new Random();
             setConfcode(rand.nextLong());
-       Date date=new Date();
-       User tuser=new User(getEmail(),PassPhrase.pass(), getConfcode(), getCatgry(),userEnum.NotRegistered.getUserType(), getUname(),date);
-        tuser.setUserName(getUname());
+            Date date = new Date();
+            User tuser = new User(getEmail(), PassPhrase.pass(), getConfcode(), getCatgry(), userEnum.NotRegistered.getUserType(), getUname(), date);
+            tuser.setUserName(getUname());
             getMyDao().getDbsession().save(tuser);
-            Show sh=new Show(tuser, getSname());
-            sh.setStatus(ut.Active.getUserType());
-             getMyDao().getDbsession().save(sh);
-       
-       
-        User user=(User)getMyDao().getDbsession().get(User.class, getEmail());
+            Show sh = new Show(tuser, getSname());
+            sh.setStatus(userEnum.Active.getUserType());
+            getMyDao().getDbsession().save(sh);
+
+
+            User user = (User) getMyDao().getDbsession().get(User.class, getEmail());
             setSubject("Welcome to Zorrit.com");
-            setContent("Hi\t\t&nbsp;" + getEmail() + "\t\t&nbsp; welcome to Zorrit.com<br><br>\n\n" + "You are invited for &nbsp;\t" + getCatgry() + "\t &nbsp;promoter for our site\n\n<br><br>" 
-                    +"Your Requested \t\t"+catgry+"\t\tname\t\t"+sname+"\t\tSuccessfully Created\n\n"
+            setContent("Hi\t\t&nbsp;" + getEmail() + "\t\t&nbsp; welcome to Zorrit.com<br><br>\n\n" + "You are invited for &nbsp;\t" + getCatgry() + "\t &nbsp;promoter for our site\n\n<br><br>"
+                    + "Your Requested \t\t" + catgry + "\t\tname\t\t" + sname + "\t\tSuccessfully Created\n\n"
                     + "Your Zorrit login id is:&nbsp;\t" + getEmail() + "\n<br>" + "Your Zorrit pasword is:\t\t&nbsp;" + user.getPassword() + "\n\n<br><br>" + "Please Click the following link to activate your Account\n\n\n<br><br>" + "<a href='http://localhost:8080/show/activationaccount.action?email=" + getEmail() + "&confcode=" + getConfcode() + "'>www.zorrit.com/activation" + getConfcode() + "</a>" + "\n<br><br>" + " \nThanks & Regards <br> \n   " + " Zorrit Team\n\n<br><br>");
             getSendMail().test(getEmail(), getSubject(), getContent());
-        addActionMessage("New user \t"+getUname()+"\tSuccessfully created");
-       uname=null;
-       sname=null;
-       email=null;
-        return "success";
-    }
-     catch(Exception e)
-     {
-        addActionError("error"+e.getMessage());
-         e.printStackTrace();
-         return "error";
-     }
+
+          
+            Criteria allshow = myDao.getDbsession().createCriteria(Show.class);
+            allshow.setMaxResults(50);
+            showlist = allshow.list();
+            Criteria allstall = myDao.getDbsession().createCriteria(Stall.class);
+            allstall.setMaxResults(50);
+            setStalllist((List<Stall>) allstall.list());
+            Criteria allprod = myDao.getDbsession().createCriteria(Product.class);
+            allprod.setMaxResults(100);
+            setProdlist((List<Product>) allprod.list());
+           addActionMessage("New user \t" + getUname() + "\tSuccessfully created");
+            uname = null;
+            sname = null;
+            email = null;
+           
+            return "success";
+        } catch (Exception e) {
+            addActionError("error" + e.getMessage());
+            e.printStackTrace();
+            return "error";
+        }
     }
 
-    /**
+     /**
      * @return the uname
      */
     public String getUname() {
@@ -291,5 +306,53 @@ public class addshowuser extends ActionSupport{
     public static void setUt(userEnum aUt) {
         ut = aUt;
     }
+
+    /**
+     * @return the slist
+     */
+    public List<Show> getSlist() {
+        return slist;
+    }
+
+    /**
+     * @param slist the slist to set
+     */
+    public void setSlist(List<Show> slist) {
+        this.slist = slist;
+    }
+
+    /**
+     * @return the stalllist
+     */
+    public List<Stall> getStalllist() {
+        return stalllist;
+    }
+
+    /**
+     * @param stalllist the stalllist to set
+     */
+    public void setStalllist(List<Stall> stalllist) {
+        this.stalllist = stalllist;
+    }
+
+    /**
+     * @return the prodlist
+     */
+    public List<Product> getProdlist() {
+        return prodlist;
+    }
+
+    /**
+     * @param prodlist the prodlist to set
+     */
+    public void setProdlist(List<Product> prodlist) {
+        this.prodlist = prodlist;
+    }
    
+
+    
+    
+    
+    
+    
 }

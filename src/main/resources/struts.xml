@@ -54,11 +54,7 @@
             <result name="input" >welcome_admin.jsp</result>
             <result name="error" >welcome_admin.jsp</result>
         </action>
-        <action name="addstalluser" class="controller.addstalluser">
-            <result name="success" >welcome_show.jsp</result>
-            <result name="input" >welcome_show.jsp</result>
-            <result name="error" >welcome_show.jsp</result>
-        </action>
+       
         <action name="addproduct" class="controller.addproduct">
             <result name="success" >welcome_stall.jsp</result>
             <result name="input" >welcome_stall.jsp</result>
@@ -126,7 +122,28 @@
             <result name="input" >editproduct.jsp</result>
             <result name="error" >editproduct.jsp</result>
         </action>
-        
+         <action name="addstalluser" class="controller.addstalluser">
+            <result name="success" >adduserstall.jsp</result>
+            <result name="input" >adduserstall.jsp</result>
+            <result name="error" >adduserstall.jsp</result>
+        </action>
+         <action name="showstallstatus" class="controller.showstallstatus">
+            <result name="success" >viewshowstalls.jsp</result>
+           
+        </action>
+         <action name="shostatus" class="controller.changestatus">
+            <result name="success" >welcome_admin.jsp</result>
+           
+        </action>
+         <action name="stalstatus" class="controller.changestatus" method="stallst" >
+            <result name="success" >welcome_admin.jsp</result>
+           
+        </action>
+         <action name="prostatus" class="controller.changestatus" method="prodst">
+            <result name="success" >welcome_admin.jsp</result>
+           
+        </action>
+       
         
     </package>
 </struts>

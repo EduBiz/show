@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 15, 2011 4:01:58 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="model.Showdisplay" table="showdisplay" catalog="simon">
+        <id name="layoutid" type="java.lang.Long">
+            <column name="layoutid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="show" class="model.Show" fetch="select">
+            <column name="show_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="stall" class="model.Stall" fetch="select">
+            <column name="stall_id" not-null="true" />
+        </many-to-one>
+        <property name="x1" type="int">
+            <column name="x1" not-null="true" />
+        </property>
+        <property name="x2" type="int">
+            <column name="x2" not-null="true" />
+        </property>
+        <property name="y1" type="int">
+            <column name="y1" not-null="true" />
+        </property>
+        <property name="y2" type="int">
+            <column name="y2" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

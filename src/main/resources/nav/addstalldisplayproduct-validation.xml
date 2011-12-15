@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+ 
+  <field name="prodid">
+    <field-validator type="long">
+            <message>Incorrect Product Id Value </message>
+    </field-validator>
+    <field-validator type="required">
+            <message>Please enter Product Id</message>
+    </field-validator>
+  </field>
+  <field name="x1">
+    <field-validator type="int">
+            <message>Incorrect X1 position  value </message>
+    </field-validator>
+    <field-validator type="required">
+            <message>Please enter X1 value</message>
+    </field-validator>
+  </field>
+  <field name="x2">
+    <field-validator type="int">
+            <message>Incorrect X2 position  value </message>
+    </field-validator>
+    <field-validator type="required">
+            <message>Please enter X2 value</message>
+    </field-validator>
+  </field>
+  <field name="y1">
+    <field-validator type="int">
+            <message>Incorrect Y1 position value </message>
+    </field-validator>
+    <field-validator type="required">
+            <message>Please enter Y1 value</message>
+    </field-validator>
+  </field>
+  <field name="y2">
+    <field-validator type="int">
+            <message>Incorrect Y2 position value </message>
+    </field-validator>
+    <field-validator type="required">
+            <message>Please enter Y2 value</message>
+    </field-validator>
+  </field>
+  
+  
+  
+  
+</validators>

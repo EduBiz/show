@@ -42,10 +42,10 @@ response.sendRedirect(request.getContextPath()+"/sessionError.action");
         <div>
         <div class="box">
             <div>
-                <p style="font-size:25px; color:#030;" align="center">Products</p>
+                <p style="font-size:25px; color:#030;">Products</p>
             </div>
 
-            <s:actionmessage/>
+            <s:actionmessage theme="jquery" />
             <form action="searchproduct.action"> <div><input type="text" value="Search" name="search" size="20" onblur="if(this.value == '') { this.value = 'Search'; }" onfocus="if(this.value == 'Search') { this.value = ''; }" /><input type="submit" value="Go"/>
                 </div></form>     
 

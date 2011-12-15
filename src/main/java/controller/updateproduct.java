@@ -71,7 +71,7 @@ public class updateproduct extends ActionSupport {
 
 
             Map session = ActionContext.getContext().getSession();
-            setStall((Stall) session.get("Stall"));
+           user = (User) session.get("user");
            
             System.out.println("Time\t\t" + getDeltime() + "\t\t");
             product = (Product) myDao.getDbsession().get(Product.class, getProductid());

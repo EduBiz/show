@@ -6,8 +6,6 @@ package nav;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import controller.spDAO;
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 import model.*;
@@ -31,7 +29,7 @@ public class searchproduct extends ActionSupport{
 
         Map session = ActionContext.getContext().getSession();
         User user = (User) session.get("user");
-        Stall stall = (Stall) session.get("Stall");
+        
         Criteria pro = getMyDao().getDbsession().createCriteria(Product.class);
         pro.add(Restrictions.eq("user", user));
         pro.add(Restrictions.like("name", getSearch()+"%"));

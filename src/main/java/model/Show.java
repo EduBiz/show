@@ -1,5 +1,5 @@
 package model;
-// Generated Dec 7, 2011 4:20:30 PM by Hibernate Tools 3.2.1.GA
+// Generated Dec 15, 2011 4:01:57 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -29,6 +29,7 @@ public class Show  implements java.io.Serializable {
      private Integer fflag2;
      private String note;
      private String status;
+     private Set<Showdisplay> showdisplaies = new HashSet<Showdisplay>(0);
      private Set<Showevents> showeventses = new HashSet<Showevents>(0);
      private Set<Stall> stalls = new HashSet<Stall>(0);
      private Set<Visitor> visitors = new HashSet<Visitor>(0);
@@ -42,7 +43,7 @@ public class Show  implements java.io.Serializable {
         this.user = user;
         this.showname = showname;
     }
-    public Show(User user, Double showCommision, Double siteCommision, Double venueCommision, Double ppc1, Double ppc2, Date analytics, String showname, String description, String categories, String showtype, Integer approve, Integer fflag1, Integer fflag2, String note, String status, Set<Showevents> showeventses, Set<Stall> stalls, Set<Visitor> visitors, Set<Showimage> showimages) {
+    public Show(User user, Double showCommision, Double siteCommision, Double venueCommision, Double ppc1, Double ppc2, Date analytics, String showname, String description, String categories, String showtype, Integer approve, Integer fflag1, Integer fflag2, String note, String status, Set<Showdisplay> showdisplaies, Set<Showevents> showeventses, Set<Stall> stalls, Set<Visitor> visitors, Set<Showimage> showimages) {
        this.user = user;
        this.showCommision = showCommision;
        this.siteCommision = siteCommision;
@@ -59,6 +60,7 @@ public class Show  implements java.io.Serializable {
        this.fflag2 = fflag2;
        this.note = note;
        this.status = status;
+       this.showdisplaies = showdisplaies;
        this.showeventses = showeventses;
        this.stalls = stalls;
        this.visitors = visitors;
@@ -183,6 +185,13 @@ public class Show  implements java.io.Serializable {
     
     public void setStatus(String status) {
         this.status = status;
+    }
+    public Set<Showdisplay> getShowdisplaies() {
+        return this.showdisplaies;
+    }
+    
+    public void setShowdisplaies(Set<Showdisplay> showdisplaies) {
+        this.showdisplaies = showdisplaies;
     }
     public Set<Showevents> getShoweventses() {
         return this.showeventses;

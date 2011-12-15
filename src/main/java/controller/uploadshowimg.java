@@ -7,8 +7,11 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.List;
 import java.util.Map;
 import model.*;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 
 /**
  *
@@ -20,13 +23,18 @@ public class uploadshowimg extends ActionSupport{
      private File logo;
      private File imag;
      private File layout;
-     
+     private int showId;
+     private User user;
+     private List<Show> showlist;
     @Override
     public String execute() throws Exception
     {
         Map session=ActionContext.getContext().getSession();
-          setShow((Show)session.get("Show"));
-        
+          setUser((User) session.get("user"));
+        Criteria sho=myDao.getDbsession().createCriteria(Show.class);
+        sho.add(Restrictions.eq("showId", getShowId()));
+        sho.setMaxResults(1);
+        show=(Show)(sho.list().get(0));
               try{
                   System.out.println("Logo is"+logo);
                    System.out.println("Logo is"+imag);
@@ -44,12 +52,16 @@ public class uploadshowimg extends ActionSupport{
 	     flogo.read(blogo);
 	    fimg.read(bimg);
             flayout.read(blay);
-         Showimage simg=new Showimage(show.getShowId(),show);
+         Showimage simg=new Showimage(getShowId(),show);
            simg.setLogo(blogo);
            simg.setShowImage(bimg);
            simg.setShowLayout(blay);
           myDao.getDbsession().saveOrUpdate(simg);
           addActionMessage("Show images Successfully Updated");
+          Criteria slist=myDao.getDbsession().createCriteria(Show.class);
+          slist.add(Restrictions.eq("user", user));
+          slist.setMaxResults(50);
+          showlist=slist.list();
           return "success";
         }
         catch(NullPointerException e)
@@ -129,6 +141,49 @@ public class uploadshowimg extends ActionSupport{
      */
     public void setLayout(File layout) {
         this.layout = layout;
+    }
+
+   
+    /**
+     * @return the user
+     */
+    public User getUser() {
+        return user;
+    }
+
+    /**
+     * @param user the user to set
+     */
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    /**
+     * @return the showId
+     */
+    public int getShowId() {
+        return showId;
+    }
+
+    /**
+     * @param showId the showId to set
+     */
+    public void setShowId(int showId) {
+        this.showId = showId;
+    }
+
+    /**
+     * @return the showlist
+     */
+    public List<Show> getShowlist() {
+        return showlist;
+    }
+
+    /**
+     * @param showlist the showlist to set
+     */
+    public void setShowlist(List<Show> showlist) {
+        this.showlist = showlist;
     }
     
 }

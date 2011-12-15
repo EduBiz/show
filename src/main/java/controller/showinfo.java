@@ -36,10 +36,7 @@ public class showinfo extends ActionSupport {
         Map session = ActionContext.getContext().getSession();
         user = (User) session.get("user");
 
-        Criteria scri = myDao.getDbsession().createCriteria(Show.class);
-        scri.add(Restrictions.eq("user", user));
-        scri.setMaxResults(1);
-        show = (Show) (scri.list()).get(0);
+        
 
         return "success";
     }

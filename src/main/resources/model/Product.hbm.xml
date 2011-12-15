@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Dec 7, 2011 4:20:47 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Dec 15, 2011 4:01:58 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="model.Product" table="product" catalog="simon">
         <id name="productId" type="java.lang.Long">
@@ -15,7 +15,7 @@
             <column name="name" length="50" not-null="true" unique="true" />
         </property>
         <property name="vat" type="double">
-            <column name="vat" precision="0" scale="0" not-null="true" />
+            <column name="vat" precision="22" scale="0" not-null="true" />
         </property>
         <property name="price" type="big_decimal">
             <column name="price" precision="10" not-null="true" />

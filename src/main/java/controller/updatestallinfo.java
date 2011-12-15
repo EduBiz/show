@@ -46,7 +46,7 @@ public class updatestallinfo extends ActionSupport {
             stall.setApprove(approve);
             stall.setCategory(category);
             stall.setDelivarytype(delivarytype);
-            myDao.getDbsession().save(stall);
+            myDao.getDbsession().saveOrUpdate(stall);
             addActionMessage("Stall information Successfully Updated ");
             Criteria stcri = getMyDao().getDbsession().createCriteria(Stall.class);
             stcri.add(Restrictions.eq("user", user));

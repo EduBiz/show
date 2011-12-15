@@ -44,10 +44,10 @@ if(obj==null)
         %>
 
         <h1>welcome Stall Admin &nbsp;&nbsp;<a href="logoutaction.action">Logout</a> &nbsp;&nbsp;<a href="accountinformation.action">Account information</a>  
-            <a href="stallinfo.action">Update Stall information </a>&nbsp;&nbsp;  <a href="uploadstallnav.action">Upload Stall Images </a> &nbsp;&nbsp;<a href="editproductnav.action">Manage Products</a>   </h1>
+             &nbsp;&nbsp;<a href="editproductnav.action">Manage Products</a>   </h1>
 
         <div>
-            Add new Products:
+            <p style="font-size:25px; color:#030;">  Add new Products</p>
             <s:actionerror theme="jquery"/>   
             <s:form action="addproduct" enctype="multipart/form-data" theme="xhtml">
                 <s:textfield name="pname" label="Product Name" />
@@ -73,7 +73,7 @@ if(obj==null)
         <div>
            <div class="box">
             <div>
-                <p style="font-size:25px; color:#030;" align="center">Products</p>
+                <p style="font-size:25px; color:#030;" align="center">Stall and Information</p>
             </div> 
         <div>
             <table class="user" id="results" cellspacing="15" cellpadding="8" >
