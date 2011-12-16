@@ -31,6 +31,7 @@ if(obj==null)
 }
  
         %>
+        <h1><a href="stallhomenav.action">Home</a>&nbsp;&nbsp;<a href="logoutaction.action">Logout</a></h1>
         <div>
             <s:actionerror theme="jquery"/>  
             <s:form action="uploadstallimg"  enctype="multipart/form-data">

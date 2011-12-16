@@ -69,8 +69,8 @@
          
         <action name="useRegistration" class="controller.useRegistration">
             <result name="admin" >welcome_admin.jsp</result>
-            <result name="show" >welcome_show.jsp</result>
-            <result name="stall" >welcome_stall.jsp</result>
+            <result name="show" type="chain">showadminhomenav</result>
+            <result name="stall" type="chain">stallhomenav</result>
             <result name="input" >registration.jsp</result>
             <result name="error" >registration.jsp</result>
         </action>

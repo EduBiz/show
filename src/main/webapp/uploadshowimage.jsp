@@ -31,6 +31,9 @@
     }
      
     %>
+     <div>
+                    <p style="font-size:25px; color:#030;"> <a href="showadminhomenav.action">Home</a> &nbsp; &nbsp;<a href="logoutaction.action">Logout</a></p>
+                </div>
     <div>
         <s:actionmessage theme="jquery"/>
     </div>

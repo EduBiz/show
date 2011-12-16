@@ -37,7 +37,9 @@ if(obj==null)
 }
  
         %>
-      
+        <div>
+                    <p style="font-size:25px; color:#030;"> <a href="showadminhomenav.action">Home</a> &nbsp; &nbsp;<a href="logoutaction.action">Logout</a></p>
+                </div>
           <div>
             <h1>Add New Show Events</h1>
             <s:actionerror theme="jquery"/>  
