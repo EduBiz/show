@@ -36,8 +36,8 @@ public class uploadstallnav extends ActionSupport{
             byte[] retadd1 = pimg.getBanimage();
             byte[] retadd2 = pimg.getLogo();
             
-           slogo =new ByteArrayInputStream(retadd1);
-           simg=new ByteArrayInputStream(retadd2);
+           slogo =new ByteArrayInputStream(retadd2);
+           simg=new ByteArrayInputStream(retadd1);
         } catch (Exception e) {
             e.printStackTrace();
         }

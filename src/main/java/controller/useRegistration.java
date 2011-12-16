@@ -100,7 +100,7 @@ public class useRegistration extends ActionSupport {
             Criteria ucri = getMyDao().getDbsession().createCriteria(Users.class);
             ucri.add(Restrictions.like("user", getUser().getEmailId()));
             ucri.setMaxResults(1);
-            if (user.getUserType().equals(userEnum.Admin.getUserType())) {
+             if (user.getUserType().equals(userEnum.Admin.getUserType())) {
                 Criteria allshow = myDao.getDbsession().createCriteria(Show.class);
                 allshow.setMaxResults(50);
                 showlist = allshow.list();
