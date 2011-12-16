@@ -50,7 +50,7 @@ response.sendRedirect(request.getContextPath()+"/sessionError.action");
         <div>
             <div class="box">
                 <div>
-                    <p style="font-size:25px; color:#030;">Show&nbsp;&nbsp;<s:property value="show.showname" />&nbsp;&nbsp;Stalls&nbsp;&nbsp; <a href="accountinformation.action">Account information</a> </p>
+                    <p style="font-size:25px; color:#030;">Show&nbsp;&nbsp;<s:property value="show.showname" />&nbsp;&nbsp;Stalls&nbsp;&nbsp; <a href="showadminhomenav.action">Home</a> &nbsp; &nbsp;<a href="logoutaction.action">Logout</a></p>
                 </div>
 
 

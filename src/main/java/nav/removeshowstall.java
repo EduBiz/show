@@ -37,6 +37,9 @@ public class removeshowstall extends ActionSupport {
         cri.add(Restrictions.eq("showId", showid));
         cri.setMaxResults(1);
         show=(Show)(cri.list().get(0));
+         Showdisplay shdisp=(Showdisplay)myDao.getDbsession().get(Showdisplay.class, displayid);
+        myDao.getDbsession().delete(shdisp);
+        addActionMessage("One Stall Successfully removed from Display");
         Criteria shdis=myDao.getDbsession().createCriteria(Showdisplay.class);
         shdis.add(Restrictions.eq("show", show));
         shdis.setMaxResults(50);
@@ -46,12 +49,10 @@ public class removeshowstall extends ActionSupport {
         stcr.setMaxResults(50);
         stalllist=stcr.list();
         stl=new ArrayList<String>();
-        for(int i=1;i<stalllist.size();i++){
+        for(int i=0;i<stalllist.size();i++){
         stl.add(stalllist.get(i).getStallname());
         }
-        Showdisplay shdisp=(Showdisplay)myDao.getDbsession().get(Showdisplay.class, displayid);
-        myDao.getDbsession().delete(shdisp);
-        addActionMessage("One Stall Successfully removed from Display");
+       
         return "success";
     
      }

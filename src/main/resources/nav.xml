@@ -126,5 +126,8 @@
         <action name="removeshowstall" class="nav.removeshowstall"  >
             <result name="success" >showstalldisplay.jsp</result>
         </action>
+        <action name="showadminhomenav" class="nav.showadminloadlist"  >
+            <result name="success" >welcome_show.jsp</result>
+        </action>
     </package>
 </struts>

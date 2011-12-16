@@ -59,7 +59,7 @@ public class addshowdisplaystall extends ActionSupport {
         stcr.setMaxResults(50);
         stalllist=stcr.list();
         stl=new ArrayList<String>();
-        for(int i=1;i<stalllist.size();i++){
+        for(int i=0;i<stalllist.size();i++){
         stl.add(stalllist.get(i).getStallname());
         }
         return "success";

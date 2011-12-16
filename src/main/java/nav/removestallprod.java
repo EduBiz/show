@@ -48,7 +48,7 @@ public class removestallprod extends ActionSupport {
         prod1.setMaxResults(50);
         prodlist = prod1.list();
           setPro((List<String>) new ArrayList());
-        for(int i=1;i<prodlist.size();i++){
+        for(int i=0;i<prodlist.size();i++){
             getPro().add(prodlist.get(i).getName());
             
         }

@@ -47,7 +47,7 @@ private List<String> pro;
         System.out.println("Stall display list size:\t\t"+getStalldisp().size());
  
         pro=new ArrayList();
-        for(int i=1;i<prodlist.size();i++){
+        for(int i=0;i<prodlist.size();i++){
         pro.add(prodlist.get(i).getName());
         }
         return "success";
