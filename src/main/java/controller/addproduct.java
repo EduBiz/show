@@ -9,6 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import java.io.File;
 import java.io.FileInputStream;
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import model.*;
@@ -49,6 +50,8 @@ public class addproduct extends ActionSupport {
     private Product product;
     private Productimage pimg;
     private File imag;
+    private File img2;
+    private File img3;
     private List<Product> prodlist;
     private Stall stall;
     private List<Stall> stalllist;
@@ -81,9 +84,9 @@ public class addproduct extends ActionSupport {
 
             Map session = ActionContext.getContext().getSession();
             user = (User) session.get("user");
-
+            Date date=new Date();
             System.out.println("Time\t\t" + getDeltime() + "\t\t");
-            Product pr = new Product(user, pname, vat, price, postage, getDeltime(), sold, qty);
+            Product pr = new Product(user, pname, vat, price, postage, getDeltime(), sold, qty,date);
             pr.setDescription(desc);
             pr.setFflag(0);
             pr.setStatus(userEnum.Active.getUserType());
@@ -96,16 +99,24 @@ public class addproduct extends ActionSupport {
                 product = (Product) prod.list().get(0);
                 System.out.println("Product size is:\t\t" + product.getProductId());
                 byte[] bimg = new byte[(int) imag.length()];
+                byte[] bimg2 = new byte[(int) img2.length()];
+                byte[] bimg3 = new byte[(int) img3.length()];
 
                 FileInputStream flogo = new FileInputStream(imag);
+                FileInputStream fim1 = new FileInputStream(img2);
+                FileInputStream fim2 = new FileInputStream(img3);
                 flogo.read(bimg);
-
+                fim1.read(bimg2);
+                fim2.read(bimg3);
                 pimg = new Productimage(product.getProductId(), product);
                 pimg.setImagefile(bimg);
+                pimg.setImg2(bimg2);
+                pimg.setImg3(bimg3);
                 myDao.getDbsession().save(pimg);
             } else {
             }
-            addActionMessage("New Product \t" + pname + "\tSuccessfully created");
+           
+            addActionMessage("New Product \t" + pname + "\tSuccessfully created\t\t Your Product Id is\t\t"+product.getProductId());
             pname = null;
             vat = 0;
             price = null;
@@ -365,5 +376,33 @@ public class addproduct extends ActionSupport {
      */
     public void setStalllist(List<Stall> stalllist) {
         this.stalllist = stalllist;
+    }
+
+    /**
+     * @return the img2
+     */
+    public File getImg2() {
+        return img2;
+    }
+
+    /**
+     * @param img2 the img2 to set
+     */
+    public void setImg2(File img2) {
+        this.img2 = img2;
+    }
+
+    /**
+     * @return the img3
+     */
+    public File getImg3() {
+        return img3;
+    }
+
+    /**
+     * @param img3 the img3 to set
+     */
+    public void setImg3(File img3) {
+        this.img3 = img3;
     }
 }

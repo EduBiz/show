@@ -10,7 +10,7 @@
   </field>
   <field name="vat">
     <field-validator type="double">
-            <message>Incorrect vat value </message>
+            <message>Incorrect Vat value </message>
     </field-validator>
     <field-validator type="required">
             <message>Please enter Vat Value</message>
@@ -26,10 +26,10 @@
   </field>
   <field name="postage">
     <field-validator type="long">
-            <message>Incorrect Postage value </message>
+            <message>Incorrect Shipping value </message>
     </field-validator>
     <field-validator type="required">
-            <message>Please enter Postage value</message>
+            <message>Please enter Shipping value</message>
     </field-validator>
   </field>
   

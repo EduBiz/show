@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 20, 2011 5:51:56 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="model.UserAddress" table="user_address" catalog="simon">
+        <id name="user" type="string">
+            <column name="user" length="50" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="user_1" class="model.User" update="false" insert="false" fetch="select">
+            <column name="user" length="50" not-null="true" unique="true" />
+        </many-to-one>
+        <property name="addressline1" type="string">
+            <column name="addressline1" length="50" />
+        </property>
+        <property name="addressline2" type="string">
+            <column name="addressline2" length="50" />
+        </property>
+        <property name="city" type="string">
+            <column name="city" length="20" />
+        </property>
+        <property name="country" type="string">
+            <column name="country" length="50" />
+        </property>
+        <property name="postcode" type="string">
+            <column name="postcode" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

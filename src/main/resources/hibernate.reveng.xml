@@ -2,25 +2,27 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="simon"/>
-  <table-filter match-name="showdisplay"/>
-  <table-filter match-name="indexbanner"/>
-  <table-filter match-name="order"/>
-  <table-filter match-name="productimage"/>
-  <table-filter match-name="stallimage"/>
-  <table-filter match-name="showimage"/>
-  <table-filter match-name="showevents"/>
-  <table-filter match-name="product"/>
-  <table-filter match-name="stall_visit"/>
-  <table-filter match-name="stall"/>
-  <table-filter match-name="user"/>
   <table-filter match-name="stalldisplay"/>
   <table-filter match-name="users"/>
-  <table-filter match-name="show_visit"/>
-  <table-filter match-name="customer"/>
-  <table-filter match-name="show"/>
-  <table-filter match-name="payment"/>
+  <table-filter match-name="stallimage"/>
+  <table-filter match-name="user_address"/>
+  <table-filter match-name="deleted_product"/>
   <table-filter match-name="productvariant"/>
-  <table-filter match-name="visitor"/>
+  <table-filter match-name="showdisplay"/>
+  <table-filter match-name="productimage"/>
+  <table-filter match-name="show_visit"/>
+  <table-filter match-name="indexbanner"/>
+  <table-filter match-name="order"/>
+  <table-filter match-name="showevents"/>
+  <table-filter match-name="showimage"/>
   <table-filter match-name="productsrelated"/>
+  <table-filter match-name="stall"/>
+  <table-filter match-name="visitor"/>
+  <table-filter match-name="stall_visit"/>
+  <table-filter match-name="user"/>
+  <table-filter match-name="show"/>
+  <table-filter match-name="customer"/>
   <table-filter match-name="basket"/>
+  <table-filter match-name="payment"/>
+  <table-filter match-name="product"/>
 </hibernate-reverse-engineering>

@@ -32,8 +32,40 @@
             });
 	
         </script>
+     <style type="text/css">
+a:link    {
+  /* Applies to all unvisited links */
+  text-decoration:  none;
+  font-weight:      bold;
+
+  color:#333;
+
+  } 
+a:visited {
+  /* Applies to all visited links */
+  text-decoration:  none;
+  font-weight:      bold;
+
+  color:#333;
+  } 
+a:hover   {
+  /* Applies to links under the pointer */
+  text-decoration:  underline;
+  font-weight:      bold;
+
+  color:#333;
+  } 
+a:active  {
+  /* Applies to activated links */
+  text-decoration:  underline;
+  font-weight:      bold;
+
+  color:#333;
+  } 
+</style>
+
     </head>
-    <body>
+ <body background="images/background.jpg">
         <%
 Object obj = session.getAttribute("user");
    
@@ -44,8 +76,16 @@ if(obj==null)
 }
       
         %>
-
-        <h1>welcome Show Admin &nbsp; &nbsp;<a href="logoutaction.action">Logout</a> &nbsp;&nbsp;<a href="accountinformation.action">Account information</a>  &nbsp;&nbsp;
+<div style=" vertical-align:top; width:1024px; padding-left: 150px; " align="center" >
+           
+ <div align="center" style=" height:600px;  background-color:#f6f6d4;">
+       <div style=" color:#2d2f16;  font-family:Verdana, Geneva, sans-serif;">
+        <s:include value="header.jsp"></s:include> 
+        <div style="float:left; padding-left:30px;">
+       &nbsp;&nbsp;<a href="accountinformation.action">Account information</a>  
+             </div>  <div style="float:right; padding-right:60px;"> <a href="logoutaction.action">Logout</a>  
+             </div></div>
+         <p style="font-size:30px; font-family:Verdana, Geneva, sans-serif;">Welcome Show Admin</p>
           
 
         </h1>
@@ -56,8 +96,9 @@ if(obj==null)
         <div>
         <div>
             <div class="box">
-                <div>
-                    <p style="font-size:25px; color:#030;">Show List for the Member&nbsp;&nbsp;<s:property value="user.userName" />&nbsp;&nbsp; </p>
+                <div style="width:auto; height:60px; background-color:#cdcd5d; border-radius: 15px; ">
+                    <p style="font-size:27px; color:#2d2f16; padding-top:10px; font-family:Verdana, Geneva, sans-serif;" align="center"><strong>Show List for the Member&nbsp; <s:property value="user.userName" />&nbsp;&nbsp;</strong> </p> </div>
+                      
                 </div>
 
 
@@ -78,7 +119,6 @@ if(obj==null)
                             <th>View Upcoming Events</th>   
                             <th>View Stalls</th>   
                             <th>Add Stall Display Position </th>   
-                            
                             
                             <s:iterator  value="showlist" >
 
@@ -127,15 +167,15 @@ if(obj==null)
 
                                 </s:url>
                                  <td> <s:a href="%{viewshowstalls}" onclick="window.open(this.href, 'child', 'scrollbars,width=650,height=600'); return false"><img src="images/street_stall.png" alt="" width="70" height="40" /></s:a> </td>
-                            
-                                   <s:url action="showdisplaymanage.action" var="showdisplaymanage">
+                           
+                                    <s:url action="showdisplaymanage.action" var="showdisplaymanage">
                                         <s:param name="showid" value="%{showId}" />
 
                                 </s:url>
                                  <td> <s:a href="%{showdisplaymanage}">Manage Stall Position</s:a> </td>
                             
-                            
-                            </tr>
+
+ </tr>
 
                         </s:iterator>
                     </table>
@@ -152,7 +192,12 @@ if(obj==null)
             </script>
         </div> 
         </div>
-
+   </div>   
+         </div>
+          </div>
+<div style="padding-left:150px;">
+<s:include value="footer.jsp"></s:include>
+</div> 
 
     </body>
 </html>

@@ -33,8 +33,40 @@
             });
 	
         </script>
+   <style type="text/css">
+a:link    {
+  /* Applies to all unvisited links */
+  text-decoration:  none;
+  font-weight:      bold;
+
+  color:#333;
+
+  } 
+a:visited {
+  /* Applies to all visited links */
+  text-decoration:  none;
+  font-weight:      bold;
+
+  color:#333;
+  } 
+a:hover   {
+  /* Applies to links under the pointer */
+  text-decoration:  underline;
+  font-weight:      bold;
+
+  color:#333;
+  } 
+a:active  {
+  /* Applies to activated links */
+  text-decoration:  underline;
+  font-weight:      bold;
+
+  color:#333;
+  } 
+</style>
+
     </head>
-    <body>
+ <body background="images/background.jpg">
               <%
 Object obj = session.getAttribute("user");
    
@@ -44,15 +76,22 @@ if(obj==null)
    response.sendRedirect(request.getContextPath()+"/sessionError.action");
 }
       
-        %>
-        
-           <div>
+       %>
+                        
+ <div style="width:650px;" align="center" >
+ <div align="center" style=" background-color:#f6f6d4;">
+        <div align="center" style="font-size:24px;  border-top-left-radius: 15px;
+  border-top-right-radius: 15px; background-color:#cdcd5d; height:120px; width:650px;">
+        <div style="float:left;"> <img src="images/m.gif" alt="" width="300px" height="100px" />
+        </div>
+        </div>
+           <div style="height:100%;">
                 <div id="rounded-corner">
             <s:actionmessage theme="jquery"/>
         </div>   
             <div class="box">
                 <div>
-                    <p style="font-size:25px; color:#030;">Stalls and Products </p>
+                    <p style="font-size:30px; font-family:Verdana, Geneva, sans-serif;">Stalls and Products </p>
                 </div>
 
 
@@ -117,6 +156,13 @@ if(obj==null)
                                    onclick="window.close()">
                         </form>
                     </div>
-        
+           </div>   
+         </div>
+   <div style="width:650px; height:70px; border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px; background-color:#cdcd5d;">
+        </div>
+ </div>
+            
+        </div> 
     </body>
 </html>

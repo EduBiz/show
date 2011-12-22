@@ -1,5 +1,5 @@
 package model;
-// Generated Dec 15, 2011 4:01:57 PM by Hibernate Tools 3.2.1.GA
+// Generated Dec 20, 2011 5:51:56 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -20,6 +20,8 @@ public class User  implements java.io.Serializable {
      private String userName;
      private Date date;
      private Set<Users> userses = new HashSet<Users>(0);
+     private Set<UserAddress> userAddresses = new HashSet<UserAddress>(0);
+     private Set<DeletedProduct> deletedProducts = new HashSet<DeletedProduct>(0);
      private Set<Stall> stalls = new HashSet<Stall>(0);
      private Set<Show> shows = new HashSet<Show>(0);
      private Set<Product> products = new HashSet<Product>(0);
@@ -37,7 +39,7 @@ public class User  implements java.io.Serializable {
         this.userName = userName;
         this.date = date;
     }
-    public User(String emailId, String password, long confirmCode, String userType, String status, String userName, Date date, Set<Users> userses, Set<Stall> stalls, Set<Show> shows, Set<Product> products) {
+    public User(String emailId, String password, long confirmCode, String userType, String status, String userName, Date date, Set<Users> userses, Set<UserAddress> userAddresses, Set<DeletedProduct> deletedProducts, Set<Stall> stalls, Set<Show> shows, Set<Product> products) {
        this.emailId = emailId;
        this.password = password;
        this.confirmCode = confirmCode;
@@ -46,6 +48,8 @@ public class User  implements java.io.Serializable {
        this.userName = userName;
        this.date = date;
        this.userses = userses;
+       this.userAddresses = userAddresses;
+       this.deletedProducts = deletedProducts;
        this.stalls = stalls;
        this.shows = shows;
        this.products = products;
@@ -106,6 +110,20 @@ public class User  implements java.io.Serializable {
     
     public void setUserses(Set<Users> userses) {
         this.userses = userses;
+    }
+    public Set<UserAddress> getUserAddresses() {
+        return this.userAddresses;
+    }
+    
+    public void setUserAddresses(Set<UserAddress> userAddresses) {
+        this.userAddresses = userAddresses;
+    }
+    public Set<DeletedProduct> getDeletedProducts() {
+        return this.deletedProducts;
+    }
+    
+    public void setDeletedProducts(Set<DeletedProduct> deletedProducts) {
+        this.deletedProducts = deletedProducts;
     }
     public Set<Stall> getStalls() {
         return this.stalls;

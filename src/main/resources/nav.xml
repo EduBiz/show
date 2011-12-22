@@ -72,7 +72,7 @@
         <action name="removep" class="nav.removestallprod">
             <result name="success" >stallproductmanage.jsp</result>
         </action>
-       <action name="showimg" class="nav.uploadshownav" method="imag">
+        <action name="showimg" class="nav.uploadshownav" method="imag">
             <result name="success" type="stream">
                 <param name="contentType">application/octet-stream</param>
                 <param name="inputName">shimg</param>
@@ -80,7 +80,7 @@
                 <param name="bufferSize">2024</param>
             </result>
         </action>
-       <action name="showlogo" class="nav.uploadshownav" method="imag">
+        <action name="showlogo" class="nav.uploadshownav" method="imag">
             <result name="success" type="stream">
                 <param name="contentType">application/octet-stream</param>
                 <param name="inputName">shlogo</param>
@@ -88,7 +88,7 @@
                 <param name="bufferSize">2024</param>
             </result>
         </action>
-       <action name="showlay" class="nav.uploadshownav" method="imag">
+        <action name="showlay" class="nav.uploadshownav" method="imag">
             <result name="success" type="stream">
                 <param name="contentType">application/octet-stream</param>
                 <param name="inputName">shlay</param>
@@ -128,6 +128,17 @@
         </action>
         <action name="showadminhomenav" class="nav.showadminloadlist"  >
             <result name="success" >welcome_show.jsp</result>
+        </action>
+        <action name="adminhomenav" class="nav.adminhomenav"  >
+            <result name="success" >welcome_admin.jsp</result>
+        </action>
+        <action name="regnav" class="nav.regnav">
+            <result name="admin" type="chain" >adminhomenav</result>
+            <result name="show" type="chain">showadminhomenav</result>
+            <result name="stall" type="chain">stallhomenav</result>
+        </action>
+         <action name="addpronav" class="nav.addpronav"  >
+            <result name="success" >addproduct.jsp</result>
         </action>
     </package>
 </struts>

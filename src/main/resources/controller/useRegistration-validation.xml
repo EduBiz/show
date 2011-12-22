@@ -2,34 +2,54 @@
 
 <validators>
   
-  <field name="fname">
+    <field name="fname">
         <field-validator type="requiredstring">
             <message>Please enter First Name</message>
         </field-validator>
-  </field>
-   <field name="balance">
-    <field-validator type="long">
+    </field>
+  
+    <field name="balance">
+        <field-validator type="long">
             <message>Incorrect Balance value </message>
-    </field-validator>
+        </field-validator>
    
-  </field>
-  <field name="phone">
-    <field-validator type="int">
+    </field>
+    <field name="phone">
+        <field-validator type="int">
             <message>Incorrect Phone No </message>
-    </field-validator>
+        </field-validator>
    
-  </field>
-  <field name="mobile">
-    <field-validator type="int">
+    </field>
+    <field name="mobile">
+        <field-validator type="int">
             <message>Incorrect Mobile No </message>
-    </field-validator>
-   
-  </field>
-  <field name="approve">
-    <field-validator type="approve">
+        </field-validator>
+    </field>
+    <field name="accno">
+        <field-validator type="int">
+            <message>Incorrect Account No </message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">8</param>
+            <param name="maxLength">8</param>
+            <message> Account Number must contain at least ${minLength} characters</message>
+        </field-validator>
+    </field>
+    <field name="bsc">
+        <field-validator type="requiredstring">
+            <message>Please Enter Branch Short Code  </message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">6</param>
+            <param name="maxLength">6</param>
+            <message> Branch Short Code must contain at least ${minLength} characters</message>
+        </field-validator>
+    </field>
+    <field name="approve">
+        <field-validator type="approve">
             <message>Incorrect Approves value </message>
-    </field-validator>
+        </field-validator>
    
-  </field>
+    </field>
 </validators>
 

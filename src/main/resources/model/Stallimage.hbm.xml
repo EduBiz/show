@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Dec 15, 2011 4:01:58 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Dec 20, 2011 5:51:56 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="model.Stallimage" table="stallimage" catalog="simon">
         <id name="stallId" type="long">
@@ -16,6 +16,9 @@
         </property>
         <property name="logo" type="binary">
             <column name="logo" />
+        </property>
+        <property name="img" type="binary">
+            <column name="img" />
         </property>
     </class>
 </hibernate-mapping>

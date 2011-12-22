@@ -9,6 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import java.io.File;
 import java.io.FileInputStream;
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import model.*;
@@ -63,8 +64,11 @@ public class editproduct extends ActionSupport {
     public String deletepro() throws Exception {
         Map session = ActionContext.getContext().getSession();
         user = (User) session.get("user");
-        
+        Date date=new Date();
         product=(Product)myDao.getDbsession().get(Product.class, productId);
+        
+        DeletedProduct delpr=new DeletedProduct(product.getProductId(),user,product.getName(),product.getVat(),product.getPrice(),product.getPostage(),product.getDelivaryTime(),product.getUnitsSold(),product.getQty(),date);
+        myDao.getDbsession().save(delpr);
         
         myDao.getDbsession().delete(product);
         
@@ -73,7 +77,7 @@ public class editproduct extends ActionSupport {
         pro.add(Restrictions.eq("user", user));
         pro.setMaxResults(50);
         prodlist = (List<Product>) pro.list();
-        addActionMessage("One  Product successfully deleted");
+        addActionMessage("Product\t"+product.getName()+"\t successfully deleted");
         return "success";
     }
 

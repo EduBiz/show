@@ -35,7 +35,7 @@ public class forgotmail extends ActionSupport {
             {
             }
             else{
-            addFieldError("forgetemail","sorry Email id Not Available");
+            addFieldError("forgetemail","Sorry No users with that email address");
             }
     }
     

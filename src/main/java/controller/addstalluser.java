@@ -86,6 +86,7 @@ public class addstalluser extends ActionSupport {
     @Override
     public String execute() throws Exception {
         try {
+            
             Map session = ActionContext.getContext().getSession();
             setUser((User) session.get("user"));
             Criteria sho = myDao.getDbsession().createCriteria(Show.class);
@@ -101,7 +102,7 @@ public class addstalluser extends ActionSupport {
             getMyDao().getDbsession().save(tuser);
 
 
-            Stall stall = new Stall(getShow(), tuser, sname);
+            Stall stall = new Stall(getShow(), tuser,date, sname);
             stall.setStatus(userEnum.Active.getUserType());
             myDao.getDbsession().save(stall);
             User user1 = (User) getMyDao().getDbsession().get(User.class, getEmail());

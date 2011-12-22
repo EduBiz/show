@@ -7,7 +7,6 @@ package controller;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import java.math.BigDecimal;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import model.*;
@@ -38,14 +37,13 @@ public class useRegistration extends ActionSupport {
     private String lname;
     private String email;
     private String company;
-    private Date dob;
+    private String mow;
     private String vatreg;
     private String weblink;
     private String duedate;
     private Long phone;
     private Long mobile;
     private Integer approve;
-    private String bankinfo;
     private String note;
     private String info;
     private BigDecimal balance;
@@ -55,7 +53,17 @@ public class useRegistration extends ActionSupport {
     private List<Show> showlist;
     private List<Stall> stalllist;
     private List<Product> prodlist;
-
+    private String vatno;
+    private String bankname;
+    private String bsc;
+    private String accname;
+    private int accno;
+    private String addl1;
+    private String addl2;
+    private String city;
+    private String country;
+    private String postcode;
+    private UserAddress uaddr;
     @Override
     public void validate() {
 
@@ -65,7 +73,7 @@ public class useRegistration extends ActionSupport {
 
         }
 
-
+ 
 
     }
 
@@ -79,10 +87,9 @@ public class useRegistration extends ActionSupport {
             Map session = ActionContext.getContext().getSession();
             setUser((User) session.get("user"));
             setEmail(getUser().getEmailId());
-            Users used = new Users(email, user);
+            Users used = new Users(user.getEmailId(), user);
             used.setFirstname(fname);
             used.setLastname(lname);
-            used.setDateofbirth(dob);
             used.setMobile(mobile);
             used.setPhone(phone);
             used.setApprove(approve);
@@ -90,17 +97,29 @@ public class useRegistration extends ActionSupport {
             used.setCompany(company);
             used.setBalance(balance);
             used.setWebLink(weblink);
-            used.setBankInfo(bankinfo);
             used.setNote(note);
             used.setInfo(info);
             used.setDuedate(duedate);
+            used.setVatno(vatno);
+            used.setMemorableWord(mow);
+            used.setBankname(bankname);
+            used.setBranchCode(bsc);
+            used.setAccholderName(accname);
+            used.setAccountNo(accno);
             getMyDao().getDbsession().saveOrUpdate(used);
 
+            uaddr=new  UserAddress(user.getEmailId(), user);
+            uaddr.setAddressline1(addl1);
+            uaddr.setAddressline2(addl2);
+            uaddr.setCity(city);
+            uaddr.setCountry(country);
+            uaddr.setPostcode(postcode);
+            myDao.getDbsession().saveOrUpdate(uaddr);
             setUselist((List<Users>) getMyDao().getDbsession().createQuery("from Users").list());
             Criteria ucri = getMyDao().getDbsession().createCriteria(Users.class);
             ucri.add(Restrictions.like("user", getUser().getEmailId()));
             ucri.setMaxResults(1);
-             if (user.getUserType().equals(userEnum.Admin.getUserType())) {
+            if (user.getUserType().equals(userEnum.Admin.getUserType())) {
                 Criteria allshow = myDao.getDbsession().createCriteria(Show.class);
                 allshow.setMaxResults(50);
                 showlist = allshow.list();
@@ -203,20 +222,6 @@ public class useRegistration extends ActionSupport {
     }
 
     /**
-     * @return the dob
-     */
-    public Date getDob() {
-        return dob;
-    }
-
-    /**
-     * @param dob the dob to set
-     */
-    public void setDob(Date dob) {
-        this.dob = dob;
-    }
-
-    /**
      * @return the vatreg
      */
     public String getVatreg() {
@@ -298,20 +303,6 @@ public class useRegistration extends ActionSupport {
      */
     public void setApprove(Integer approve) {
         this.approve = approve;
-    }
-
-    /**
-     * @return the bankinfo
-     */
-    public String getBankinfo() {
-        return bankinfo;
-    }
-
-    /**
-     * @param bankinfo the bankinfo to set
-     */
-    public void setBankinfo(String bankinfo) {
-        this.bankinfo = bankinfo;
     }
 
     /**
@@ -421,5 +412,173 @@ public class useRegistration extends ActionSupport {
      */
     public void setProdlist(List<Product> prodlist) {
         this.prodlist = prodlist;
+    }
+
+    /**
+     * @return the mow
+     */
+    public String getMow() {
+        return mow;
+    }
+
+    /**
+     * @param mow the mow to set
+     */
+    public void setMow(String mow) {
+        this.mow = mow;
+    }
+
+    /**
+     * @return the vatno
+     */
+    public String getVatno() {
+        return vatno;
+    }
+
+    /**
+     * @param vatno the vatno to set
+     */
+    public void setVatno(String vatno) {
+        this.vatno = vatno;
+    }
+
+    /**
+     * @return the bankname
+     */
+    public String getBankname() {
+        return bankname;
+    }
+
+    /**
+     * @param bankname the bankname to set
+     */
+    public void setBankname(String bankname) {
+        this.bankname = bankname;
+    }
+
+    /**
+     * @return the bsc
+     */
+    public String getBsc() {
+        return bsc;
+    }
+
+    /**
+     * @param bsc the bsc to set
+     */
+    public void setBsc(String bsc) {
+        this.bsc = bsc;
+    }
+
+    /**
+     * @return the accname
+     */
+    public String getAccname() {
+        return accname;
+    }
+
+    /**
+     * @param accname the accname to set
+     */
+    public void setAccname(String accname) {
+        this.accname = accname;
+    }
+
+    /**
+     * @return the accno
+     */
+    public int getAccno() {
+        return accno;
+    }
+
+    /**
+     * @param accno the accno to set
+     */
+    public void setAccno(int accno) {
+        this.accno = accno;
+    }
+
+    /**
+     * @return the addl1
+     */
+    public String getAddl1() {
+        return addl1;
+    }
+
+    /**
+     * @param addl1 the addl1 to set
+     */
+    public void setAddl1(String addl1) {
+        this.addl1 = addl1;
+    }
+
+    /**
+     * @return the addl2
+     */
+    public String getAddl2() {
+        return addl2;
+    }
+
+    /**
+     * @param addl2 the addl2 to set
+     */
+    public void setAddl2(String addl2) {
+        this.addl2 = addl2;
+    }
+
+    /**
+     * @return the city
+     */
+    public String getCity() {
+        return city;
+    }
+
+    /**
+     * @param city the city to set
+     */
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    /**
+     * @return the country
+     */
+    public String getCountry() {
+        return country;
+    }
+
+    /**
+     * @param country the country to set
+     */
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    /**
+     * @return the postcode
+     */
+    public String getPostcode() {
+        return postcode;
+    }
+
+    /**
+     * @param postcode the postcode to set
+     */
+    public void setPostcode(String postcode) {
+        this.postcode = postcode;
+    }
+
+    /**
+     * @return the uaddr
+     */
+    public UserAddress getUaddr() {
+        return uaddr;
+    }
+
+    /**
+     * @param uaddr the uaddr to set
+     */
+    public void setUaddr(UserAddress uaddr) {
+        this.uaddr = uaddr;
     }
 }

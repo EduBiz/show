@@ -1,5 +1,5 @@
 package model;
-// Generated Dec 15, 2011 4:01:57 PM by Hibernate Tools 3.2.1.GA
+// Generated Dec 20, 2011 5:51:56 PM by Hibernate Tools 3.2.1.GA
 
 
 
@@ -12,6 +12,8 @@ public class Productimage  implements java.io.Serializable {
      private long prodId;
      private Product product;
      private byte[] imagefile;
+     private byte[] img2;
+     private byte[] img3;
 
     public Productimage() {
     }
@@ -21,10 +23,12 @@ public class Productimage  implements java.io.Serializable {
         this.prodId = prodId;
         this.product = product;
     }
-    public Productimage(long prodId, Product product, byte[] imagefile) {
+    public Productimage(long prodId, Product product, byte[] imagefile, byte[] img2, byte[] img3) {
        this.prodId = prodId;
        this.product = product;
        this.imagefile = imagefile;
+       this.img2 = img2;
+       this.img3 = img3;
     }
    
     public long getProdId() {
@@ -47,6 +51,20 @@ public class Productimage  implements java.io.Serializable {
     
     public void setImagefile(byte[] imagefile) {
         this.imagefile = imagefile;
+    }
+    public byte[] getImg2() {
+        return this.img2;
+    }
+    
+    public void setImg2(byte[] img2) {
+        this.img2 = img2;
+    }
+    public byte[] getImg3() {
+        return this.img3;
+    }
+    
+    public void setImg3(byte[] img3) {
+        this.img3 = img3;
     }
 
 

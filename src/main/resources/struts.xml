@@ -56,9 +56,9 @@
         </action>
        
         <action name="addproduct" class="controller.addproduct">
-            <result name="success" >welcome_stall.jsp</result>
-            <result name="input" >welcome_stall.jsp</result>
-            <result name="error" >welcome_stall.jsp</result>
+            <result name="success" >addproduct.jsp</result>
+            <result name="input" >addproduct.jsp</result>
+            <result name="error" >addproduct.jsp</result>
         </action>
         
         <action name="accountinformation" class="controller.accountinformation">

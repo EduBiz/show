@@ -1,5 +1,5 @@
 package model;
-// Generated Dec 15, 2011 4:01:57 PM by Hibernate Tools 3.2.1.GA
+// Generated Dec 20, 2011 5:51:56 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -38,9 +38,10 @@ public class Stall  implements java.io.Serializable {
     }
 
 	
-    public Stall(Show show, User user, String stallname) {
+    public Stall(Show show, User user, Date analytics, String stallname) {
         this.show = show;
         this.user = user;
+        this.analytics = analytics;
         this.stallname = stallname;
     }
     public Stall(Show show, User user, Double ppc1, Double ppc2, Double ppc3, Date analytics, String stallname, String description, String category, Integer approve, String delivarytype, String note, Integer fflag1, Integer fflag2, Integer fflag3, String status, Set<Stallimage> stallimages, Set<Stalldisplay> stalldisplaies, Set<Showdisplay> showdisplaies, Set<Visitor> visitors) {

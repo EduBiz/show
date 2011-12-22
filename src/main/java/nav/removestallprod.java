@@ -60,7 +60,7 @@ public class removestallprod extends ActionSupport {
         stdis.add(Restrictions.eq("stall", stall));
         stdis.setMaxResults(50);
         setStalldisp((List<Stalldisplay>) stdis.list());
-         addActionMessage(" Product\t\t"+getPname()+"\t\tSuccesfully Removed");
+         addActionMessage(" Product\t\t"+getPname()+"\t\tSuccesfully Removed from\t"+stall.getStallname()+" \t Sales Outlet");
 
         return "success";
     }

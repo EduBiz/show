@@ -9,6 +9,7 @@
 <html>
      <%@taglib uri="/struts-tags" prefix="s"%>
     <head>
+        <title>Account Recovery</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <link rel="stylesheet" type="text/css" href="style.css" />
 <script type="text/javascript" src="jquery.min.js"></script>
@@ -48,16 +49,59 @@ ddaccordion.init({
 <script language="javascript" type="text/javascript" src="niceforms.js"></script>
 <link rel="stylesheet" type="text/css" media="all" href="niceforms-default.css" />
 
-</head>
-<body>
-    
-<div id="main_container">
+<style type="text/css">
+a:link    {
+  /* Applies to all unvisited links */
+  text-decoration:  none;
+  font-weight:      bold;
+
+  color:#333;
+
+  } 
+a:visited {
+  /* Applies to all visited links */
+  text-decoration:  none;
+  font-weight:      bold;
+
+  color:#333;
+  } 
+a:hover   {
+  /* Applies to links under the pointer */
+  text-decoration:  underline;
+  font-weight:      bold;
+
+  color:#333;
+  } 
+a:active  {
+  /* Applies to activated links */
+  text-decoration:  underline;
+  font-weight:      bold;
+
+  color:#333;
+  } 
+</style>
+
+    </head>
+ <body background="images/background.jpg">
+   <div style=" vertical-align:top; width:1024px; padding-left: 150px; " align="center" >
+           
+ <div align="center" style=" height:600px;  background-color:#f6f6d4;">
+       <div style=" color:#2d2f16;  font-family:Verdana, Geneva, sans-serif;">
+        <s:include value="header.jsp"></s:include> 
+
+       <div style="font-size:18px; height:75px; ">
+                    <div style="float:left; padding-left:30px;">
+                        &nbsp;&nbsp;<a href="loginnav.action">Home</a> 
+                    </div> </div>
+               
 
      
-         <div class="login_form">
-         <s:actionmessage />
+         <div style="padding-top:150px;" >
+  <div align="center" style="font-family:Verdana, Geneva, sans-serif; font-size:18px; ">
+     <p style="font-size:30px; font-family:Verdana, Geneva, sans-serif; color:#030;">Forgot Password</p></div>
+         <s:actionmessage theme="jquery" />
           
-         <h3><a href="loginnav.action"><img src="images/logo.png" alt="" title="" border="0" /></a></h3>
+        
          
         
         <s:actionerror/>  
@@ -69,32 +113,14 @@ ddaccordion.init({
         </s:form>
          </fieldset>
          </div>  
-          
+     
 	
-    
-   
-
-</div>		
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+</div>
+               </div>
+          </div>
+<div style="padding-left:150px;">
+<s:include value="footer.jsp"></s:include>
+</div>
         
        
  

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 20, 2011 5:51:56 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="model.DeletedProduct" table="deleted_product" catalog="simon">
+        <id name="productId" type="long">
+            <column name="product_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="user" class="model.User" fetch="select">
+            <column name="owner" length="50" not-null="true" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="name" length="50" not-null="true" />
+        </property>
+        <property name="vat" type="double">
+            <column name="vat" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="price" type="big_decimal">
+            <column name="price" precision="10" not-null="true" />
+        </property>
+        <property name="postage" type="big_decimal">
+            <column name="postage" precision="10" not-null="true" />
+        </property>
+        <property name="delivaryTime" type="string">
+            <column name="delivary_time" length="50" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="500" />
+        </property>
+        <property name="unitsSold" type="long">
+            <column name="units_sold" not-null="true" />
+        </property>
+        <property name="qty" type="long">
+            <column name="Qty" not-null="true" />
+        </property>
+        <property name="fflag" type="java.lang.Integer">
+            <column name="FFlag" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="10" />
+        </property>
+        <property name="date" type="timestamp">
+            <column name="date" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

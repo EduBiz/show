@@ -13,7 +13,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-        <title>Stall Products Manage</title>
+        <title>Sales Outlet Products Manage</title>
         <s:head theme="jquery"/>  
         <sj:head jqueryui="true"/> 
         <sx:head />
@@ -33,8 +33,40 @@
             });
 	
         </script>
+        <style type="text/css">
+a:link    {
+  /* Applies to all unvisited links */
+  text-decoration:  none;
+  font-weight:      bold;
+
+  color:#333;
+
+  } 
+a:visited {
+  /* Applies to all visited links */
+  text-decoration:  none;
+  font-weight:      bold;
+
+  color:#333;
+  } 
+a:hover   {
+  /* Applies to links under the pointer */
+  text-decoration:  underline;
+  font-weight:      bold;
+
+  color:#333;
+  } 
+a:active  {
+  /* Applies to activated links */
+  text-decoration:  underline;
+  font-weight:      bold;
+
+  color:#333;
+  } 
+</style>
+
     </head>
-    <body>
+ <body background="images/background.jpg">
         <%
 Object obj= session.getAttribute("user");
 
@@ -44,25 +76,33 @@ response.sendRedirect(request.getContextPath()+"/sessionError.action");
 }
 
         %>
-        <h1><a href="stallhomenav.action">Home</a>&nbsp;&nbsp;<a href="logoutaction.action">Logout</a></h1>
+      
+        
+            <div style=" vertical-align:top; width:1024px; padding-left: 150px; " align="center" >
+           
+ <div align="center" style=" height:900px; background-color:#f6f6d4;">
+       
+        <s:include value="header.jsp"></s:include>
+        
+        <h1 style="float:left; padding-left:10px;"><a href="stallhomenav.action">Home</a></h1><h1 style="float:right; padding-right:10px;"><a href="logoutaction.action">Logout</a></h1>
         <s:actionmessage theme="jquery"/>
         <!-- Stall Display content -->
         <div>
             <div class="box">
-                <div>
-                    <p style="font-size:25px; color:#030;">Stall&nbsp;&nbsp;<s:property value="stall.stallname" />&nbsp;&nbsp; Products</p>
-                </div>
+                <div style="font-family:Verdana, Geneva, sans-serif; font-size:18px; color:#030;"><strong>
+                    <p style="font-size:25px; color:#030;">Sales Outlet&nbsp;&nbsp;<s:property value="stall.stallname" />&nbsp;&nbsp; Products</p>
+                </strong></div>
 
 
 
 
-                <div>
+                <div style="font-family:Verdana, Geneva, sans-serif; color:#030;">
                     <table class="user" id="results" cellspacing="15" cellpadding="8" >
                         <tr>
                             
                             <th>Product Name</th>
                             
-                            <th>Stall Name</th>
+                            <th>Sales Outlet Name</th>
                             <th>Product Image</th>
                             <th>Status</th>
                             
@@ -102,7 +142,8 @@ response.sendRedirect(request.getContextPath()+"/sessionError.action");
             </script>
         </div> 
 
-
+<div style="width:auto; height:60px; background-color:#cdcd5d; border-radius: 15px; ">
+                <p style="font-size:27px; color:#2d2f16; padding-top:10px; font-family:Verdana, Geneva, sans-serif;" align="center"><strong>Add Sales Outlet Display Products</strong></p></div>
         <div id="content" class="container">
            <script type="text/javascript" src="scripts/jquery-1.6.1.min.js"></script>
             <script type="text/javascript" src="scripts/jquery.imgareaselect.pack.js"></script>
@@ -136,29 +177,16 @@ response.sendRedirect(request.getContextPath()+"/sessionError.action");
             </script>
 
 
-            <div class="container demo">
-                <div style="float: left; width: 50%;">
-                    <p class="instructions">
+            <div class="container demo" style="font-family:Verdana, Geneva, sans-serif;  color:#030;">
+                <div style="float: left; width:310px;;">
+                   <strong> <p class="instructions" style=" font-size:15px;">
                         Click and drag on the image to select an area. 
-                    </p>
+                    </p></strong>
 
-                    <div class="frame" style="margin: 0 0.3em; width: 300px; height: 300px;"><span class="frame" style="margin: 0 0.3em; width: 300px; height: 300px;"><span class="frame" style="margin: 0 0.3em; width: 300px; height: 300px;"><span class="frame" style="margin: 0 0.3em; width: 300px; height: 300px;">  <img id="photo" src="stallimg.action?id=<s:property value="%{stallid}" />" /></span></span></span></div>
+                    <div class="frame" style="margin: 0 0.3em; width: 300px; height: 300px;"><span class="frame" style="margin: 0 0.3em; width: 300px; height: 300px;">  <img id="photo" src="stallimg.action?id=<s:property value="%{stallid}" />" height="300px" width="300px"  /></span></div>
                 </div>
 
-                <div style="float: left; width: 50%;">
-                    <p style="font-size: 110%; font-weight: bold; padding-left: 0.1em;">
-                        Selection Preview
-                    </p>
-
-                    <div class="frame" 
-                         style="margin: 0 1em; width: 100px; height: 100px;">
-                        <div id="preview" style="width: 100px; height: 100px; overflow: hidden;">
-                            <img src="stallimg.action?id=<s:property value="%{stallid}" />" style="width: 100px; height: 100px;" />
-                        </div>
-                    </div>
-
-                   
-                </div>
+                
             </div>
 
         </div>
@@ -167,9 +195,9 @@ response.sendRedirect(request.getContextPath()+"/sessionError.action");
 
 
 
-            <div style="float:left" >
+            <div style="float:left; width:430px; Verdana, Geneva, sans-serif; color:#030;">
                 <div>
-                    <p style="font-size:25px; color:#030;" align="center">ADD Stall Display Products</p>
+                    
                 </div>
                 <s:actionerror theme="jquery"/> 
                 <s:form action="addstalldisp" theme="xhtml" id="myform">
@@ -177,7 +205,7 @@ response.sendRedirect(request.getContextPath()+"/sessionError.action");
                     <s:hidden name="stallid" value="%{stall.stallId}"/>
 
 
-                    <sx:autocompleter size="1" label="Please Select Product " 
+                    <sx:autocompleter size="1" label="Product " 
 
                                       list="pro" name="pname"/>
                     <s:textfield id="x1" name="x1" label="Display position X1"  />
@@ -190,12 +218,30 @@ response.sendRedirect(request.getContextPath()+"/sessionError.action");
             </div>  
 
 
+<div style="float: left; width:250px;font-family:Verdana, Geneva, sans-serif; color:#030;" align="center">
+ 
+
+                    <div class="frame" 
+                         style="margin: 0 1em; width: 100px; height: 100px;  " align="center">
+                         <strong><p style="font-size:15px;  padding-left:30px;">Selection Preview
+</p></strong>
+                      <div id="preview" style="width: 100px; height: 100px; overflow: hidden; padding-left:30px;" align="center">
+                       
+                            <img src="stallimg.action?id=<s:property value="%{stallid}" />" style="width: 100px; height: 100px;" />
+                        </div>
+                    </div>
+
+                
+                </div>
 
 
-
+    </div>
+         
+ </div>
+        
         </div>
-
-
-
+<div style="padding-left:150px;">
+<s:include value="footer.jsp"></s:include>
+</div>
     </body>
 </html>

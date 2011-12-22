@@ -33,8 +33,40 @@
             });
 	
         </script>
+    <style type="text/css">
+a:link    {
+  /* Applies to all unvisited links */
+  text-decoration:  none;
+  font-weight:      bold;
+
+  color:#333;
+
+  } 
+a:visited {
+  /* Applies to all visited links */
+  text-decoration:  none;
+  font-weight:      bold;
+
+  color:#333;
+  } 
+a:hover   {
+  /* Applies to links under the pointer */
+  text-decoration:  underline;
+  font-weight:      bold;
+
+  color:#333;
+  } 
+a:active  {
+  /* Applies to activated links */
+  text-decoration:  underline;
+  font-weight:      bold;
+
+  color:#333;
+  } 
+</style>
+
     </head>
-    <body>
+    <body background="images/background.jpg">
         <%
 Object obj= session.getAttribute("user");
 
@@ -44,19 +76,28 @@ response.sendRedirect(request.getContextPath()+"/sessionError.action");
 }
 
         %>
+        <div style=" vertical-align:top;  height:900px; width:1024px; padding-left: 150px; " align="center" >
+           
+ <div align="center" style=" height:900px; background-color:#f6f6d4;">
+       <div style=" color:#2d2f16;  font-family:Verdana, Geneva, sans-serif;">
         
+        <s:include value="header.jsp"></s:include>
         <s:actionmessage theme="jquery"/>
         <!-- Stall Display content -->
         <div>
             <div class="box">
-                <div>
-                    <p style="font-size:25px; color:#030;">Show&nbsp;&nbsp;<s:property value="show.showname" />&nbsp;&nbsp;Stalls&nbsp;&nbsp; <a href="showadminhomenav.action">Home</a> &nbsp; &nbsp;<a href="logoutaction.action">Logout</a></p>
+             <div style="float:left; padding-left:30px;">
+       &nbsp;&nbsp;<a href="accountinformation.action">Account information</a>  
+             </div>
+       
+                <div style="padding-right:100px;">
+                   <p style="font-size:30px; font-family:Verdana, Geneva, sans-serif; color:#030;">Show<s:property value="show.showname" />&nbsp;&nbsp;Stalls&nbsp;&nbsp;</p>
                 </div>
 
 
 
 
-                <div>
+                <div >
                     <table class="user" id="results" cellspacing="15" cellpadding="8" >
                         <tr>
                             
@@ -134,42 +175,19 @@ response.sendRedirect(request.getContextPath()+"/sessionError.action");
                 });
             </script>
 
-
+<div style="width:auto; height:60px; background-color:#cdcd5d; border-radius: 15px; -webkit-border-radius: 15px; ">
+                <p style="font-size:27px; color:#2d2f16; padding-top:10px; font-family:Verdana, Geneva, sans-serif;" align="center"><strong>ADD Stall Display Position</strong></p>
+                </div>
             <div class="container demo">
-                <div style="float: left; width: 50%;">
+                <div style="float: left; width:400px;">
                     <p class="instructions">
                         Click and drag on the image to select an area. 
                     </p>
 
-                    <div class="frame" style="margin: 0 0.3em; width: 300px; height: 300px;"><span class="frame" style="margin: 0 0.3em; width: 300px; height: 300px;"><span class="frame" style="margin: 0 0.3em; width: 300px; height: 300px;"><span class="frame" style="margin: 0 0.3em; width: 300px; height: 300px;">  <img id="photo" src="showlay.action?id=<s:property value="%{showid}" />" /></span></span></span></div>
+                    <div class="frame" style="margin: 0 0.3em; width: 300px; height: 300px;"><span class="frame" style="margin: 0 0.3em; width: 300px; height: 300px;"><span class="frame" style="margin: 0 0.3em; width: 300px; height: 300px;"><span class="frame" style="margin: 0 0.3em; width: 300px; height: 300px;">  <img id="photo" src="showlay.action?id=<s:property value="%{showid}" />" width="300px" height="300px"  /></span></span></span></div>
                 </div>
-
-                <div style="float: left; width: 50%;">
-                    <p style="font-size: 110%; font-weight: bold; padding-left: 0.1em;">
-                        Selection Preview
-                    </p>
-
-                    <div class="frame" 
-                         style="margin: 0 1em; width: 100px; height: 100px;">
-                        <div id="preview" style="width: 100px; height: 100px; overflow: hidden;">
-                            <img src="showlay.action?id=<s:property value="%{showid}" />" style="width: 100px; height: 100px;" />
-                        </div>
-                    </div>
-
-                   
-                </div>
-            </div>
-
-        </div>
-
-        <div>
-
-
-
-            <div style="float:left" >
-                <div>
-                    <p style="font-size:25px; color:#030;" align="center">ADD Stall Display Position </p>
-                </div>
+<div style="float:left; width:400px;" >
+               
                 <s:actionerror theme="jquery"/> 
                 <s:form action="addshowdisplaystall" theme="xhtml" id="myform">
                     <h1></h1>
@@ -186,15 +204,36 @@ response.sendRedirect(request.getContextPath()+"/sessionError.action");
                     <sj:submit value="Add Stall Display"  />
                 </s:form>
 
-            </div>  
+            </div>
+                <div style="float: left; width:200px;">
+                    <p style="font-size: 110%; font-weight: bold; padding-left: 0.1em;">
+                        Selection Preview
+                    </p>
 
+                    <div class="frame" 
+                         style="margin: 0 1em; width: 100px; height:100px;">
+                        <div id="preview" style="width: 100px; height:100px; overflow: hidden;">
+                            <img src="showlay.action?id=<s:property value="%{showid}" />" style="width: 100px; height: 100px;" />
+                        </div>
+                    </div>
 
-
-
+                   
+                </div>
+            </div>
 
         </div>
 
 
+        </div>
 
+</div>
+              </div>
+            
+        </div>
+
+</div>
+<div style="padding-left:150px;">
+<s:include value="footer.jsp"></s:include>
+</div>
     </body>
 </html>

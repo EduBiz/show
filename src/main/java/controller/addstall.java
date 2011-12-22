@@ -73,6 +73,7 @@ public class addstall extends ActionSupport {
     @Override
     public String execute() throws Exception {
         try {
+            Date date=new Date();
             Map session = ActionContext.getContext().getSession();
             setUser((User) session.get("user"));
             System.out.println("Show id is :\t\t"+showid);
@@ -88,7 +89,7 @@ public class addstall extends ActionSupport {
             ucri.setMaxResults(1);
             suser = (User) (ucri.list().get(0));
             System.out.println("size\t\t"+suser.getEmailId());
-            Stall stall = new Stall(show, suser, sname);
+            Stall stall = new Stall(show, suser,date, sname);
             stall.setStatus(userEnum.Active.getUserType());
             myDao.getDbsession().save(stall);
             setSubject("Welcome to Zorrit.com");

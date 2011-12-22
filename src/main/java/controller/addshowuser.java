@@ -90,7 +90,7 @@ public class addshowuser extends ActionSupport {
             User tuser = new User(getEmail(), PassPhrase.pass(), getConfcode(), getCatgry(), userEnum.NotRegistered.getUserType(), getUname(), date);
             tuser.setUserName(getUname());
             getMyDao().getDbsession().save(tuser);
-            Show sh = new Show(tuser, getSname());
+            Show sh = new Show(tuser,date, getSname());
             sh.setStatus(userEnum.Active.getUserType());
             getMyDao().getDbsession().save(sh);
 

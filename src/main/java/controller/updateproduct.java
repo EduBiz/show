@@ -9,6 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import java.io.File;
 import java.io.FileInputStream;
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import model.*;
@@ -51,11 +52,14 @@ public class updateproduct extends ActionSupport {
     private Productimage pimg;
     private File imag;
     private List<Product> prodlist;
-     private Stall stall;
+    private Stall stall;
+    private File img2;
+    private File img3;
+
     @Override
     public void validate() {
 
-        
+
         if (getDeltime().equals("Please select")) {
             addFieldError("deltime", "Please Select Delivary Time");
 
@@ -71,40 +75,50 @@ public class updateproduct extends ActionSupport {
 
 
             Map session = ActionContext.getContext().getSession();
-           user = (User) session.get("user");
-           
+            setUser((User) session.get("user"));
+            Date date=new Date();
             System.out.println("Time\t\t" + getDeltime() + "\t\t");
-            product = (Product) myDao.getDbsession().get(Product.class, getProductid());
-            product.setUser(user);
-            product.setName(pname);
-            product.setDelivaryTime(deltime);
-            product.setDescription(desc);
-            product.setQty(qty);
-            product.setVat(vat);
-            product.setPrice(price);
-            product.setPostage(postage);
-            product.setUnitsSold(sold);
-            product.setStatus(userEnum.Active.getUserType());
-            myDao.getDbsession().update(product);
+            setProduct((Product) getMyDao().getDbsession().get(Product.class, getProductid()));
+            getProduct().setUser(getUser());
+            getProduct().setName(getPname());
+            getProduct().setDelivaryTime(getDeltime());
+            getProduct().setDescription(getDesc());
+            getProduct().setQty(getQty());
+            getProduct().setVat(getVat());
+            getProduct().setPrice(getPrice());
+            getProduct().setPostage(getPostage());
+            getProduct().setUnitsSold(getSold());
+            getProduct().setStatus(userEnum.Active.getUserType());
+            getProduct().setDate(date);
+            getMyDao().getDbsession().update(getProduct());
 
-            if (imag != null) {
-               
-               
-                byte[] bimg = new byte[(int) imag.length()];
+            if (getImag() != null) {
 
-                FileInputStream flogo = new FileInputStream(imag);
+
+                byte[] bimg = new byte[(int) getImag().length()];
+                  byte[] bimg2 = new byte[(int) getImg2().length()];
+                byte[] bimg3 = new byte[(int) getImg3().length()];
+
+                FileInputStream flogo = new FileInputStream(getImag());
+                 FileInputStream fim1 = new FileInputStream(getImg2());
+                FileInputStream fim2 = new FileInputStream(getImg3());
                 flogo.read(bimg);
-                pimg=(Productimage)myDao.getDbsession().get(Productimage.class,productid); 
+                fim1.read(bimg2);
+                fim2.read(bimg3);
                
-                pimg.setImagefile(bimg);
-                myDao.getDbsession().update(pimg);
+                setPimg(new Productimage(getProductid(), getProduct()));
+
+                getPimg().setImagefile(bimg);
+                 getPimg().setImg2(bimg2);
+                getPimg().setImg3(bimg3);
+                getMyDao().getDbsession().saveOrUpdate(getPimg());
             } else {
             }
-             Criteria pro = myDao.getDbsession().createCriteria(Product.class);
-        pro.add(Restrictions.eq("user", user));
-        pro.setMaxResults(50);
-        prodlist = (List<Product>) pro.list();
-            addActionMessage(" Product \t" + pname + "\tSuccessfully Updated");
+            Criteria pro = getMyDao().getDbsession().createCriteria(Product.class);
+            pro.add(Restrictions.eq("user", getUser()));
+            pro.setMaxResults(50);
+            setProdlist((List<Product>) pro.list());
+            addActionMessage("Product \t"+ getPname() +"\tSuccessfully Updated");
 
             return "success";
         } catch (Exception e) {
@@ -112,6 +126,20 @@ public class updateproduct extends ActionSupport {
             e.printStackTrace();
             return "error";
         }
+    }
+
+    /**
+     * @return the productid
+     */
+    public long getProductid() {
+        return productid;
+    }
+
+    /**
+     * @param productid the productid to set
+     */
+    public void setProductid(long productid) {
+        this.productid = productid;
     }
 
     /**
@@ -168,6 +196,20 @@ public class updateproduct extends ActionSupport {
      */
     public void setPostage(BigDecimal postage) {
         this.postage = postage;
+    }
+
+    /**
+     * @return the deltime
+     */
+    public String getDeltime() {
+        return deltime;
+    }
+
+    /**
+     * @param deltime the deltime to set
+     */
+    public void setDeltime(String deltime) {
+        this.deltime = deltime;
     }
 
     /**
@@ -255,20 +297,6 @@ public class updateproduct extends ActionSupport {
     }
 
     /**
-     * @return the deltime
-     */
-    public String getDeltime() {
-        return deltime;
-    }
-
-    /**
-     * @param deltime the deltime to set
-     */
-    public void setDeltime(String deltime) {
-        this.deltime = deltime;
-    }
-
-    /**
      * @return the product
      */
     public Product getProduct() {
@@ -311,20 +339,6 @@ public class updateproduct extends ActionSupport {
     }
 
     /**
-     * @return the productid
-     */
-    public long getProductid() {
-        return productid;
-    }
-
-    /**
-     * @param productid the productid to set
-     */
-    public void setProductid(long productid) {
-        this.productid = productid;
-    }
-
-    /**
      * @return the prodlist
      */
     public List<Product> getProdlist() {
@@ -351,4 +365,34 @@ public class updateproduct extends ActionSupport {
     public void setStall(Stall stall) {
         this.stall = stall;
     }
+
+    /**
+     * @return the img2
+     */
+    public File getImg2() {
+        return img2;
+    }
+
+    /**
+     * @param img2 the img2 to set
+     */
+    public void setImg2(File img2) {
+        this.img2 = img2;
+    }
+
+    /**
+     * @return the img3
+     */
+    public File getImg3() {
+        return img3;
+    }
+
+    /**
+     * @param img3 the img3 to set
+     */
+    public void setImg3(File img3) {
+        this.img3 = img3;
+    }
+
+  
 }

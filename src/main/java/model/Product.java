@@ -1,8 +1,9 @@
 package model;
-// Generated Dec 15, 2011 4:01:57 PM by Hibernate Tools 3.2.1.GA
+// Generated Dec 20, 2011 5:51:56 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -24,6 +25,7 @@ public class Product  implements java.io.Serializable {
      private long qty;
      private Integer fflag;
      private String status;
+     private Date date;
      private Set<Order> orders = new HashSet<Order>(0);
      private Set<Product> productsForRelatedId = new HashSet<Product>(0);
      private Set<Productvariant> productvariants = new HashSet<Productvariant>(0);
@@ -35,7 +37,7 @@ public class Product  implements java.io.Serializable {
     }
 
 	
-    public Product(User user, String name, double vat, BigDecimal price, BigDecimal postage, String delivaryTime, long unitsSold, long qty) {
+    public Product(User user, String name, double vat, BigDecimal price, BigDecimal postage, String delivaryTime, long unitsSold, long qty, Date date) {
         this.user = user;
         this.name = name;
         this.vat = vat;
@@ -44,8 +46,9 @@ public class Product  implements java.io.Serializable {
         this.delivaryTime = delivaryTime;
         this.unitsSold = unitsSold;
         this.qty = qty;
+        this.date = date;
     }
-    public Product(User user, String name, double vat, BigDecimal price, BigDecimal postage, String delivaryTime, String description, long unitsSold, long qty, Integer fflag, String status, Set<Order> orders, Set<Product> productsForRelatedId, Set<Productvariant> productvariants, Set<Productimage> productimages, Set<Product> productsForProductId, Set<Stalldisplay> stalldisplaies) {
+    public Product(User user, String name, double vat, BigDecimal price, BigDecimal postage, String delivaryTime, String description, long unitsSold, long qty, Integer fflag, String status, Date date, Set<Order> orders, Set<Product> productsForRelatedId, Set<Productvariant> productvariants, Set<Productimage> productimages, Set<Product> productsForProductId, Set<Stalldisplay> stalldisplaies) {
        this.user = user;
        this.name = name;
        this.vat = vat;
@@ -57,6 +60,7 @@ public class Product  implements java.io.Serializable {
        this.qty = qty;
        this.fflag = fflag;
        this.status = status;
+       this.date = date;
        this.orders = orders;
        this.productsForRelatedId = productsForRelatedId;
        this.productvariants = productvariants;
@@ -148,6 +152,13 @@ public class Product  implements java.io.Serializable {
     
     public void setStatus(String status) {
         this.status = status;
+    }
+    public Date getDate() {
+        return this.date;
+    }
+    
+    public void setDate(Date date) {
+        this.date = date;
     }
     public Set<Order> getOrders() {
         return this.orders;

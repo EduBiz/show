@@ -20,7 +20,7 @@
         <s:head theme="jquery"/>  
         <sj:head jqueryui="true" jquerytheme="flick"/> 
     </head>
-    <body>
+   <body background="images/background.jpg">
         <%
 Object obj = session.getAttribute("user");
 
@@ -31,12 +31,18 @@ if(obj==null)
 }
  
         %>
-        <h1><a href="stallhomenav.action">Home</a>&nbsp;&nbsp;<a href="logoutaction.action">Logout</a></h1>
+       <div style=" vertical-align:top; width:1024px; padding-left: 150px; " align="center" >
+ <div align="center" style=" height:600px; background-color:#f6f6d4;">
+        <s:include value="header.jsp"></s:include>
+        
+        <div style="color:#2d2f16; height: 375px; font-family:Verdana, Geneva, sans-serif; font-size:15px; padding-top:50px;"><strong>
         <div>
+        <img src="images/uploadimages.gif" height="150px" width="250px;"/>
+        </div>
             <s:actionerror theme="jquery"/>  
             <s:form action="uploadstallimg"  enctype="multipart/form-data">
                 <s:hidden name="stallid" value="%{stallid}"/>
-                <h3>Select Images For Stall:</h3>
+                 <div><p style="color:#2d2f16; height: 70px; font-family:Verdana, Geneva, sans-serif; font-size:21px;"> <strong>Select Images For Stall:</strong></div>
                 <s:file name="logo" label="Select Stall Logo"></s:file>
                 <s:file name="ban" label="Select Stall Banner Image"></s:file>
 
@@ -44,9 +50,14 @@ if(obj==null)
 
             </s:form>
             <s:actionmessage/>
-            <div>
-                
-            </div>
+            </strong>
         </div>
+           
+ </div>
+            
+        </div>
+        <div style="padding-left:150px;">
+<s:include value="footer.jsp"></s:include>
+</div> 
     </body>
 </html>

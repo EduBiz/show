@@ -27,8 +27,40 @@
             });
 	
         </script>
+     <style type="text/css">
+a:link    {
+  /* Applies to all unvisited links */
+  text-decoration:  none;
+  font-weight:      bold;
+
+  color:#333;
+
+  } 
+a:visited {
+  /* Applies to all visited links */
+  text-decoration:  none;
+  font-weight:      bold;
+
+  color:#333;
+  } 
+a:hover   {
+  /* Applies to links under the pointer */
+  text-decoration:  underline;
+  font-weight:      bold;
+
+  color:#333;
+  } 
+a:active  {
+  /* Applies to activated links */
+  text-decoration:  underline;
+  font-weight:      bold;
+
+  color:#333;
+  } 
+</style>
+
     </head>
-    <body>
+ <body background="images/background.jpg">
         <%
 Object obj= session.getAttribute("user");
 Object obj1=session.getAttribute("Show");
@@ -41,14 +73,19 @@ else if(obj1==null)
 response.sendRedirect(request.getContextPath()+"/showerror.action");
 }
         %>
-        <h1><a href="logoutaction.action">Logout</a></h1>
+         <div style=" vertical-align:top; width:1024px; padding-left: 150px; " align="center" >
+           
+ <div align="center" style=" height:600px;  background-color:#f6f6d4;">
+       <div style=" color:#2d2f16;  font-family:Verdana, Geneva, sans-serif;">
+        <s:include value="header.jsp"></s:include> 
+<h1 style="float:right; padding-right:10px;"><a href="logoutaction.action">Logout</a></h1>
         <div class="box">
-            <div>
-                <p style="font-size:25px; color:#030;" align="center">Products</p>
+            <div style="padding-top:100px;">
+<p style="font-size:30px; font-family:Verdana, Geneva, sans-serif;">Products</p>
             </div>
 
             <s:actionmessage/><s:actionerror/>
-            <form action="searchproduct.action"> <div><input type="text" value="Search" name="search" size="20" onblur="if(this.value == '') { this.value = 'Search'; }" onfocus="if(this.value == 'Search') { this.value = ''; }" /><input type="submit" value="Go"/>
+            <form action="searchproduct.action"> <div><input type="text" value="Search" name="search" size="20" onBlur="if(this.value == '') { this.value = 'Search'; }" onFocus="if(this.value == 'Search') { this.value = ''; }" /><input type="submit" value="Go"/>
                 </div></form>     
 
             <div>
@@ -126,7 +163,12 @@ response.sendRedirect(request.getContextPath()+"/showerror.action");
         </script>
             </div>
 
-
+  </div>   
+         </div>
+          </div>
+<div style="padding-left:150px;">
+<s:include value="footer.jsp"></s:include>
+</div> 
 
     </body>
 </html>

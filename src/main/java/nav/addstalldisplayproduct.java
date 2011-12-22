@@ -59,7 +59,7 @@ public class addstalldisplayproduct extends ActionSupport {
         stall = (Stall) (st.list().get(0));
         dispstall = new Stalldisplay(stall, prod, x1, x2, y1, y2);
         myDao.getDbsession().save(dispstall);
-        addActionMessage(" Product\t\t" + pname + "\t\t Successfully Added to Stall Display");
+        addActionMessage(" Product\t\t" + pname + "\t\t Successfully Added to\t"+stall.getStallname()+ "\tSales Outlet Display");
         Criteria prod1 = myDao.getDbsession().createCriteria(Product.class);
         prod1.add(Restrictions.eq("user", user));
         prod1.setMaxResults(50);

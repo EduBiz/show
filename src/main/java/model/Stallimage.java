@@ -1,5 +1,5 @@
 package model;
-// Generated Dec 15, 2011 4:01:57 PM by Hibernate Tools 3.2.1.GA
+// Generated Dec 20, 2011 5:51:56 PM by Hibernate Tools 3.2.1.GA
 
 
 
@@ -13,6 +13,7 @@ public class Stallimage  implements java.io.Serializable {
      private Stall stall;
      private byte[] banimage;
      private byte[] logo;
+     private byte[] img;
 
     public Stallimage() {
     }
@@ -22,11 +23,12 @@ public class Stallimage  implements java.io.Serializable {
         this.stallId = stallId;
         this.stall = stall;
     }
-    public Stallimage(long stallId, Stall stall, byte[] banimage, byte[] logo) {
+    public Stallimage(long stallId, Stall stall, byte[] banimage, byte[] logo, byte[] img) {
        this.stallId = stallId;
        this.stall = stall;
        this.banimage = banimage;
        this.logo = logo;
+       this.img = img;
     }
    
     public long getStallId() {
@@ -56,6 +58,13 @@ public class Stallimage  implements java.io.Serializable {
     
     public void setLogo(byte[] logo) {
         this.logo = logo;
+    }
+    public byte[] getImg() {
+        return this.img;
+    }
+    
+    public void setImg(byte[] img) {
+        this.img = img;
     }
 
 

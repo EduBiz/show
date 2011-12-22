@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Dec 15, 2011 4:01:58 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Dec 20, 2011 5:51:56 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="model.Users" table="users" catalog="simon">
         <id name="user" type="string">
@@ -17,14 +17,17 @@
         <property name="vatregister" type="string">
             <column name="vatregister" length="5" />
         </property>
+        <property name="vatno" type="string">
+            <column name="vatno" length="20" />
+        </property>
         <property name="firstname" type="string">
             <column name="firstname" length="50" />
         </property>
         <property name="lastname" type="string">
             <column name="lastname" length="50" />
         </property>
-        <property name="dateofbirth" type="date">
-            <column name="dateofbirth" length="10" />
+        <property name="memorableWord" type="string">
+            <column name="memorable_word" length="50" />
         </property>
         <property name="webLink" type="string">
             <column name="`web-link`" length="50" />
@@ -38,8 +41,17 @@
         <property name="mobile" type="java.lang.Long">
             <column name="mobile" />
         </property>
-        <property name="bankInfo" type="string">
-            <column name="`bank-info`" length="200" />
+        <property name="bankname" type="string">
+            <column name="bankname" length="50" />
+        </property>
+        <property name="accountNo" type="java.lang.Integer">
+            <column name="account_no" />
+        </property>
+        <property name="branchCode" type="string">
+            <column name="branch_code" length="6" />
+        </property>
+        <property name="accholderName" type="string">
+            <column name="accholder_name" length="50" />
         </property>
         <property name="approve" type="java.lang.Integer">
             <column name="approve" />

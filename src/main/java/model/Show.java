@@ -1,5 +1,5 @@
 package model;
-// Generated Dec 15, 2011 4:01:57 PM by Hibernate Tools 3.2.1.GA
+// Generated Dec 20, 2011 5:51:56 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -39,8 +39,9 @@ public class Show  implements java.io.Serializable {
     }
 
 	
-    public Show(User user, String showname) {
+    public Show(User user, Date analytics, String showname) {
         this.user = user;
+        this.analytics = analytics;
         this.showname = showname;
     }
     public Show(User user, Double showCommision, Double siteCommision, Double venueCommision, Double ppc1, Double ppc2, Date analytics, String showname, String description, String categories, String showtype, Integer approve, Integer fflag1, Integer fflag2, String note, String status, Set<Showdisplay> showdisplaies, Set<Showevents> showeventses, Set<Stall> stalls, Set<Visitor> visitors, Set<Showimage> showimages) {

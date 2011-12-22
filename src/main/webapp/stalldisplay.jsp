@@ -33,7 +33,7 @@
         </script>
 
     </head>
-    <body>
+     <body background="images/background.jpg" style="width:600px; " >
         <%
 Object obj= session.getAttribute("user");
 
@@ -43,6 +43,13 @@ if(obj==null)
 }
  
         %>
+        <div style="width:650px;" align="center" >
+ <div align="center" style=" background-color:#f6f6d4;">
+        <div align="center" style="font-size:24px;  border-top-left-radius: 15px;
+  border-top-right-radius: 15px; background-color:#cdcd5d; height:120px; width:650px;">
+        <div style="float:left;"> <img src="images/m.gif" alt="" width="300px" height="100px" />
+        </div>
+        </div>
         <div>
              <div id="rounded-corner">
             <s:actionmessage theme="jquery"/>
@@ -55,7 +62,7 @@ if(obj==null)
 
 
 
-                <div>
+                <div style="height:330px;">
                     <table class="user" id="results" cellspacing="15" cellpadding="8" >
                         <tr>
                             <th>Product Name</th>
@@ -103,7 +110,12 @@ if(obj==null)
                 pager.showPage(1);
             </script>
         </div>
-
+   <div style="width:650px; height:70px; border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px; background-color:#cdcd5d;">
+        </div>
+ </div>
+            
+        </div>
         <!--<a href="http://www.google.com" onclick="window.open(this.href, 'child', 'scrollbars,width=650,height=600'); return false">Food</a>-->
     </body>
 </html>

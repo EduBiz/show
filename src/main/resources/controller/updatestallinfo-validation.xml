@@ -4,9 +4,7 @@
 <validators>
  
   
-  
-  
-  
+      
   <field name="approve">
     <field-validator type="int">
             <message>Incorrect Approves value </message>
