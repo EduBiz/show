@@ -3,39 +3,34 @@
  * and open the template in the editor.
  */
 package nav;
+
 import com.opensymphony.xwork2.ActionSupport;
 import controller.spDAO;
 import java.util.List;
 import model.*;
 import org.hibernate.Criteria;
+
 /**
  *
  * @author Administrator
  */
-public class adminhomenav extends ActionSupport {
-     private User user;
+public class adminstallnav extends ActionSupport {
+
+    private User user;
     private spDAO myDao;
-    private Show show;
     private Stall stall;
-    private List<Show> showlist;
     private List<Stall> stalllist;
-    private List<Product> prodlist;
 
     @Override
     public String execute() throws Exception {
-    Criteria allshow=myDao.getDbsession().createCriteria(Show.class);
-            allshow.setMaxResults(50);
-            showlist=allshow.list();
-            Criteria allstall=myDao.getDbsession().createCriteria(Stall.class);
-            allstall.setMaxResults(50);
-            stalllist=allstall.list();
-            Criteria allproduct=myDao.getDbsession().createCriteria(Product.class);
-            allproduct.setMaxResults(50);
-            prodlist=allproduct.list();
+
+        Criteria allstall = myDao.getDbsession().createCriteria(Stall.class);
+        allstall.setMaxResults(50);
+        stalllist = allstall.list();
+
         return "success";
     }
-    
-    
+
     /**
      * @return the user
      */
@@ -65,20 +60,6 @@ public class adminhomenav extends ActionSupport {
     }
 
     /**
-     * @return the show
-     */
-    public Show getShow() {
-        return show;
-    }
-
-    /**
-     * @param show the show to set
-     */
-    public void setShow(Show show) {
-        this.show = show;
-    }
-
-    /**
      * @return the stall
      */
     public Stall getStall() {
@@ -93,20 +74,6 @@ public class adminhomenav extends ActionSupport {
     }
 
     /**
-     * @return the showlist
-     */
-    public List<Show> getShowlist() {
-        return showlist;
-    }
-
-    /**
-     * @param showlist the showlist to set
-     */
-    public void setShowlist(List<Show> showlist) {
-        this.showlist = showlist;
-    }
-
-    /**
      * @return the stalllist
      */
     public List<Stall> getStalllist() {
@@ -118,19 +85,5 @@ public class adminhomenav extends ActionSupport {
      */
     public void setStalllist(List<Stall> stalllist) {
         this.stalllist = stalllist;
-    }
-
-    /**
-     * @return the prodlist
-     */
-    public List<Product> getProdlist() {
-        return prodlist;
-    }
-
-    /**
-     * @param prodlist the prodlist to set
-     */
-    public void setProdlist(List<Product> prodlist) {
-        this.prodlist = prodlist;
     }
 }

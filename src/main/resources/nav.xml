@@ -108,15 +108,7 @@
         <action name="stalldisplayprodstatus" class="nav.stalldisplayprodstatus">
             <result name="success" >stalldisplay.jsp</result>
         </action>
-        <action name="allprod" class="nav.adminsearch">
-            <result name="success" >welcome_admin.jsp</result>
-        </action>
-        <action name="allstalls" class="nav.adminsearch" method="stallser" >
-            <result name="success" >welcome_admin.jsp</result>
-        </action>
-        <action name="allshows" class="nav.adminsearch" method="showser" >
-            <result name="success" >welcome_admin.jsp</result>
-        </action>
+       
         <action name="showdisplaymanage" class="nav.showdisplaymanage"  >
             <result name="success" >showstalldisplay.jsp</result>
         </action>
@@ -137,8 +129,24 @@
             <result name="show" type="chain">showadminhomenav</result>
             <result name="stall" type="chain">stallhomenav</result>
         </action>
-         <action name="addpronav" class="nav.addpronav"  >
+        <action name="addpronav" class="nav.addpronav"  >
             <result name="success" >addproduct.jsp</result>
         </action>
+        <action name="allprod" class="nav.adminsearch">
+            <result name="success" >admin_prodmanage.jsp</result>
+        </action>
+        <action name="allstalls" class="nav.adminsearch" method="stallser" >
+            <result name="success" >admin_stallmanage.jsp</result>
+        </action>
+        <action name="allshows" class="nav.adminsearch" method="showser" >
+            <result name="success" >welcome_admin.jsp</result>
+        </action>
+        <action name="adminstallnav" class="nav.adminstallnav">
+            <result name="success" >admin_stallmanage.jsp</result>
+        </action>
+        <action name="adminprodnav" class="nav.adminprodnav">
+            <result name="success">admin_prodmanage.jsp</result>
+        </action>
+   
     </package>
 </struts>

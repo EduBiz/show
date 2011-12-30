@@ -166,7 +166,7 @@ if(obj==null)
  <div align="center" style=" height:1300px;  background-color:#f6f6d4;">
        <div style=" color:#2d2f16;  font-family:Verdana, Geneva, sans-serif;">
         <s:include value="header.jsp"></s:include> 
-        <div style="font-size:18px; height:50px; ">
+            <div style="font-size:18px; height:50px; ">
             <div style="float:left; padding-left:30px;"><a href="adminhomenav.action">Home</a> &nbsp; &nbsp;<a href="adminstallnav.action">Manage Sales Outlet</a>&nbsp; &nbsp;
      <a href="adminprodnav.action">Manage All Products</a>&nbsp; &nbsp;  &nbsp;&nbsp;<a href="accountinformation.action">Account information</a>  
              </div>  <div style="float:right; padding-right:60px;"> <a href="logoutaction.action">Logout</a>  
@@ -191,79 +191,65 @@ if(obj==null)
 
 
         <div>
-            <h1 class="mypets">All Shows</h1>
-<div class="thepet">
+           
 
-            <div>
-                <div class="box">
-                    <div>
-                  
-
-                <form action="allshows.action"> <div><input type="text" value="Search" name="search" size="20" onBlur="if(this.value == '') { this.value = 'Search'; }" onFocus="if(this.value == 'Search') { this.value = ''; }" /><input type="submit" value="Go"/>
-                </div></form>     
+<h1 class="mypets">All Products</h1>
+<div class="thepet"><div>
+            <div class="box">
+                
 
 
-                    <div>
-                        <table class="user" id="results" cellspacing="15" cellpadding="8" >
+                <div>  <form action="allprod.action"> <input type="text" value="Search" name="search" size="20" onBlur="if(this.value == '') { this.value = 'Search'; }" onFocus="if(this.value == 'Search') { this.value = ''; }" /><input type="submit" value="Go"/>
+                    </form>  </div>   
+
+                <div>
+                    <table class="user" id="results" cellspacing="15" cellpadding="8" >
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Image</th>
+                        <th>Status</th>
+
+
+                        <s:iterator  value="prodlist" >
+
                             <tr>
-                                <th>Show Name</th>
-                                <th>Show Logo</th>
-                                <th>Show Layout</th>
-                                <th>Show Image</th>
-                                <th>Status</th>
-                                <th>View Upcoming Events</th>   
-                                <th>View Stalls</th>   
+
+                                <td><s:property value="name" /></td>
+                                <td><s:property value="price" /> </td>
+                                <td><img src="productimg.action?id=<s:property value="%{productId}" />" alt="" width="50" height="20" /></td>
+                                    <s:url action="prostatus.action" var="prostatus">
+                                        <s:param name="productid" value="%{productId}" />
+                                        <s:param name="status" value="%{status}" />
+
+                                </s:url>
 
 
-                                <s:iterator  value="showlist" >
-
-                                <tr>
-
-                                    <td><s:property value="showname" /> </td>
-                                    <td><img src="showlogo.action?id=<s:property value="%{showId}" />" alt="" width="50" height="20" /></td>
-                                    <td><img src="showlay.action?id=<s:property value="%{showId}" />" alt="" width="50" height="20" /></td>
-                                    <td><img src="showimg.action?id=<s:property value="%{showId}" />" alt="" width="50" height="20" /></td>
-
-                                    <s:url action="shostatus.action" var="shostatus">
-                                        <s:param name="showid" value="%{showId}" />
-                                        <s:param name="status" value="%{status}" /> 
-                                    </s:url>
+                                <td><s:a href="%{prostatus}" cssClass="ask" ><s:property value="status" /></s:a> </td>
 
 
-                                    <td><s:a href="%{shostatus}" cssClass="ask" ><s:property value="status" /></s:a> </td>
-                                    <s:url action="viewshowevents.action" var="viewshowevents">
-                                        <s:param name="showid" value="%{showId}" />
-
-                                    </s:url>
-                                    <td> <s:a href="%{viewshowevents}" onclick="window.open(this.href, 'child', 'scrollbars,width=650,height=600'); return false"><img src="images/calendar_icon.png" alt="" width="70" height="40" /></s:a> </td>
-                                        <s:url action="viewshowstalls.action" var="viewshowstalls">
-                                            <s:param name="showid" value="%{showId}" />
-
-                                    </s:url>
-                                    <td> <s:a href="%{viewshowstalls}" onclick="window.open(this.href, 'child', 'scrollbars,width=650,height=600'); return false"><img src="images/street_stall.png" alt="" width="70" height="40" /></s:a> </td>
                                 </tr>
 
-                            </s:iterator>
-                        </table>
-                        <div  id="pageNavPosition">
+                        </s:iterator>
+                    </table>
+                    <div align="center" id="pr">
 
-                        </div> 
+                    </div> 
 
-                    </div>
                 </div>
-                <script type="text/javascript">
-                    var pager = new Pager('results', 10, 'pager', 'pageNavPosition');
-                    pager.init();
-                    pager.showPage(1);
-                </script>
-            </div> 
+
+
+
+            </div>
+            <script type="text/javascript">
+                var pager = new Pager('results', 10, 'pager', 'pr');
+                pager.init();
+                pager.showPage(1);
+            </script>
+
         </div>
-</div>
 
-
-</div>
-
-
+		
+	</div>
 	
 </div>
 

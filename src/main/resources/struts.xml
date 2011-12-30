@@ -129,21 +129,16 @@
         </action>
          <action name="showstallstatus" class="controller.showstallstatus">
             <result name="success" >viewshowstalls.jsp</result>
-           
         </action>
          <action name="shostatus" class="controller.changestatus">
             <result name="success" >welcome_admin.jsp</result>
-           
         </action>
          <action name="stalstatus" class="controller.changestatus" method="stallst" >
-            <result name="success" >welcome_admin.jsp</result>
-           
+            <result name="success" >admin_stallmanage.jsp</result>
         </action>
          <action name="prostatus" class="controller.changestatus" method="prodst">
-            <result name="success" >welcome_admin.jsp</result>
-           
+            <result name="success" >admin_prodmanage.jsp</result>
         </action>
-       
-        
+
     </package>
 </struts>
