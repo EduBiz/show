@@ -26,12 +26,7 @@ public class adminhomenav extends ActionSupport {
     Criteria allshow=myDao.getDbsession().createCriteria(Show.class);
             allshow.setMaxResults(50);
             showlist=allshow.list();
-            Criteria allstall=myDao.getDbsession().createCriteria(Stall.class);
-            allstall.setMaxResults(50);
-            stalllist=allstall.list();
-            Criteria allproduct=myDao.getDbsession().createCriteria(Product.class);
-            allproduct.setMaxResults(50);
-            prodlist=allproduct.list();
+           
         return "success";
     }
     
