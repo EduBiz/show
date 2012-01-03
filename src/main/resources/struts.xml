@@ -31,8 +31,8 @@
        
         <action name="forgotmail" class="controller.forgotmail">
             <result name="success" >index.jsp</result>
-            <result name="input" >forgotpass.jsp</result>
-            <result name="error" >forgotpass.jsp</result>
+            <result name="input" >index.jsp</result>
+            <result name="error" >index.jsp</result>
         </action>
         <action name="sessionError" class="controller.sessionError">
             <result name="success" >index.jsp</result>

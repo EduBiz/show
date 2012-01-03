@@ -108,10 +108,10 @@ public class addstalluser extends ActionSupport {
             User user1 = (User) getMyDao().getDbsession().get(User.class, getEmail());
             setSubject("Welcome to Zorrit.com");
             setContent("Hi\t\t&nbsp;" + getEmail() + "\t\t&nbsp; welcome to Zorrit.com<br><br>\n\n" + "You are invited for &nbsp;\t" + getCatgry() + "\t &nbsp;promoter for our site\n\n<br><br>"
-                    + "Your Requested \t\t" + catgry + "\t\tname\t\t" + sname + "\t\tSuccessfully Created\n\n"
-                    + "Your Zorrit login id is:&nbsp;\t" + getEmail() + "\n<br>" + "Your Zorrit pasword is:\t\t&nbsp;" + getUser().getPassword() + "\n\n<br><br>" + "Please Click the following link to activate your Account\n\n\n<br><br>" + "<a href='http://localhost:8080/show/activationaccount.action?email=" + getEmail() + "&confcode=" + getConfcode() + "'>www.zorrit.com/activation" + getConfcode() + "</a>" + "\n<br><br>" + " \nThanks & Regards <br> \n   " + " Zorrit Team\n\n<br><br>");
+                    + "Your Requested \t\t" + "Sales Outlet" + "\t\tname\t\t" + sname + "\t\tSuccessfully Created\n\n"
+                    + "Your Zorrit login id is:&nbsp;\t" + getEmail() + "\n<br>" + "Your Zorrit pasword is:\t\t&nbsp;" + getUser().getPassword() + "\n\n<br><br>" + "Please Click the following link to activate your Account\n\n\n<br><br>" + "<a href='http://show.mathi.cloudbees.net/activationaccount.action?email=" + getEmail() + "&confcode=" + getConfcode() + "'>www.zorrit.com/activation" + getConfcode() + "</a>" + "\n<br><br>" + " \nThanks & Regards <br> \n   " + " Zorrit Team\n\n<br><br>");
             getSendMail().test(getEmail(), getSubject(), getContent());
-            addActionMessage("New user \t" + getUname() + "\tSuccessfully created");
+            addActionMessage("New Sales Outlet user \t" + getUname() + "\tSuccessfully created");
             email = null;
             sname = null;
             uname = null;

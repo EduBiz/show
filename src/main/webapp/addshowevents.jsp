@@ -18,51 +18,29 @@
        <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Update Show Events</title>
-        <link href="style.css" rel="stylesheet" type="text/css" />
-       
-       
-        <script type="text/javascript" src="pagination.js"></script>
+       <link rel="stylesheet" href="css/screen1.css" type="text/css" media="screen" title="default" />
 
-       <s:head theme="jquery"/>  
+ <s:head theme="jquery"/>  
         <sj:head jqueryui="true" jquerytheme="flick"/> 
-  
-		<style type="text/css">
-a:link    {
-  /* Applies to all unvisited links */
-  text-decoration:  none;
-  font-weight:      bold;
-
-  color:#333;
-
-  } 
-a:visited {
-  /* Applies to all visited links */
-  text-decoration:  none;
-  font-weight:      bold;
-
-  color:#333;
-  } 
-a:hover   {
-  /* Applies to links under the pointer */
-  text-decoration:  underline;
-  font-weight:      bold;
-
-  color:#333;
-  } 
-a:active  {
-  /* Applies to activated links */
-  text-decoration:  underline;
-  font-weight:      bold;
-
-  color:#333;
-  } 
+        <style type="text/css">
+.button
+{
+	background:url(images/buttons/saveevents.gif) no-repeat;
+	border: none;
+	cursor: pointer;
+	display: block;
+	float: left;
+	height: 30px;
+	margin: 0 4px 0 0;
+	padding: 0;
+	text-indent: -3000px;
+	width: 80px;
+}
 </style>
-
-       
-    </head>
-    <body background="images/background.jpg">
-  
-        <%
+ <script type="text/javascript" src="pagination.js"></script>
+</head>
+<body> 
+  <%
 Object obj = session.getAttribute("user");
 
     
@@ -71,74 +49,304 @@ if(obj==null)
   response.sendRedirect(request.getContextPath()+"/sessionError.action");
 }
  
-        %>
-       <div style=" vertical-align:top; width:1024px; padding-left: 150px; " align="center" >
-           
- <div align="center" style=" height:600px;  background-color:#f6f6d4;">
+       %>
+<!-- Start: page-top-outer -->
+<div id="page-top-outer">    
+
+<!-- Start: page-top -->
+<div id="page-top">
+
+	<!-- start logo -->
+	<div id="logo">
+	<a href=""><img src="images/m.gif" width="250" height="70" alt="" /></a>
+	</div>
+	<!-- end logo -->
+	
+	
+ 	<div class="clear"></div>
+
+</div>
+<!-- End: page-top -->
+
+</div>
+<!-- End: page-top-outer -->
+	
+<div class="clear">&nbsp;</div>
+ 
+<!--  start nav-outer-repeat................................................................................................. START -->
+<div class="nav-outer-repeat"> 
+<!--  start nav-outer -->
+<div class="nav-outer"> 
+
+		<!-- start nav-right -->
+		<div id="nav-right">
+		
+                    <div class="nav-divider">&nbsp;</div>
+                   <a href="logoutaction.action" id="logout"><img src="images/shared/nav/nav_logout.gif" width="64" height="14" alt="" /></a>
+                    <div class="clear">&nbsp;</div>
+
+                    
+			
+		
+		
+		</div>
+		<!-- end nav-right -->
+
+
+		<!--  start nav -->
+		<div class="nav">
+		<div class="table">
+		
+		
+                        <ul class="select">
+                            <li><a href="showadminhomenav.action"><b>Home</b></a><!--<![endif]-->
+		
+		</li>
+                            <li><a href="accountinformation.action"><b>Account information</b></a><!--<![endif]-->
+                                <!--[if lte IE 6]><table><tr><td><![endif]-->
+
+                            </li>
+                        </ul>
+
+		
+		
+		
+		<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+		</div>
+		<!--  start nav -->
+
+</div>
+<div class="clear"></div>
+<!--  start nav-outer -->
+</div>
+<!--  start nav-outer-repeat................................................... END -->
+ 
+ <div class="clear"></div>
+ 
+<!-- start content-outer -->
+<div id="content-outer">
+<!-- start content -->
+<div id="content">
+
+
+<div id="page-heading"><h1>Add New Upcoming Event Location </h1></div>
+<s:actionmessage theme="jquery" />  <s:actionerror theme="jquery"/>  
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
+<tr>
+	<th rowspan="3" class="sized"><img src="images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
+	<th class="topleft"></th>
+	<td id="tbl-border-top">&nbsp;</td>
+	<th class="topright"></th>
+	<th rowspan="3" class="sized">&nbsp;</th>
+</tr>
+<tr>
+	<td id="tbl-border-left"></td>
+	<td>
+	<!--  start content-table-inner -->
+	<div id="content-table-inner">
+	
+	<table border="0" width="100%" cellpadding="0" cellspacing="0">
+	<tr valign="top">
+	<td>
+	
+	
+		<!-- start id-form -->
+         <s:actionerror theme="jquery"/>  
+            <s:form action="updateshowevents" theme="simple">
+		<table border="0" cellpadding="0" cellspacing="0"  id="id-form">
+		<tr>
+			<th valign="top">Event Venue:</th>
+			<td><s:textfield name="venue" cssClass="inp-form"/> <s:hidden name="showid" value="%{showid}" /></td>
+			<td></td>
+		</tr>
+		<tr>
+			<th valign="top">Event Date:</th>
+			<td> <sj:datepicker name="showdate" displayFormat="mm/dd/yy" cssClass="inp-form"/></td>
+			<td></a></td>
+		</tr>
+		<tr>
+			<th valign="top"></th>
+			<td>  <s:submit cssClass="button"/> </td>
+			<td></td>
+		</tr>
+		<tr>
        
-        <s:include value="header.jsp"></s:include>
-          <div style="font-family:Verdana, Geneva, sans-serif; color:#2d2f16;">
-           <div style="font-family:Verdana, Geneva, sans-serif; color:#2d2f16;">
-                <p style="font-size:25px; color:#030;"><strong>Add New Show Events</strong></p></div>
-            <s:actionerror theme="jquery"/>  
-            <s:form action="updateshowevents">
-                <s:hidden name="showid" value="%{showid}"/>
-                <s:textfield name="venue" label="Show Venue"/>
-                <sj:datepicker name="showdate" displayFormat="mm/dd/yy" label="Show Date"/>
-                <s:submit value="Save Event"/>
-            </s:form>
-        </div>
-        
-             <div style=" height:300px;  background-color:#f6f6d4;">
-            <div class="box">
-         
-                   <div style="width:auto; height:60px; background-color:#cdcd5d; border-radius: 15px; ">
-                <p style="font-size:27px; color:#2d2f16; padding-top:10px; font-family:Verdana, Geneva, sans-serif;" align="center"><strong>Upcoming Events </strong></p>
-                </div>
+        <td colspan="3">
+		<!--  start content-table-inner ...................................................................... START -->
+		<div id="content-table-inner">
+		
+			<!--  start table-content  -->
+			<div id="table-content">
+			
+			<div style="float:left;">
+           <br>
+           <br>
+           <br>
+            
+           <s:actionmessage theme="jquery" />
+				<table  width="100%" cellspacing="0" >
+                  <tr>
+                  <td colspan="3" id="page-heading"><h1>Upcoming Events </h1></td>
+                  </tr>
+				<tr>
+					<td  background="images/table/Copy of tableheaderfront.gif" width="150" height="40"  style="color:#FFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Event Name</td>
+			      
+			     	<td  background="images/table/Copy of tabelheadercenter.gif" width="150" height="40" style="color:#FFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Venue</td>
+			     	<td  background="images/table/Copy of tabelheaderback.gif" width="150" height="40" style="color:#FFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Event Date</td>
+			    
+			     
+				</tr>
+				
+				
+  <s:iterator  value="showevents" >
+                            <tr class="user" id="product-table">
+                                <td align="center" ><s:property value="show.showname" /> </td>
+                                <td align="center" ><s:property value="venue" /> </td>
+                                <td align="center" ><s:property value="showdate" /></td>
+</tr>
+                  </s:iterator>
+				</table>
+                 </s:form>
+				<!--  end product-table................................... --> 
+				
+              </div>
+              <div style="float:right">
+                <!--  start related-activities -->
 
 
+</td>
+        </tr>
+	</table>
+	<!-- end id-form  -->
 
+	</td>
+	<td>
 
-                <div style=" height:100px;  background-color:#f6f6d4;">
-                    <table class="user" id="results" cellspacing="15" cellpadding="8" >
-                        <tr>
-                            <th>Show Name</th>
-                            <th>Venue</th>
-                            <th>Show Date</th>
-                           
-                            <s:iterator  value="showevents" >
+	<!--  start related-activities -->
+	<div id="related-activities">
+		
+		<!--  start related-act-top -->
+		<div id="related-act-top">
+		<img src="images/forms/header_related_act.gif" width="271" height="43" alt="" />
+		</div>
+		<!-- end related-act-top -->
+		
+		<!--  start related-act-bottom -->
+		<div id="related-act-bottom">
+		
+			<!--  start related-act-inner -->
+			<div id="related-act-inner">
+			
+				<div class="left"><a href=""><img src="images/forms/icon_plus.gif" width="21" height="21" alt="" /></a></div>
+				<div class="right">
+					<h5>Add another product</h5>
+					Lorem ipsum dolor sit amet consectetur
+					adipisicing elitsed do eiusmod tempor.
+					<ul class="greyarrow">
+						<li><a href="">Click here to visit</a></li> 
+						<li><a href="">Click here to visit</a> </li>
+					</ul>
+				</div>
+				
+				<div class="clear"></div>
+				<div class="lines-dotted-short"></div>
+				
+				<div class="left"><a href=""><img src="images/forms/icon_minus.gif" width="21" height="21" alt="" /></a></div>
+				<div class="right">
+					<h5>Delete products</h5>
+					Lorem ipsum dolor sit amet consectetur
+					adipisicing elitsed do eiusmod tempor.
+					<ul class="greyarrow">
+						<li><a href="">Click here to visit</a></li> 
+						<li><a href="">Click here to visit</a> </li>
+					</ul>
+				</div>
+				
+				<div class="clear"></div>
+				<div class="lines-dotted-short"></div>
+				
+				<div class="left"><a href=""><img src="images/forms/icon_edit.gif" width="21" height="21" alt="" /></a></div>
+				<div class="right">
+					<h5>Edit categories</h5>
+					Lorem ipsum dolor sit amet consectetur
+					adipisicing elitsed do eiusmod tempor.
+					<ul class="greyarrow">
+						<li><a href="">Click here to visit</a></li> 
+						<li><a href="">Click here to visit</a> </li>
+					</ul>
+				</div>
+				<div class="clear"></div>
+				
+			</div>
+			<!-- end related-act-inner -->
+			<div class="clear"></div>
+		
+		</div>
+		<!-- end related-act-bottom -->
+	
+	</div>
+	<!-- end related-activities -->
 
-                            <tr>
+</td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><img src="images/shared/blank.gif" width="695" height="1" alt="blank" /></td>
+<td></td>
+</tr>
+</table>
+ 
+<div class="clear"></div>
+ 
 
-                                <td><s:property value="show.showname" /> </td>
-                                <td><s:property value="venue" /> </td>
-                                <td><s:property value="showdate" /></td>
-                               
-
-                                </tr>
-
-                        </s:iterator>
-                    </table>
-                    <div  id="pageNavPosition">
+</div>
+<!--  end content-table-inner  -->
+</td>
+<td id="tbl-border-right"></td>
+</tr>
+<tr>
+	<th class="sized bottomleft"></th>
+	<td id="tbl-border-bottom">&nbsp;</td>
+	<th class="sized bottomright"></th>
+</tr>
+</table>
+<div  id="pageNavPosition">
 
                     </div> 
-
-                </div>
-            </div>
-            <script type="text/javascript">
+<script type="text/javascript">
                 var pager = new Pager('results', 20, 'pager', 'pageNavPosition');
                 pager.init();
                 pager.showPage(1);
             </script>
-        </div> 
-      
-        
-               </div>
-            
-        </div>
-<div style="padding-left:150px;">
-<s:include value="footer.jsp"></s:include>
-</div> 
-      
-    </body>
+<!--  end content-outer -->
+
+ 
+<div class="clear">&nbsp;</div>
+
+</div>
+<!--  end content -->
+<div class="clear">&nbsp;</div>
+</div>
+<!--  end content-outer -->
+
+ 
+
+<div class="clear">&nbsp;</div>
+
+    
+<!-- start footer -->         
+<div id="footer">
+	<!--  start footer-left -->
+	<div id="footer-left">
+	&copy; Copyright 2010 &nbsp; zorrit &nbsp;Powered by<a href="http://www.edubiz.org/">&nbsp;EduBiz.org</a></div>
+	<!--  end footer-left -->
+	<div class="clear">&nbsp;</div>
+</div>
+<!-- end footer -->
+ 
+</body>
 </html>

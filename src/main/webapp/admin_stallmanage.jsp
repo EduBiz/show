@@ -20,200 +20,392 @@
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
         <title>Welcome Admin</title>
         <s:head theme="jquery"/>  
-        <sj:head jqueryui="true" jquerytheme="flick"/> 
+       <sj:head jqueryui="true" jquerytheme="flick"/> 
+        <link rel="stylesheet" href="css/screen1.css" type="text/css" media="screen" title="default" />
+        <!--[if IE]>
+        <link rel="stylesheet" media="all" type="text/css" href="css/pro_dropline_ie.css" />
+        <![endif]-->
+
+        <!--  jquery core -->
+        <script src="js/jquery/jquery-1.4.1.min.js" type="text/javascript"></script>
+
+        <!--  checkbox styling script -->
+        <script src="js/jquery/ui.core.js" type="text/javascript"></script>
+        <script src="js/jquery/ui.checkbox.js" type="text/javascript"></script>
+        <script src="js/jquery/jquery.bind.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(function(){
+                $('input').checkBox();
+                $('#toggle-all').click(function(){
+                    $('#toggle-all').toggleClass('toggle-checked');
+                    $('#mainform input[type=checkbox]').checkBox('toggle');
+                    return false;
+                });
+            });
+        </script>  
+
+
+        <![if !IE 7]>
+
+        <!--  styled select box script version 1 -->
+        <script src="js/jquery/jquery.selectbox-0.5.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('.styledselect').selectbox({ inputClass: "selectbox_styled" });
+            });
+        </script>
+
+
+        <![endif]>
+
+
+        <!--  styled select box script version 2 --> 
+        <script src="js/jquery/jquery.selectbox-0.5_style_2.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('.styledselect_form_1').selectbox({ inputClass: "styledselect_form_1" });
+                $('.styledselect_form_2').selectbox({ inputClass: "styledselect_form_2" });
+            });
+        </script>
+
+        <!--  styled select box script version 3 --> 
+        <script src="js/jquery/jquery.selectbox-0.5_style_2.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('.styledselect_pages').selectbox({ inputClass: "styledselect_pages" });
+            });
+        </script>
+
+        <!--  styled file upload script --> 
+        <script src="js/jquery/jquery.filestyle.js" type="text/javascript"></script>
+        <script type="text/javascript" charset="utf-8">
+            $(function() {
+                $("input.file_1").filestyle({ 
+                    image: "images/forms/upload_file.gif",
+                    imageheight : 29,
+                    imagewidth : 78,
+                    width : 300
+                });
+            });
+        </script>
+
+        <!-- Custom jquery scripts -->
+        <script src="js/jquery/custom_jquery.js" type="text/javascript"></script>
+
+        <!-- Tooltips -->
+        <script src="js/jquery/jquery.tooltip.js" type="text/javascript"></script>
+        <script src="js/jquery/jquery.dimensions.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(function() {
+                $('a.info-tooltip ').tooltip({
+                    track: true,
+                    delay: 0,
+                    fixPNG: true, 
+                    showURL: false,
+                    showBody: " - ",
+                    top: -35,
+                    left: 5
+                });
+            });
+        </script> 
+
+        <!--  date picker script -->
+        <link rel="stylesheet" href="css/datePicker.css" type="text/css" />
+        <script src="js/jquery/date.js" type="text/javascript"></script>
+        <script src="js/jquery/jquery.datePicker.js" type="text/javascript"></script>
+        <script type="text/javascript" charset="utf-8">
+            $(function()
+            {
+
+                // initialise the "Select date" link
+                $('#date-pick')
+                .datePicker(
+                // associate the link with a date picker
+                {
+                    createButton:false,
+                    startDate:'01/01/2005',
+                    endDate:'31/12/2020'
+                }
+            ).bind(
+                // when the link is clicked display the date picker
+                'click',
+                function()
+                {
+                    updateSelects($(this).dpGetSelected()[0]);
+                    $(this).dpDisplay();
+                    return false;
+                }
+            ).bind(
+                // when a date is selected update the SELECTs
+                'dateSelected',
+                function(e, selectedDate, $td, state)
+                {
+                    updateSelects(selectedDate);
+                }
+            ).bind(
+                'dpClosed',
+                function(e, selected)
+                {
+                    updateSelects(selected[0]);
+                }
+            );
+	
+                var updateSelects = function (selectedDate)
+                {
+                    var selectedDate = new Date(selectedDate);
+                    $('#d option[value=' + selectedDate.getDate() + ']').attr('selected', 'selected');
+                    $('#m option[value=' + (selectedDate.getMonth()+1) + ']').attr('selected', 'selected');
+                    $('#y option[value=' + (selectedDate.getFullYear()) + ']').attr('selected', 'selected');
+                }
+                // listen for when the selects are changed and update the picker
+                $('#d, #m, #y')
+                .bind(
+                'change',
+                function()
+                {
+                    var d = new Date(
+                    $('#y').val(),
+                    $('#m').val()-1,
+                    $('#d').val()
+                );
+                    $('#date-pick').dpSetSelected(d.asString());
+                }
+            );
+
+                // default the position of the selects to today
+                var today = new Date();
+                updateSelects(today.getTime());
+
+                // and update the datePicker to reflect it...
+                $('#d').trigger('change');
+            });
+        </script>
+
+        <!-- MUST BE THE LAST SCRIPT IN <HEAD></HEAD></HEAD> png fix -->
+        <script src="js/jquery/jquery.pngFix.pack.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $(document).pngFix( );
+            });
+        </script>
+
+
+
+        <script type="text/javascript" src="pagination.js"></script>
+        <script type="text/javascript" src="jquery.min.js"></script>
+
+
+
         <link rel="stylesheet" href="style.css" type="text/css" />
         <script type="text/javascript" src="pagination.js"></script>
         <script type="text/javascript" src="jquery.min.js"></script>
 
 
 
-      
-<script type="text/javascript" src="jquery.min.js"></script>
+        <script type="text/javascript" src="jconfirmaction.jquery.js"></script>
+        <script type="text/javascript">
+	
+            $(document).ready(function() {
+                $('.ask').jConfirmAction();
+            });
+	
+        </script>
 
-<script type="text/javascript" src="ddaccordion.js">
-
-/***********************************************
-* Accordion Content script- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
-* Visit http://www.dynamicDrive.com for hundreds of DHTML scripts
-* This notice must stay intact for legal use
-***********************************************/
-
-</script>
-
-
-<style type="text/css">
-
-.mypets{ /*header of 1st demo*/
-cursor: hand;
-cursor: pointer;
-padding: 2px 5px;
-border: 1px solid gray;
-background:#cdcd5d;
+        <style type="text/css">
+.button
+{
+	background:url(images/buttons/addproduct.gif) no-repeat;
+	border: none;
+	cursor: pointer;
+	display: block;
+	float: left;
+	height: 30px;
+	margin: 0 4px 0 0;
+	padding: 0;
+	text-indent: -3000px;
+	width: 80px;
 }
-
-.openpet{ /*class added to contents of 1st demo when they are open*/
-background:#FFF;
-}
-
-.technology{ /*header of 2nd demo*/
-cursor: hand;
-cursor: pointer;
-font: bold 14px Verdana;
-margin: 10px 0;
-}
-
-
-.openlanguage{ /*class added to contents of 2nd demo when they are open*/
-color: green;
-}
-
-.closedlanguage{ /*class added to contents of 2nd demo when they are closed*/
-color: red;
-}
-
 </style>
-
-<script type="text/javascript">
-
-//Initialize first demo:
-ddaccordion.init({
-	headerclass: "mypets", //Shared CSS class name of headers group
-	contentclass: "thepet", //Shared CSS class name of contents group
-	revealtype: "mouseover", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
-	mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
-	collapseprev: true, //Collapse previous content (so only one open at any time)? true/false 
-	defaultexpanded: [0], //index of content(s) open by default [index1, index2, etc]. [] denotes no content.
-	onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
-	animatedefault: false, //Should contents open by default be animated into view?
-	persiststate: true, //persist state of opened contents within browser session?
-	toggleclass: ["", "openpet"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
-	togglehtml: ["none", "", ""], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
-	animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
-	oninit:function(expandedindices){ //custom code to run when headers have initalized
-		//do nothing
-	},
-	onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
-		//do nothing
-	}
-})
-
-//Initialize 2nd demo:
-ddaccordion.init({
-	headerclass: "technology", //Shared CSS class name of headers group
-	contentclass: "thelanguage", //Shared CSS class name of contents group
-	revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
-	mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
-	collapseprev: false, //Collapse previous content (so only one open at any time)? true/false 
-	defaultexpanded: [], //index of content(s) open by default [index1, index2, etc]. [] denotes no content.
-	onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
-	animatedefault: false, //Should contents open by default be animated into view?
-	persiststate: false, //persist state of opened contents within browser session?
-	toggleclass: ["closedlanguage", "openlanguage"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
-	togglehtml: ["prefix", "<img src='http://i13.tinypic.com/80mxwlz.gif' style='width:13px; height:13px' /> ", "<img src='http://i18.tinypic.com/6tpc4td.gif' style='width:13px; height:13px' /> "], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
-	animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
-	oninit:function(expandedindices){ //custom code to run when headers have initalized
-		//do nothing
-	},
-	onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
-		//do nothing
-	}
-})
-
-</script>
-   <style type="text/css">
-a:link    {
-  /* Applies to all unvisited links */
-  text-decoration:  none;
-  font-weight:      bold;
-
-  color:#333;
-
-  } 
-a:visited {
-  /* Applies to all visited links */
-  text-decoration:  none;
-  font-weight:      bold;
-
-  color:#333;
-  } 
-a:hover   {
-  /* Applies to links under the pointer */
-  text-decoration:  underline;
-  font-weight:      bold;
-
-  color:#333;
-  } 
-a:active  {
-  /* Applies to activated links */
-  text-decoration:  underline;
-  font-weight:      bold;
-
-  color:#333;
-  } 
-</style>
-
     </head>
-<body background="images/background.jpg">
-        <%/*
+<body>
+ <%
 Object obj = session.getAttribute("user");
 if(obj==null)
    {
    response.sendRedirect(request.getContextPath()+"/sessionError.action");
 }
-        */%>
- <div style=" vertical-align:top; width:1024px; padding-left: 150px; " align="center" >
-           
- <div align="center" style=" height:1300px;  background-color:#f6f6d4;">
-       <div style=" color:#2d2f16;  font-family:Verdana, Geneva, sans-serif;">
-        <s:include value="header.jsp"></s:include> 
-            <div style="font-size:18px; height:50px; ">
-            <div style="float:left; padding-left:30px;"><a href="adminhomenav.action">Home</a> &nbsp; &nbsp;<a href="adminstallnav.action">Manage Sales Outlet</a>&nbsp; &nbsp;
-     <a href="adminprodnav.action">Manage All Products</a>&nbsp; &nbsp;  &nbsp;&nbsp;<a href="accountinformation.action">Account information</a>  
-             </div>  <div style="float:right; padding-right:60px;"> <a href="logoutaction.action">Logout</a>  
-             </div></div>
- <p style="font-size:30px; font-family:Verdana, Geneva, sans-serif; ">Welcome Admin</p>
-        <div>
-            Add new Show User And Show:
-            <s:actionerror theme="jquery"/>   
-            <s:form action="addshowuser">
-                <s:textfield name="uname" label="User Name" />
-                <s:textfield name="email" label="Email id" />
-                <s:hidden name="catgry" label="Show"   value="show"/>
-                <s:textfield name="sname" label="Show Name" />
-                <s:submit value="Create"/>
-            </s:form>
+        %>
+<!-- Start: page-top-outer -->
+<div id="page-top-outer">    
 
-        </div>
-        <div id="rounded-corner">
-            <s:actionmessage theme="jquery"/>
-        </div>    
+<!-- Start: page-top -->
+<div id="page-top">
 
+	<!-- start logo -->
+	<div id="logo">
+	<a href=""><img src="images/m.gif" width="250" height="70" alt="" /></a>
+	</div>
+	<!-- end logo -->
+	
+	
+ 	<div class="clear"></div>
 
+</div>
+<!-- End: page-top -->
 
-        <div>
+</div>
+<!-- End: page-top-outer -->
+	
+<div class="clear">&nbsp;</div>
  
+<!--  start nav-outer-repeat................................................................................................. START -->
+<div class="nav-outer-repeat"> 
+<!--  start nav-outer -->
+<div class="nav-outer"> 
 
-<h1 class="mypets">All Stalls</h1>
-<div class="thepet">
- <div> 
-            <div class="box">
-                 <form action="allstalls.action"> <div><input type="text" value="Search" name="search" size="20" onBlur="if(this.value == '') { this.value = 'Search'; }" onFocus="if(this.value == 'Search') { this.value = ''; }" /><input type="submit" value="Go"/>
-                </div></form>     
-                
-              
-                
-                <table class="user" id="results" cellspacing="15" cellpadding="8" >
+		<!-- start nav-right -->
+		<div id="nav-right">
+		
+			
+			<div class="nav-divider">&nbsp;</div>
+			<a href="logoutaction.action" id="logout"><img src="images/shared/nav/nav_logout.gif" width="64" height="14" alt="" /></a>
+			<div class="clear">&nbsp;</div>
+		
+			
+		
+		</div>
+		<!-- end nav-right -->
+
+
+		<!--  start nav -->
+		<div class="nav">
+		<div class="table">
+		
+		<ul class="select"><li><a href="adminhomenav.action"><b>Home</b></a><!--<![endif]-->
+		
+		</li>
+		</ul>
+		
+		<ul class="select"><li><a href="adminstallnav.action"><b>Manage Sales Outlet</b></a><!--<![endif]-->
+		
+		</li>
+		</ul>
+        <ul class="select"><li><a  href="adminprodnav.action"><b>Manage All Products</b></a><!--<![endif]-->
+		
+		</li>
+		</ul>
+		<ul class="select"><li><a href="accountinformation.action"><b>Account information</b></a><!--<![endif]-->
+		
+		</li>
+		</ul>
+		<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+		</div>
+		<!--  start nav -->
+
+</div>
+<div class="clear"></div>
+<!--  start nav-outer -->
+</div>
+<!--  start nav-outer-repeat................................................... END -->
+
+ <div class="clear"></div>
+ 
+<!-- start content-outer ........................................................................................................................START -->
+<div id="content-outer">
+<!-- start content -->
+<div id="content">
+
+	<!--  start page-heading -->
+	<div id="page-heading">
+		<h1>ADD New Event User and Event</h1>
+	</div>
+	<!-- end page-heading -->
+<s:actionerror theme="jquery"/>  
+<s:actionmessage theme="jquery"/> 
+             <s:form action="addshowuser" theme="simple">
+	<table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
+	<tr>
+		<th rowspan="3" class="sized"><img src="images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
+		<th class="topleft"></th>
+		<td id="tbl-border-top">&nbsp;</td>
+		<th class="topright"></th>
+		<th rowspan="3" class="sized"><img src="images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
+	</tr>
+	<tr>
+		<td id="tbl-border-left"></td>
+		<td>
+		<!--  start content-table-inner ...................................................................... START -->
+		<div id="content-table-inner">
+		
+			<!--  start table-content  -->
+			<div id="table-content">
+			
+				
+				<!--  start message-blue -->
+				<div id="message-blue">
+				<table border="0" width="100%" cellpadding="0" cellspacing="0">
+				<tr>
+                <td>
+					
+                    <table border="0" cellpadding="0" cellspacing="0"  id="id-form">
+<tr>
+                   <th valign="top">User Name:
+                    </th>
+                    <td>
+                   <s:textfield name="uname" cssClass="inp-form"/></td></tr>
                     <tr>
-                        <th>Stall Name</th>
-                        <th>Connected Show</th>
-                        <th>Stall Logo</th>
-                        <th>Stall Image</th>
-                        <th>Status</th>
-                        <th>View Products</th>   
+                    <th valign="top">Email id:</th><td>
+                     <s:textfield name="email" cssClass="inp-form"/></td></tr>
+                      <s:hidden name="catgry"  value="show" />
+                    <tr>
+                    <th valign="top">Event Name:
+                    </th>
+                    <td>
+                    <s:textfield name="sname"  cssClass="inp-form"/>
+                    </td>
                     </tr>
-                    <s:iterator end="1" value="stalllist" status="rowstatus">
+                    <tr>
+                    <th valign="top">
+                    </th>
+                    <td>
+                    <s:submit value="Create" cssClass="button"/>
+                    </td></tr></table>
+               
 
+            
+                    </td>
+				</tr>
+				</table>
+                 </s:form>
+				</div>
+				<!--  end message-blue -->
+
+				
+				<!--  start product-table ..................................................................................... -->
+				
+				<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+                 <tr>
+                  <td colspan="3" id="page-heading"><h1 style="float:left;">All Sales Outlets</h1>  <div style="float:left; padding-left:60px;" class="box">  <form action="allstalls.action"> <div><input type="text" value="Search" name="search" size="20" onBlur="if(this.value == '') { this.value = 'Search'; }" onFocus="if(this.value == 'Search') { this.value = ''; }" cssClass="inp-form"/><input type="submit" value="Go"/>
+                </div></form>      </div>  </td>
+                  
+                  </tr>
+				<tr>
+					<td>
+					<table class="user" id="results" cellspacing="15" cellpadding="8" >
                         <tr>
+                            
+                            <td  background="images/table/Copy of tableheaderfront.gif" width="130" height="30"  style="color:#FFF" align="center">Sales Outlet Name</td>
+                            
+                           <td  background="images/table/Copy of tabelheadercenter.gif" width="150" height="30" style="color:#FFF" align="center">Connected Event</td>
+                            <td  background="images/table/Copy of tabelheadercenter.gif" width="150" height="30" style="color:#FFF" align="center">Sales Outlet Logo</td><td  background="images/table/Copy of tabelheadercenter.gif" width="150" height="30" style="color:#FFF" align="center">Sales Outlet Image</td>
+                            <td  background="images/table/Copy of tabelheadercenter.gif" width="150" height="30" style="color:#FFF" align="center">Status</td>
+                           
+                            <td  background="images/table/Copy of tabelheaderback.gif" width="140" height="30" style="color:#FFF" align="center">View Products</td></tr>
+                               <s:iterator end="1" value="stalllist" status="rowstatus">
+
+                            <tr>
                             <s:url action="stallinfo.action" var="updatestallinfo">
                                 <s:param name="stallId" value="%{stallId}" />
                                 <s:param name="stallname" value="%{stallname}" />
@@ -224,75 +416,80 @@ if(obj==null)
                                 <s:param name="note" value="%{note}" />
 
                             </s:url>
-                            <td><s:property value="stallname" /></td>
-                            <td><s:property value="show.showname" /> </td>
-                            <td><img src="stalllogo.action?id=<s:property value="%{stallId}" />" alt="" width="50" height="20" /></td>
-                            <td><img src="stallimg.action?id=<s:property value="%{stallId}" />" alt="" width="50" height="20" /></td>
-                                <s:url action="stalstatus.action" var="stalstatus">
+
+                              
+                                
+                                <td align="center"><s:property value="stallname" /></td>
+                                <td align="center"><s:property value="show.showname" /> </td>
+                                <td align="center"><img src="stalllogo.action?id=<s:property value="%{stallId}" />" alt="" width="50" height="20" /></td>
+                                
+                                <td align="center"><img src="stallimg.action?id=<s:property value="%{stallId}" />" alt="" width="50" height="20" /></td>
+<s:url action="stalstatus.action" var="stalstatus">
                                     <s:param name="stallid" value="%{stallId}" />
                                     <s:param name="status" value="%{status}" />
                                 </s:url>
 
 
-                            <td><s:a href="%{stalstatus}" cssClass="ask" ><s:property value="status" /></s:a> </td>
+                            <td align="center"><s:a href="%{stalstatus}" cssClass="ask" ><s:property value="status" /></s:a> </td>
                             <s:url action="stalldispnav.action" var="stalldispnav">
                                 <s:param name="stallid" value="%{stallId}" />
 
                             </s:url>
-                            <td> <s:a href="%{stalldispnav}" onclick="window.open(this.href, 'child', 'scrollbars,width=650,height=600'); return false"><img src="images/view.jpg" alt="" width="30" height="20" /></s:a> </td>
+                            <td align="center"> <s:a href="%{stalldispnav}" onclick="window.open(this.href, 'child', 'scrollbars,width=650,height=600'); return false"><img src="images/views.jpg" alt="" width="70" height="30" /></s:a> </td>
                         </tr>
 
-                    </s:iterator>
-                </table>
-                <div align="right" id="st"></div> 
-
-            </div>
-
-
-            <script type="text/javascript">
-                var pager = new Pager('results', 10, 'pager', 'st');
+                        </s:iterator>
+                    </table>
+                    </td>
+                    
+				</tr>
+				</table>
+				<!--  end product-table................................... --> 
+				
+			</div>
+			<!--  end content-table  -->
+		
+			
+			
+			
+			<div class="clear"></div>
+		 
+		</div>
+		<!--  end content-table-inner ............................................END  -->
+		</td>
+		<td id="tbl-border-right"></td>
+	</tr>
+	<tr>
+		<th class="sized bottomleft"></th>
+		<td id="tbl-border-bottom">&nbsp;</td>
+		<th class="sized bottomright"></th>
+	</tr>
+	</table>
+     <script type="text/javascript">
+                var pager = new Pager('results', 10, 'pager', 'pr');
                 pager.init();
                 pager.showPage(1);
             </script>
+	<div class="clear">&nbsp;</div>
 
-        </div>
 </div>
+<!--  end content -->
+<div class="clear">&nbsp;</div>
+</div>
+<!--  end content-outer........................................................END -->
 
-
-		
-	</div>
+<div class="clear">&nbsp;</div>
+    
+<!-- start footer -->         
+<div id="footer">
+	<!--  start footer-left -->
+	<div id="footer-left">
 	
-
-
-<p>&nbsp;</p>
-
-
-<br />
-
-</div>   
-         </div>
-          </div>
-<div style="padding-left:150px;">
-<s:include value="footer.jsp"></s:include>
-</div> 
-
-
-
-
-    </body>
+	 &copy; Copyright 2010 &nbsp; zorrit &nbsp;Powered by<a href="http://www.edubiz.org/">&nbsp;EduBiz.org</a></div>
+	<!--  end footer-left -->
+	<div class="clear">&nbsp;</div>
+</div>
+<!-- end footer -->
+ 
+</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

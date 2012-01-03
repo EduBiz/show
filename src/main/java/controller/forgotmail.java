@@ -36,6 +36,7 @@ public class forgotmail extends ActionSupport {
             }
             else{
             addFieldError("forgetemail","Sorry No users with that email address");
+            addActionError("Sorry No users with that email address ");
             }
     }
     

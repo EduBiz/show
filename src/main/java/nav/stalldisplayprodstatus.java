@@ -70,7 +70,7 @@ private String status;
       pro.setStatus(userEnum.Active.getUserType());
       myDao.getDbsession().update(pro);
       }
-      
+      addActionMessage("One Product Status Successfully Changed");
         return "success";
     }
 

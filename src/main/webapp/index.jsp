@@ -9,123 +9,94 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>ZORRIT ADMIN </title>
-        <s:head theme="jquery"/>  
+        <s:head theme="jquery"/>
+<link rel="stylesheet" href="css/screen1.css" type="text/css" media="screen" title="default" />
+<!--  jquery core -->
+<script src="js/jquery/jquery-1.4.1.min.js" type="text/javascript"></script>
 
+<!-- Custom jquery scripts -->
+<script src="js/jquery/custom_jquery.js" type="text/javascript"></script>
 
-        <link rel="stylesheet" type="text/css" href="style.css" />
-        <script type="text/javascript" src="jquery.min.js"></script>
-        <script type="text/javascript" src="ddaccordion.js"></script>
-        <script type="text/javascript">
-            ddaccordion.init({
-                headerclass: "submenuheader", //Shared CSS class name of headers group
-                contentclass: "submenu", //Shared CSS class name of contents group
-                revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
-                mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
-                collapseprev: true, //Collapse previous content (so only one open at any time)? true/false 
-                defaultexpanded: [], //index of content(s) open by default [index1, index2, etc] [] denotes no content
-                onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
-                animatedefault: false, //Should contents open by default be animated into view?
-                persiststate: true, //persist state of opened contents within browser session?
-                toggleclass: ["", ""], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
-                togglehtml: ["suffix", "<img src='images/plus.gif' class='statusicon' />", "<img src='images/minus.gif' class='statusicon' />"], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
-                animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
-                oninit:function(headers, expandedindices){ //custom code to run when headers have initalized
-                    //do nothing
-                },
-                onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
-                    //do nothing
-                }
-            })
-        </script>
-
-        <script type="text/javascript" src="jconfirmaction.jquery.js"></script>
-        <script type="text/javascript">
+<!-- MUST BE THE LAST SCRIPT IN <HEAD></HEAD></HEAD> png fix -->
+<script src="js/jquery/jquery.pngFix.pack.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+$(document).pngFix( );
+});
+</script>
+</head>
+<body id="login-bg"> 
+ 
+<!-- Start: login-holder -->
+<div id="login-holder">
+      <s:actionmessage theme="jquery" />
+	<!-- start logo -->
+	<div id="logo-login">
+		<a href="loginnav.action"><img src="images/m.gif" width="180" height="50" alt="" /></a>
+	</div>
+	<!-- end logo -->
 	
-            $(document).ready(function() {
-                $('.ask').jConfirmAction();
-            });
+	<div class="clear"></div>
 	
-        </script>
+	<!--  start loginbox ................................................................................. -->
+	<div id="loginbox">
+	
+	<!--  start login-inner -->
+	<div id="login-inner">
+     
+     <s:actionerror theme="jquery"/> 
+     <s:form action="loginAction">
+		<table border="0" cellpadding="0" cellspacing="0">
+		<tr>
+        
+			
+			<td>  <s:textfield name="email" label="User Name" size="24" cssClass="login-inp" /></td>
+		</tr>
+		<tr>
+			
+			<td> <s:password name="passwd" label="PassWord" size="24" cssClass="login-inp" /></td>
+		</tr>
+		
+		<tr>
+			
+			<td>     <s:submit  cssClass="submit-login"/></td>
+		</tr>
+		</table>
+        </s:form>
+	</div>
+ 	<!--  end login-inner -->
+	<div class="clear"></div>
+	<a href="" class="forgot-pwd">Forgot Password?</a>
+ </div>
+ <!--  end loginbox -->
+ 
+	<!--  start forgotbox ................................................................................... -->
+	<div id="forgotbox">
+		<div id="forgotbox-text">Please send us your email and we'll reset your password.</div>
+		<!--  start forgot-inner -->
+		<div id="forgot-inner">
+                 
+              <s:form action="forgotmail" theme="simple">
+		<table border="0" cellpadding="0" cellspacing="0">
+                    <tr> 
+			<th>Email address:</th>
+			<td><s:textfield name="forgetemail" cssClass="login-inp" /></td>
+		</tr>
+		<tr>
+			<th> </th>
+			<td> <s:submit value="Send Mail" cssClass="submit-login"  /></td>
+                    </form>
+		</tr>
+		</table>
+                 </s:form>
+		</div>
+		<!--  end forgot-inner -->
+		<div class="clear"></div>
+		<a href="" class="back-login">Back to login</a>
+	</div>
+	<!--  end forgotbox -->
 
-        <script language="javascript" type="text/javascript" src="niceforms.js"></script>
-        <link rel="stylesheet" type="text/css" media="all" href="niceforms-default.css" />
-
-        <style type="text/css">
-            a:link    {
-                /* Applies to all unvisited links */
-                text-decoration:  none;
-                font-weight:      bold;
-
-                color:#333;
-
-            } 
-            a:visited {
-                /* Applies to all visited links */
-                text-decoration:  none;
-                font-weight:      bold;
-
-                color:#333;
-            } 
-            a:hover   {
-                /* Applies to links under the pointer */
-                text-decoration:  underline;
-                font-weight:      bold;
-
-                color:#333;
-            } 
-            a:active  {
-                /* Applies to activated links */
-                text-decoration:  underline;
-                font-weight:      bold;
-
-                color:#333;
-            } 
-        </style>
-
-    </head>
-    <body background="images/background.jpg">
-        <div style=" vertical-align:top; width:1024px; padding-left: 150px; " align="center" >
-
-            <div align="center" style=" height:600px;  background-color:#f6f6d4;">
-                <div style=" color:#2d2f16;  font-family:Verdana, Geneva, sans-serif; ">
-
-                    <s:include value="header.jsp"></s:include> 
-                    <div id="main_container" >
-
-                        <div style="font-size:18px; height:75px; ">
-                            <div style="float:left; padding-left:30px;">
-                                &nbsp;&nbsp;<a href="loginnav.action">Home</a> 
-                            </div> </div>
-
-
-
-                        <div style="padding-top:100px;">
-                            <s:actionmessage theme="jquery" />
-                            <p style="font-size:30px; font-family:Verdana, Geneva, sans-serif; color:#030;">LOGIN PAGE</p>
-                            <h3>&nbsp;</h3>
-
-                            <a href="forgotpass.action" class="forgot_pass">Forgot password</a> 
-                            <s:actionerror/>  
-                            <fieldset>
-                                <s:form action="loginAction">
-
-                                    <s:textfield name="email" label="User Name/Email id" size="24" />
-                                    <s:password name="passwd" label="PassWord" size="24" />
-                                    <s:submit value="Login"/>
-
-                                </s:form>
-                            </fieldset>
-                        </div>  
-
-                    </div>
-                </div>   
-            </div>
-        </div>
-        <div style="padding-left:150px;">
-            <s:include value="footer.jsp"></s:include>
-        </div> 
-
-    </body>
+</div>
+<!-- End: login-holder -->
+</body>
 </html>
-
-

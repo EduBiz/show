@@ -66,7 +66,7 @@ public class showstallstatus  extends ActionSupport {
              myDao.getDbsession().update(stall);
          }
          
-         addActionMessage("One Stall Status Successfully Changed");
+         addActionMessage("One Sales Outlet Status Successfully Changed");
          return "success";
 }
 

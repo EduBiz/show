@@ -10,7 +10,7 @@
   </field>
   <field name="sname">
     <field-validator type="requiredstring">
-            <message>Please enter Show Name</message>
+            <message>Please enter Event Name</message>
     </field-validator>
   </field>
   <field name="email">

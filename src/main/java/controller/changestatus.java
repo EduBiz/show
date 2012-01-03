@@ -69,6 +69,7 @@ public class changestatus extends ActionSupport {
             show.setStatus(userEnum.Active.getUserType());
             myDao.getDbsession().update(show);
         }
+        addActionMessage("One Event Status Successfully Changed");
         return "success";
     }
 
@@ -94,6 +95,7 @@ public class changestatus extends ActionSupport {
             stall.setStatus(userEnum.Active.getUserType());
             myDao.getDbsession().update(stall);
         }
+        addActionMessage("One Sales Outlet Status Successfully Changed");
     return "success";
      }
     public String prodst() throws Exception {
@@ -117,6 +119,7 @@ public class changestatus extends ActionSupport {
             pro.setStatus(userEnum.Active.getUserType());
             myDao.getDbsession().update(pro);
         }
+        addActionMessage("One Product Status Successfully Changed");
     return "success";
      }
     

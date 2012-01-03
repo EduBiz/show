@@ -11,7 +11,8 @@
     <head>
         <title>Account Recovery</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <link rel="stylesheet" type="text/css" href="style.css" />
+       <link rel="stylesheet" href="css/screen1.css" type="text/css" media="screen" title="default" />
+
 <script type="text/javascript" src="jquery.min.js"></script>
 <script type="text/javascript" src="ddaccordion.js"></script>
 <script type="text/javascript">
@@ -47,82 +48,285 @@ ddaccordion.init({
 </script>
 
 <script language="javascript" type="text/javascript" src="niceforms.js"></script>
-<link rel="stylesheet" type="text/css" media="all" href="niceforms-default.css" />
-
-<style type="text/css">
-a:link    {
-  /* Applies to all unvisited links */
-  text-decoration:  none;
-  font-weight:      bold;
-
-  color:#333;
-
-  } 
-a:visited {
-  /* Applies to all visited links */
-  text-decoration:  none;
-  font-weight:      bold;
-
-  color:#333;
-  } 
-a:hover   {
-  /* Applies to links under the pointer */
-  text-decoration:  underline;
-  font-weight:      bold;
-
-  color:#333;
-  } 
-a:active  {
-  /* Applies to activated links */
-  text-decoration:  underline;
-  font-weight:      bold;
-
-  color:#333;
-  } 
-</style>
-
-    </head>
- <body background="images/background.jpg">
-   <div style=" vertical-align:top; width:1024px; padding-left: 150px; " align="center" >
-           
- <div align="center" style=" height:600px;  background-color:#f6f6d4;">
-       <div style=" color:#2d2f16;  font-family:Verdana, Geneva, sans-serif;">
-        <s:include value="header.jsp"></s:include> 
-
-       <div style="font-size:18px; height:75px; ">
-                    <div style="float:left; padding-left:30px;">
-                        &nbsp;&nbsp;<a href="loginnav.action">Home</a> 
-                    </div> </div>
-               
-
-     
-         <div style="padding-top:150px;" >
-  <div align="center" style="font-family:Verdana, Geneva, sans-serif; font-size:18px; ">
-     <p style="font-size:30px; font-family:Verdana, Geneva, sans-serif; color:#030;">Forgot Password</p></div>
-         <s:actionmessage theme="jquery" />
-          
-        
-         
-        
-        <s:actionerror/>  
-         <fieldset>
-           
-        <s:form action="forgotmail">
-            <s:textfield name="forgetemail" label="Enter Your Email Address" />
-            <s:submit value="Send Mail" />
-        </s:form>
-         </fieldset>
-         </div>  
-     
-	
-</div>
-               </div>
-          </div>
-<div style="padding-left:150px;">
-<s:include value="footer.jsp"></s:include>
-</div>
-        
-       
+</head>
+<body> 
  
-    </body>
+    
+    
+    
+    
+    
+    
+    
+    
+<!-- Start: page-top-outer -->
+<div id="page-top-outer">    
+
+<!-- Start: page-top -->
+<div id="page-top">
+
+	<!-- start logo -->
+	<div id="logo">
+	<a href=""><img src="images/shared/logo.png" width="156" height="40" alt="" /></a>
+	</div>
+	<!-- end logo -->
+	
+	<!--  start top-search -->
+	<div id="top-search">
+		<table border="0" cellpadding="0" cellspacing="0">
+		<tr>
+		<td><input type="text" value="Search" onBlur="if (this.value=='') { this.value='Search'; }" onFocus="if (this.value=='Search') { this.value=''; }" class="top-search-inp" /></td>
+		<td>
+		 
+		<select  class="styledselect">
+			<option value="">All</option>
+			<option value="">Products</option>
+			<option value="">Categories</option>
+			<option value="">Clients</option>
+			<option value="">News</option>
+		</select> 
+		 
+		</td>
+		<td>
+		<input type="image" src="images/shared/top_search_btn.gif"  />
+		</td>
+		</tr>
+		</table>
+	</div>
+ 	<!--  end top-search -->
+ 	<div class="clear"></div>
+
+</div>
+<!-- End: page-top -->
+
+</div>
+<!-- End: page-top-outer -->
+	
+<div class="clear">&nbsp;</div>
+ 
+<!--  start nav-outer-repeat................................................................................................. START -->
+<div class="nav-outer-repeat"> 
+<!--  start nav-outer -->
+<div class="nav-outer"> 
+
+		<!-- start nav-right -->
+		<div id="nav-right">
+		
+			<div class="nav-divider">&nbsp;</div>
+			<div class="showhide-account"><img src="images/shared/nav/nav_myaccount.gif" width="93" height="14" alt="" /></div>
+			<div class="nav-divider">&nbsp;</div>
+			<a href="" id="logout"><img src="images/shared/nav/nav_logout.gif" width="64" height="14" alt="" /></a>
+			<div class="clear">&nbsp;</div>
+		
+			<!--  start account-content -->	
+			<div class="account-content">
+			<div class="account-drop-inner">
+				<a href="" id="acc-settings">Settings</a>
+				<div class="clear">&nbsp;</div>
+				<div class="acc-line">&nbsp;</div>
+				<a href="" id="acc-details">Personal details </a>
+				<div class="clear">&nbsp;</div>
+				<div class="acc-line">&nbsp;</div>
+				<a href="" id="acc-project">Project details</a>
+				<div class="clear">&nbsp;</div>
+				<div class="acc-line">&nbsp;</div>
+				<a href="" id="acc-inbox">Inbox</a>
+				<div class="clear">&nbsp;</div>
+				<div class="acc-line">&nbsp;</div>
+				<a href="" id="acc-stats">Statistics</a> 
+			</div>
+			</div>
+			<!--  end account-content -->
+		
+		</div>
+		<!-- end nav-right -->
+
+
+		<!--  start nav -->
+		<div class="nav">
+		<div class="table">
+		
+		<ul class="select"><li><a href="#nogo"><b>Dashboard</b><!--[if IE 7]><!--></a><!--<![endif]-->
+		<!--[if lte IE 6]><table><tr><td><![endif]-->
+		
+		<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+		</li>
+		</ul>
+		
+		
+		
+		<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+		</div>
+		<!--  start nav -->
+
+</div>
+<div class="clear"></div>
+<!--  start nav-outer -->
+</div>
+<!--  start nav-outer-repeat................................................... END -->
+ 
+ <div class="clear"></div>
+ 
+<!-- start content-outer -->
+<div id="content-outer">
+<!-- start content -->
+<div id="content">
+
+
+<div id="page-heading"><h1>Products</h1></div>
+ 
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
+<tr>
+	<th rowspan="3" class="sized"><img src="images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
+	<th class="topleft"></th>
+	<td id="tbl-border-top">&nbsp;</td>
+	<th class="topright"></th>
+	<th rowspan="3" class="sized">&nbsp;</th>
+</tr>
+<tr>
+	<td id="tbl-border-left"></td>
+	<td>
+	<!--  start content-table-inner -->
+	<div id="content-table-inner">
+	
+	<table border="0" width="100%" cellpadding="0" cellspacing="0">
+	<tr valign="top">
+	<td>
+	
+	
+		<!-- start id-form -->
+        <s:actionmessage theme="jquery"/>
+             <s:actionerror/>  
+              <s:form action="forgotmail" theme="simple">
+		<table border="0" cellpadding="0" cellspacing="0"  id="id-form">
+                                
+		<tr>
+			<th valign="top">Your Email Address:</th>
+			<td> <s:textfield name="forgetemail"  cssClass="inp-form"/></td>
+			<td></td>
+		</tr>
+		
+		<tr>
+			<th valign="top"></th>
+			<td>   <s:submit value="Send Mail" cssClass="form-submit"/></td>
+			<td></td>
+		</tr>
+        
+		
+            </table>
+ </s:form>
+</td>
+
+	<td>
+
+	<!--  start related-activities -->
+	<div id="related-activities">
+		
+		<!--  start related-act-top -->
+		<div id="related-act-top">
+		<img src="images/forms/header_related_act.gif" width="271" height="43" alt="" />
+		</div>
+		<!-- end related-act-top -->
+		
+		<!--  start related-act-bottom -->
+		<div id="related-act-bottom">
+		
+			<!--  start related-act-inner -->
+			<div id="related-act-inner">
+			
+				<div class="left"><a href=""><img src="images/forms/icon_plus.gif" width="21" height="21" alt="" /></a></div>
+				<div class="right">
+					<h5>Add another product</h5>
+					Lorem ipsum dolor sit amet consectetur
+					adipisicing elitsed do eiusmod tempor.
+					<ul class="greyarrow">
+						<li><a href="">Click here to visit</a></li> 
+						<li><a href="">Click here to visit</a> </li>
+					</ul>
+				</div>
+				
+				<div class="clear"></div>
+				<div class="lines-dotted-short"></div>
+				
+				<div class="left"><a href=""><img src="images/forms/icon_minus.gif" width="21" height="21" alt="" /></a></div>
+				<div class="right">
+					<h5>Delete products</h5>
+					Lorem ipsum dolor sit amet consectetur
+					adipisicing elitsed do eiusmod tempor.
+					<ul class="greyarrow">
+						<li><a href="">Click here to visit</a></li> 
+						<li><a href="">Click here to visit</a> </li>
+					</ul>
+				</div>
+				
+				<div class="clear"></div>
+				<div class="lines-dotted-short"></div>
+				
+				<div class="left"><a href=""><img src="images/forms/icon_edit.gif" width="21" height="21" alt="" /></a></div>
+				<div class="right">
+					<h5>Edit categories</h5>
+					Lorem ipsum dolor sit amet consectetur
+					adipisicing elitsed do eiusmod tempor.
+					<ul class="greyarrow">
+						<li><a href="">Click here to visit</a></li> 
+						<li><a href="">Click here to visit</a> </li>
+					</ul>
+				</div>
+				<div class="clear"></div>
+				
+			</div>
+			<!-- end related-act-inner -->
+			<div class="clear"></div>
+		
+		</div>
+		<!-- end related-act-bottom -->
+	
+	</div>
+	<!-- end related-activities -->
+
+</td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><img src="images/shared/blank.gif" width="695" height="1" alt="blank" /></td>
+<td></td>
+</tr>
+</table>
+ 
+<div class="clear"></div>
+ 
+
+</div>
+<!--  end content-table-inner  -->
+</td>
+<td id="tbl-border-right"></td>
+</tr>
+<tr>
+	<th class="sized bottomleft"></th>
+	<td id="tbl-border-bottom">&nbsp;</td>
+	<th class="sized bottomright"></th>
+</tr>
+</table>
+
+<!--  end content-outer -->
+
+ 
+
+
+    
+<!-- start footer -->         
+<div id="footer">
+	<!--  start footer-left -->
+	<div id="footer-left">
+	Admin Skin &copy; Copyright Internet Dreams Ltd. <a href="">www.netdreams.co.uk</a>. All rights reserved.</div>
+	<!--  end footer-left -->
+	<div class="clear">&nbsp;</div>
+</div>
+<!-- end footer -->
+ 
+</body>
 </html>

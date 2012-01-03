@@ -94,10 +94,10 @@ public class addstall extends ActionSupport {
             myDao.getDbsession().save(stall);
             setSubject("Welcome to Zorrit.com");
             setContent("Hi\t\t&nbsp;" + getEmail() + "\t\t&nbsp; welcome to Zorrit.com<br><br>\n\n" + "You are invited for &nbsp;\t" + "Stall" + "\t &nbsp;promoter for our site\n\n<br><br>"
-                    + "Your Requested \t\t" + "Stall" + "\t\tname\t\t" + sname + "\t\tSuccessfully Created\n\n"
+                    + "Your Requested \t\t" + "Sales Outlet" + "\t\tname\t\t" + sname + "\t\tSuccessfully Created\n\n"
                     + "\n<br><br>" + " \nThanks & Regards <br> \n   " + " Zorrit Team\n\n<br><br>");
             getSendMail().test(getEmail(), getSubject(), getContent());
-            addActionMessage("New Stall \t" + sname + "\tSuccessfully created");
+            addActionMessage("New Sales Outlet \t" + sname + "\tSuccessfully created");
 
             Criteria stu = myDao.getDbsession().createCriteria(User.class);
             stu.add(Restrictions.eq("userType", "stall"));

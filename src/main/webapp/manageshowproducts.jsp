@@ -61,7 +61,7 @@ a:active  {
 
     </head>
  <body background="images/background.jpg">
-        <%
+        <%/*
 Object obj= session.getAttribute("user");
 Object obj1=session.getAttribute("Show");
 if(obj==null)
@@ -72,7 +72,7 @@ else if(obj1==null)
 {
 response.sendRedirect(request.getContextPath()+"/showerror.action");
 }
-        %>
+        */%>
          <div style=" vertical-align:top; width:1024px; padding-left: 150px; " align="center" >
            
  <div align="center" style=" height:600px;  background-color:#f6f6d4;">

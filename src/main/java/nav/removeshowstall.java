@@ -39,7 +39,7 @@ public class removeshowstall extends ActionSupport {
         show=(Show)(cri.list().get(0));
          Showdisplay shdisp=(Showdisplay)myDao.getDbsession().get(Showdisplay.class, displayid);
         myDao.getDbsession().delete(shdisp);
-        addActionMessage("One Stall Successfully removed from Display");
+        addActionMessage("One Sales Outlet Successfully removed from Display");
         Criteria shdis=myDao.getDbsession().createCriteria(Showdisplay.class);
         shdis.add(Restrictions.eq("show", show));
         shdis.setMaxResults(50);
