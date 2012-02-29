@@ -399,7 +399,7 @@ if(obj==null)
                            <td  background="images/table/Copy of tableheaderfront.gif" width="130" height="30"  style="color:#FFF" align="center">Event Name</td>
                             
                           <td  background="images/table/Copy of tabelheadercenter.gif" width="150" height="30" style="color:#FFF" align="center">Event Logo</td>
-                            <td  background="images/table/Copy of tabelheadercenter.gif" width="150" height="30" style="color:#FFF" align="center">Event Layout</td> <td  background="images/table/Copy of tabelheadercenter.gif" width="150" height="30" style="color:#FFF" align="center">Event Image</th>
+                            <td  background="images/table/Copy of tabelheadercenter.gif" width="150" height="30" style="color:#FFF" align="center">Event Layout</td> <td  background="images/table/Copy of tabelheadercenter.gif" width="150" height="30" style="color:#FFF" align="center">Event Image</td>
                             <td  background="images/table/Copy of tabelheadercenter.gif" width="150" height="30" style="color:#FFF" align="center">Status</td><td  background="images/table/Copy of tabelheadercenter.gif" width="150" height="30" style="color:#FFF" align="center">View Upcoming Events</td>
                            
                            <td  background="images/table/Copy of tabelheaderback.gif" width="140" height="30" style="color:#FFF" align="center">View Sales Outlet</td></tr>
