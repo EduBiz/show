@@ -435,7 +435,7 @@ if(obj==null)
                                     <td align="center"> <s:a href="%{viewshowstalls}" onclick="window.open(this.href, 'child', 'scrollbars,width=650,height=600'); return false"><img src="images/views.jpg" alt="" width="70" height="30" /></s:a> </td>
                                 </tr>
 
-                                </tr>
+                             
 
                         </s:iterator>
                     </table>
@@ -464,7 +464,7 @@ if(obj==null)
 		<th class="sized bottomright"></th>
 	</tr>
 	</table>
-    <div  id="pageNavPosition">
+    <div align="right"  id="pageNavPosition">
 
                         </div>
        <script type="text/javascript">
