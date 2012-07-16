@@ -212,286 +212,286 @@
         </script>
 
         <style type="text/css">
-.button
-{
-	background:url(images/buttons/addproduct.gif) no-repeat;
-	border: none;
-	cursor: pointer;
-	display: block;
-	float: left;
-	height: 30px;
-	margin: 0 4px 0 0;
-	padding: 0;
-	text-indent: -3000px;
-	width: 80px;
-}
-</style>
+            .button
+            {
+                background:url(images/buttons/addproduct.gif) no-repeat;
+                border: none;
+                cursor: pointer;
+                display: block;
+                float: left;
+                height: 30px;
+                margin: 0 4px 0 0;
+                padding: 0;
+                text-indent: -3000px;
+                width: 80px;
+            }
+        </style>
     </head>
-<body>
- <%
-Object obj = session.getAttribute("user");
-if(obj==null)
-   {
-   response.sendRedirect(request.getContextPath()+"/sessionError.action");
-}
+    <body>
+        <%
+       Object obj = session.getAttribute("user");
+       if(obj==null)
+          {
+          response.sendRedirect(request.getContextPath()+"/sessionError.action");
+       }
         %>
-<!-- Start: page-top-outer -->
-<div id="page-top-outer">    
+        <!-- Start: page-top-outer -->
+        <div id="page-top-outer">    
 
-<!-- Start: page-top -->
-<div id="page-top">
+            <!-- Start: page-top -->
+            <div id="page-top">
 
-	<!-- start logo -->
-	<div id="logo">
-	<a href=""><img src="images/m.gif" width="250" height="70" alt="" /></a>
-	</div>
-	<!-- end logo -->
-	
-	
- 	<div class="clear"></div>
-
-</div>
-<!-- End: page-top -->
-
-</div>
-<!-- End: page-top-outer -->
-	
-<div class="clear">&nbsp;</div>
- 
-<!--  start nav-outer-repeat................................................................................................. START -->
-<div class="nav-outer-repeat"> 
-<!--  start nav-outer -->
-<div class="nav-outer"> 
-
-		<!-- start nav-right -->
-		<div id="nav-right">
-		
-			
-			<div class="nav-divider">&nbsp;</div>
-			<a href="logoutaction.action" id="logout"><img src="images/shared/nav/nav_logout.gif" width="64" height="14" alt="" /></a>
-			<div class="clear">&nbsp;</div>
-		
-			
-		
-		</div>
-		<!-- end nav-right -->
+                <!-- start logo -->
+                <div id="logo">
+                    <a href=""><img src="images/m.gif" width="250" height="70" alt="" /></a>
+                </div>
+                <!-- end logo -->
 
 
-		<!--  start nav -->
-		<div class="nav">
-		<div class="table">
-		
-		<ul class="select"><li><a href="adminhomenav.action"><b>Home</b></a><!--<![endif]-->
-		
-		</li>
-		</ul>
-		
-		<ul class="select"><li><a href="adminstallnav.action"><b>Manage Sales Outlet</b></a><!--<![endif]-->
-		
-		</li>
-		</ul>
-        <ul class="select"><li><a  href="adminprodnav.action"><b>Manage All Products</b></a><!--<![endif]-->
-		
-		</li>
-		</ul>
-		<ul class="select"><li><a href="accountinformation.action"><b>Account information</b></a><!--<![endif]-->
-		
-		</li>
-		</ul>
-		<div class="clear"></div>
-		</div>
-		<div class="clear"></div>
-		</div>
-		<!--  start nav -->
+                <div class="clear"></div>
 
-</div>
-<div class="clear"></div>
-<!--  start nav-outer -->
-</div>
-<!--  start nav-outer-repeat................................................... END -->
+            </div>
+            <!-- End: page-top -->
 
- <div class="clear"></div>
- 
-<!-- start content-outer ........................................................................................................................START -->
-<div id="content-outer">
-<!-- start content -->
-<div id="content">
+        </div>
+        <!-- End: page-top-outer -->
 
-	<!--  start page-heading -->
-	<div id="page-heading">
-		<h1>ADD New Event User and Event</h1>
-	</div>
-	<!-- end page-heading -->
-<s:actionerror theme="jquery"/>  
-<s:actionmessage theme="jquery"/> 
-             <s:form action="addshowuser" theme="simple">
-	<table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
-	<tr>
-		<th rowspan="3" class="sized"><img src="images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
-		<th class="topleft"></th>
-		<td id="tbl-border-top">&nbsp;</td>
-		<th class="topright"></th>
-		<th rowspan="3" class="sized"><img src="images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
-	</tr>
-	<tr>
-		<td id="tbl-border-left"></td>
-		<td>
-		<!--  start content-table-inner ...................................................................... START -->
-		<div id="content-table-inner">
-		
-			<!--  start table-content  -->
-			<div id="table-content">
-			
-				
-				<!--  start message-blue -->
-				<div id="message-blue">
-				<table border="0" width="100%" cellpadding="0" cellspacing="0">
-				<tr>
-                <td>
-					
-                    <table border="0" cellpadding="0" cellspacing="0"  id="id-form">
-<tr>
-                   <th valign="top">User Name:
-                    </th>
-                    <td>
-                   <s:textfield name="uname" cssClass="inp-form"/></td></tr>
-                    <tr>
-                    <th valign="top">Email id:</th><td>
-                     <s:textfield name="email" cssClass="inp-form"/></td></tr>
-                      <s:hidden name="catgry"  value="show" />
-                    <tr>
-                    <th valign="top">Event Name:
-                    </th>
-                    <td>
-                    <s:textfield name="sname"  cssClass="inp-form"/>
-                    </td>
+        <div class="clear">&nbsp;</div>
+
+        <!--  start nav-outer-repeat................................................................................................. START -->
+        <div class="nav-outer-repeat"> 
+            <!--  start nav-outer -->
+            <div class="nav-outer"> 
+
+                <!-- start nav-right -->
+                <div id="nav-right">
+
+
+                    <div class="nav-divider">&nbsp;</div>
+                    <a href="logoutaction.action" id="logout"><img src="images/shared/nav/nav_logout.gif" width="64" height="14" alt="" /></a>
+                    <div class="clear">&nbsp;</div>
+
+
+
+                </div>
+                <!-- end nav-right -->
+
+
+                <!--  start nav -->
+                <div class="nav">
+                    <div class="table">
+
+                        <ul class="select"><li><a href="adminhomenav.action"><b>Home</b></a><!--<![endif]-->
+
+                            </li>
+                        </ul>
+
+                        <ul class="select"><li><a href="adminstallnav.action"><b>Manage Sales Outlet</b></a><!--<![endif]-->
+
+                            </li>
+                        </ul>
+                        <ul class="select"><li><a  href="adminprodnav.action"><b>Manage All Products</b></a><!--<![endif]-->
+
+                            </li>
+                        </ul>
+                        <ul class="select"><li><a href="accountinformation.action"><b>Account information</b></a><!--<![endif]-->
+
+                            </li>
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <!--  start nav -->
+
+            </div>
+            <div class="clear"></div>
+            <!--  start nav-outer -->
+        </div>
+        <!--  start nav-outer-repeat................................................... END -->
+
+        <div class="clear"></div>
+
+        <!-- start content-outer ........................................................................................................................START -->
+        <div id="content-outer">
+            <!-- start content -->
+            <div id="content">
+
+                <!--  start page-heading -->
+                <div id="page-heading">
+                    <h1>ADD New Event User and Event</h1>
+                </div>
+                <!-- end page-heading -->
+                <s:actionerror theme="jquery"/>  
+                <s:actionmessage theme="jquery"/> 
+                <s:form action="addshowuser" theme="simple">
+                    <table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
+                        <tr>
+                            <th rowspan="3" class="sized"><img src="images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
+                            <th class="topleft"></th>
+                            <td id="tbl-border-top">&nbsp;</td>
+                            <th class="topright"></th>
+                            <th rowspan="3" class="sized"><img src="images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
+                        </tr>
+                        <tr>
+                            <td id="tbl-border-left"></td>
+                            <td>
+                                <!--  start content-table-inner ...................................................................... START -->
+                                <div id="content-table-inner">
+
+                                    <!--  start table-content  -->
+                                    <div id="table-content">
+
+
+                                        <!--  start message-blue -->
+                                        <div id="message-blue">
+                                            <table border="0" width="100%" cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td>
+
+                                                        <table border="0" cellpadding="0" cellspacing="0"  id="id-form">
+                                                            <tr>
+                                                                <th valign="top">User Name:
+                                                                </th>
+                                                                <td>
+                                                                    <s:textfield name="uname" cssClass="inp-form"/></td></tr>
+                                                            <tr>
+                                                                <th valign="top">Email id:</th><td>
+                                                                    <s:textfield name="email" cssClass="inp-form"/></td></tr>
+                                                                    <s:hidden name="catgry"  value="show" />
+                                                            <tr>
+                                                                <th valign="top">Event Name:
+                                                                </th>
+                                                                <td>
+                                                                    <s:textfield name="sname"  cssClass="inp-form"/>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th valign="top">
+                                                                </th>
+                                                                <td>
+                                                                    <s:submit value="Create" cssClass="button"/>
+                                                                </td></tr></table>
+
+
+
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </s:form>
+                                    </div>
+                                    <!--  end message-blue -->
+
+
+                                    <!--  start product-table ..................................................................................... -->
+
+                                    <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+                                        <tr>
+                                            <td colspan="3" id="page-heading"><h1 style="float:left;">All Events</h1>  <div style="float:left; padding-left:60px;">  <form action="allshows.action"> <div><input type="text" value="Search" name="search" size="20" onBlur="if(this.value == '') { this.value = 'Search'; }" onFocus="if(this.value == 'Search') { this.value = ''; }" cssClass="inp-form"/><input type="submit" value="Go"/>
+                                                        </div></form>     </div>  </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <table class="user" id="results" cellspacing="15" cellpadding="8" >
+                                                    <tr>
+
+                                                        <td  background="images/table/Copy of tableheaderfront.gif" width="130" height="30"  style="color:#FFF" align="center">Event Name</td>
+
+                                                        <td  background="images/table/Copy of tabelheadercenter.gif" width="150" height="30" style="color:#FFF" align="center">Event Logo</td>
+                                                        <td  background="images/table/Copy of tabelheadercenter.gif" width="150" height="30" style="color:#FFF" align="center">Event Layout</td> <td  background="images/table/Copy of tabelheadercenter.gif" width="150" height="30" style="color:#FFF" align="center">Event Image</td>
+                                                        <td  background="images/table/Copy of tabelheadercenter.gif" width="150" height="30" style="color:#FFF" align="center">Status</td><td  background="images/table/Copy of tabelheadercenter.gif" width="150" height="30" style="color:#FFF" align="center">View Upcoming Events</td>
+
+                                                        <td  background="images/table/Copy of tabelheaderback.gif" width="140" height="30" style="color:#FFF" align="center">View Sales Outlet</td></tr>
+                                                        <s:iterator  value="showlist" >
+
+                                                        <tr>
+
+
+
+                                                        <tr>
+
+                                                            <td align="center"><s:property value="showname" /> </td>
+                                                            <td align="center"><img src="showlogo.action?id=<s:property value="%{showId}" />" alt="" width="50" height="20" /></td>
+                                                            <td align="center"><img src="showlay.action?id=<s:property value="%{showId}" />" alt="" width="50" height="20" /></td>
+                                                            <td align="center"><img src="showimg.action?id=<s:property value="%{showId}" />" alt="" width="50" height="20" /></td>
+
+                                                            <s:url action="shostatus.action" var="shostatus">
+                                                                <s:param name="showid" value="%{showId}" />
+                                                                <s:param name="status" value="%{status}" /> 
+                                                            </s:url>
+
+
+                                                            <td align="center"><s:a href="%{shostatus}" cssClass="ask"><s:property value="status" /></s:a> </td>
+                                                            <s:url action="viewshowevents.action" var="viewshowevents">
+                                                                <s:param name="showid" value="%{showId}" />
+
+                                                            </s:url>
+                                                            <td align="center"> <s:a href="%{viewshowevents}" onclick="window.open(this.href, 'child', 'scrollbars,width=650,height=600'); return false"><img src="images/sketch.jpg" alt="" width="70" height="40" /></s:a> </td>
+                                                                <s:url action="viewshowstalls.action" var="viewshowstalls">
+                                                                    <s:param name="showid" value="%{showId}" />
+
+                                                            </s:url>
+                                                            <td align="center"> <s:a href="%{viewshowstalls}" onclick="window.open(this.href, 'child', 'scrollbars,width=650,height=600'); return false"><img src="images/views.jpg" alt="" width="70" height="30" /></s:a> </td>
+                                                            </tr>
+
+
+
+                                                    </s:iterator>
+                                                </table>
+                                            </td>
+
+                                        </tr>
+                                    </table>
+                                    <!--  end product-table................................... --> 
+
+                                </div>
+                                <!--  end content-table  -->
+
+
+
+
+                                <div class="clear"></div>
+
+                            </div>
+                            <!--  end content-table-inner ............................................END  -->
+                        </td>
+                        <td id="tbl-border-right"></td>
                     </tr>
                     <tr>
-                    <th valign="top">
-                    </th>
-                    <td>
-                    <s:submit value="Create" cssClass="button"/>
-                    </td></tr></table>
-               
+                        <th class="sized bottomleft"></th>
+                        <td id="tbl-border-bottom">&nbsp;</td>
+                        <th class="sized bottomright"></th>
+                    </tr>
+                </table>
+                <div align="right"  id="pageNavPosition">
 
-            
-                    </td>
-				</tr>
-				</table>
-                 </s:form>
-				</div>
-				<!--  end message-blue -->
-			
-				
-				<!--  start product-table ..................................................................................... -->
-				
-				<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
-                 <tr>
-                  <td colspan="3" id="page-heading"><h1 style="float:left;">All Events</h1>  <div style="float:left; padding-left:60px;">  <form action="allshows.action"> <div><input type="text" value="Search" name="search" size="20" onBlur="if(this.value == '') { this.value = 'Search'; }" onFocus="if(this.value == 'Search') { this.value = ''; }" cssClass="inp-form"/><input type="submit" value="Go"/>
-                </div></form>     </div>  </td>
-                  
-                  </tr>
-				<tr>
-					<td>
-					<table class="user" id="results" cellspacing="15" cellpadding="8" >
-                        <tr>
-                            
-                           <td  background="images/table/Copy of tableheaderfront.gif" width="130" height="30"  style="color:#FFF" align="center">Event Name</td>
-                            
-                          <td  background="images/table/Copy of tabelheadercenter.gif" width="150" height="30" style="color:#FFF" align="center">Event Logo</td>
-                            <td  background="images/table/Copy of tabelheadercenter.gif" width="150" height="30" style="color:#FFF" align="center">Event Layout</td> <td  background="images/table/Copy of tabelheadercenter.gif" width="150" height="30" style="color:#FFF" align="center">Event Image</td>
-                            <td  background="images/table/Copy of tabelheadercenter.gif" width="150" height="30" style="color:#FFF" align="center">Status</td><td  background="images/table/Copy of tabelheadercenter.gif" width="150" height="30" style="color:#FFF" align="center">View Upcoming Events</td>
-                           
-                           <td  background="images/table/Copy of tabelheaderback.gif" width="140" height="30" style="color:#FFF" align="center">View Sales Outlet</td></tr>
-                            <s:iterator  value="showlist" >
-
-                            <tr>
-
-                              
-                                
-                                 <tr>
-
-                                    <td align="center"><s:property value="showname" /> </td>
-                                    <td align="center"><img src="showlogo.action?id=<s:property value="%{showId}" />" alt="" width="50" height="20" /></td>
-                                    <td align="center"><img src="showlay.action?id=<s:property value="%{showId}" />" alt="" width="50" height="20" /></td>
-                                    <td align="center"><img src="showimg.action?id=<s:property value="%{showId}" />" alt="" width="50" height="20" /></td>
-
-                                    <s:url action="shostatus.action" var="shostatus">
-                                        <s:param name="showid" value="%{showId}" />
-                                        <s:param name="status" value="%{status}" /> 
-                                    </s:url>
-
-
-                                    <td align="center"><s:a href="%{shostatus}" cssClass="ask"><s:property value="status" /></s:a> </td>
-                                    <s:url action="viewshowevents.action" var="viewshowevents">
-                                        <s:param name="showid" value="%{showId}" />
-
-                                    </s:url>
-                                    <td align="center"> <s:a href="%{viewshowevents}" onclick="window.open(this.href, 'child', 'scrollbars,width=650,height=600'); return false"><img src="images/sketch.jpg" alt="" width="70" height="40" /></s:a> </td>
-                                        <s:url action="viewshowstalls.action" var="viewshowstalls">
-                                            <s:param name="showid" value="%{showId}" />
-
-                                    </s:url>
-                                    <td align="center"> <s:a href="%{viewshowstalls}" onclick="window.open(this.href, 'child', 'scrollbars,width=650,height=600'); return false"><img src="images/views.jpg" alt="" width="70" height="30" /></s:a> </td>
-                                </tr>
-
-                             
-
-                        </s:iterator>
-                    </table>
-                    </td>
-                    
-				</tr>
-				</table>
-				<!--  end product-table................................... --> 
-				
-			</div>
-			<!--  end content-table  -->
-		
-			
-			
-			
-			<div class="clear"></div>
-		 
-		</div>
-		<!--  end content-table-inner ............................................END  -->
-		</td>
-		<td id="tbl-border-right"></td>
-	</tr>
-	<tr>
-		<th class="sized bottomleft"></th>
-		<td id="tbl-border-bottom">&nbsp;</td>
-		<th class="sized bottomright"></th>
-	</tr>
-	</table>
-    <div align="right"  id="pageNavPosition">
-
-                        </div>
-       <script type="text/javascript">
+                </div>
+                <script type="text/javascript">
                     var pager = new Pager('results', 10, 'pager', 'pageNavPosition');
                     pager.init();
                     pager.showPage(1);
                 </script>
-	<div class="clear">&nbsp;</div>
+                <div class="clear">&nbsp;</div>
 
-</div>
-<!--  end content -->
-<div class="clear">&nbsp;</div>
-</div>
-<!--  end content-outer........................................................END -->
+            </div>
+            <!--  end content -->
+            <div class="clear">&nbsp;</div>
+        </div>
+        <!--  end content-outer........................................................END -->
 
-<div class="clear">&nbsp;</div>
-    
-<!-- start footer -->         
-<div id="footer">
-	<!--  start footer-left -->
-	<div id="footer-left">
-	
-	 &copy; Copyright 2010 &nbsp; zorrit &nbsp;Powered by<a href="http://www.edubiz.org/">&nbsp;EduBiz.org</a></div>
-	<!--  end footer-left -->
-	<div class="clear">&nbsp;</div>
-</div>
-<!-- end footer -->
- 
-</body>
+        <div class="clear">&nbsp;</div>
+
+        <!-- start footer -->         
+        <div id="footer">
+            <!--  start footer-left -->
+            <div id="footer-left">
+
+                &copy; Copyright 2010 &nbsp; zorrit &nbsp;Powered by<a href="http://www.edubiz.org/">&nbsp;EduBiz.org</a></div>
+            <!--  end footer-left -->
+            <div class="clear">&nbsp;</div>
+        </div>
+        <!-- end footer -->
+
+    </body>
 </html>
