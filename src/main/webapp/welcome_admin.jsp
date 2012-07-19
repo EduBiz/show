@@ -405,7 +405,7 @@
                                                         <td  background="images/table/Copy of tabelheaderback.gif" width="140" height="30" style="color:#FFF" align="center">View Sales Outlet</td></tr>
                                                         <s:iterator  value="showlist" >
 
-                                                        <tr>
+                                                       
 
 
 
